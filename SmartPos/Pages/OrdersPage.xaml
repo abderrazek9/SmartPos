@@ -126,16 +126,16 @@
                                             Grid.Row="1"
                                             Grid.Column="5"
                                             FontSize="8" 
-                                            Text="View Items"
+                                            Text="Printing"
                                             BackgroundColor="DarkOliveGreen"
                                             MinimumHeightRequest="0"
                                             HeightRequest="18"
                                             CornerRadius="7"
                                             VerticalOptions="Center"
                                             HorizontalOptions="Center"
-                                            Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:OrdersViewModel}}, Path=SelectOrderCommand}"
+                                            Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:OrdersViewModel}}, Path=PrintOrderCommand}"
                                             CommandParameter="{Binding .}"/>
-                                    
+
                                     <BoxView Grid.Row="2"
                                          Grid.ColumnSpan="6"
                                          Color="LightGray"

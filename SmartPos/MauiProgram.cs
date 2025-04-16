@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using SmartPos.Data;
 using SmartPos.Models;
 using SmartPos.Pages;
+using SmartPos.Services;
 using SmartPos.ViewModels;
 
 namespace SmartPos;
@@ -35,7 +36,9 @@ public static class MauiProgram
 			.AddSingleton<OrdersPage>()
 			.AddTransient<ManageMenuItemsViewModel>()
 			.AddTransient<ManageMenuItemPage>()
-			.AddSingleton<SettingsViewModel>();
+			.AddSingleton<SettingsViewModel>()
+			.AddSingleton<IBluetoothPrinterService, DummyBluetoothPrinterService>();
+			//.AddSingleton<IBluetoothPrinterService, BluetoothPrinterService>();
 
 		return builder.Build();
 	}
