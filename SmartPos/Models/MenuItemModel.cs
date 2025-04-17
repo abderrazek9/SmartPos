@@ -14,6 +14,12 @@ namespace SmartPos.Models
         private decimal _price;
 
         [ObservableProperty]
+        private int _stockQuantity;
+
+       // [ObservableProperty]
+       // private int _lowStockThreshold;
+
+        [ObservableProperty]
         private string? _icon;
 
         [ObservableProperty]

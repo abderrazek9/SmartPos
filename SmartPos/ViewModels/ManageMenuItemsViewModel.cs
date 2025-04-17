@@ -119,7 +119,8 @@ namespace SmartPos.ViewModels
                 Icon = menuItem.Icon,
                 Id = menuItem.Id,
                 Name = menuItem.Name,
-                Price = menuItem.Price
+                Price = menuItem.Price,
+                StockQuantity = menuItem.StockQuantity
             };
             var itemCategories = await _dataBaseService.GetCategoriesOfMenuItem(menuItem.Id);
 

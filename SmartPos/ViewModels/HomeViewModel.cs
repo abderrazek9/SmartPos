@@ -215,14 +215,27 @@ namespace SmartPos.ViewModels
         private async Task PlaceOrderAsync(bool isPaidOnline)
         {
             IsLoading = true;
-            if(await _ordersViewModel.PlaceOrderAsync([.. CartItems], isPaidOnline))
-            {
-                // order creation was succesfuly
-                // clear the cart items
 
+            var ordereItems = CartItems.ToArray();
+
+            if (await _ordersViewModel.PlaceOrderAsync(ordereItems, isPaidOnline))
+            {
                 CartItems.Clear();
 
+                if (SelectedCategory != null)
+                {
+                    MenuItems = await _dataBaseService.GetMenuItemsByCategoryAsync(SelectedCategory.Id);
+                }
             }
+
+            //if(await _ordersViewModel.PlaceOrderAsync([.. CartItems], isPaidOnline))
+            //{
+            //    // order creation was succesfuly
+            //    // clear the cart items
+
+                //    CartItems.Clear();
+
+           // }
             IsLoading = false;
         }
 

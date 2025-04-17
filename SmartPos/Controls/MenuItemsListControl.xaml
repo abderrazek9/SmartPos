@@ -55,6 +55,11 @@
                                                FontAttributes="Bold"
                                                TextColor="Maroon"/>
 
+                            <Label
+                                     Text="{Binding StockQuantity, StringFormat=' الكمية: {0}'}"
+                                     FontSize="12"
+                                      TextColor="DarkBlue"/>
+
                             <ImageButton Source="{Binding Source={x:Reference this},Path=ActionIcon}"
                                          
                                          

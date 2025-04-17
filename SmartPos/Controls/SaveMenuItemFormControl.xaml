@@ -50,7 +50,27 @@
                 <Label Text="Price" Style="{StaticResource lbl}"/>
                 <Entry Text="{Binding Item.Price}" Placeholder="Enter Price" MinimumHeightRequest="20" HeightRequest="35" Style="{StaticResource txt}" />
             </VerticalStackLayout>
-            
+
+            <VerticalStackLayout Spacing="1">
+                <Label Text="الكمية" Style="{StaticResource lbl}" />
+                <Entry Text="{Binding Item.StockQuantity}"
+         Placeholder="ادخل الكمية "
+         Keyboard="Numeric"
+         MinimumHeightRequest="20"
+         HeightRequest="35"
+         Style="{StaticResource txt}" />
+            </VerticalStackLayout>
+
+            <!--<VerticalStackLayout Spacing="1">
+                <Label Text="Low Stock Threshold" Style="{StaticResource lbl}" />
+                <Entry Text="{Binding Item.LowStockThreshold}"
+         Placeholder="Enter Low Stock Threshold"
+         Keyboard="Numeric"
+         MinimumHeightRequest="20"
+         HeightRequest="35"
+         Style="{StaticResource txt}" />
+            </VerticalStackLayout>-->
+
             <VerticalStackLayout Spacing="1" >
                 <Label Text="Description" Style="{StaticResource lbl}"/>
                 <Editor Text="{Binding Item.Description}" Placeholder="Enter description" Style="{StaticResource txt}" HeightRequest="60" MinimumHeightRequest="60"/>

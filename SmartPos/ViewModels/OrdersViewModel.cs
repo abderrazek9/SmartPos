@@ -165,6 +165,42 @@ namespace SmartPos.ViewModels
             {
                 Orders.Add(orderModel);
                 await Toast.Make("تم إنشاء الطلب بنجاح").Show();
+
+                // 1) تقليل المخزون
+                await _dataBaseService.ReduceStockAsync(orderModel.Items);
+
+                // 2) التحقق من الأصناف منخفضة المخزون
+                var allItems = await _dataBaseService.GetAllMenuItemsAsync();
+                var lowStock = allItems.Where(mi => mi.StockQuantity <= 4).ToArray();
+                if (lowStock.Any())
+                {
+                    // نبني مصفوفة من "اسم المنتج - الكمية المتبقية"
+                    var lines = lowStock
+                        .Select(li => $"{li.Name} - الكمية المتبقية: {li.StockQuantity}")
+                        .ToArray();
+
+                    // نجمعها بفواصل سطرية
+                    var alertMessage = string.Join("\n", lines);
+
+                    // نعرض التنبيه
+                    await Shell.Current.DisplayAlert(
+                        "تنبيه المخزون",
+                        alertMessage,
+                        "حسنًا"
+                    );
+                }
+                  //   ______________ //
+                //var lowStock = allItems.Where(mi => mi.StockQuantity <= 4).ToArray();
+                //if (lowStock.Any())
+                //{
+                //    var names = string.Join(", ", lowStock.Select(li => li.Name));
+                //    await Shell.Current.DisplayAlert(
+                //        "تنبيه المخزون",
+                //        $"المخزون منخفض للأصناف التالية: {names}",
+                //        "حسنًا"
+                //    );
+                //}
+
                 return true;
             }
 

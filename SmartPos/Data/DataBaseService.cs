@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace SmartPos.Data
 {
    public class DataBaseService : IAsyncDisposable
-    {
+   {
         private readonly SQLiteAsyncConnection _connection;
         public DataBaseService()
         {
@@ -132,7 +132,9 @@ namespace SmartPos.Data
                     Name = model.Name,
                     Description = model.Description,
                     Icon = model.Icon,
-                    Price = model.Price
+                    Price = model.Price,
+                    StockQuantity = model.StockQuantity,
+                   // LowStockThreshold = model.LowStockThreshold
                 };
 
                 if(await _connection.InsertAsync(menuItem) > 0)
@@ -183,6 +185,9 @@ namespace SmartPos.Data
                     menuItem.Icon = model.Icon;
                     menuItem.Price = model.Price;
 
+                    menuItem.StockQuantity = model.StockQuantity;
+                   // menuItem.LowStockThreshold = model.LowStockThreshold;
+
                     if (db.Update(menuItem) == 0)
                     {
                         // this operation failled
@@ -223,10 +228,34 @@ namespace SmartPos.Data
             }
         }
 
+        /// <summary>
+        /// تقليل المخزون لكل بند في الطلب
+        /// </summary>
+        public async Task ReduceStockAsync(OrdersItem[] items)
+        {
+            foreach (var oi in items)
+            {
+                var mi = await _connection.FindAsync<MenuItem>(oi.ItemId);
+                if (mi != null)
+                {
+                    mi.StockQuantity = Math.Max(0, mi.StockQuantity - oi.Quantity);
+                    await _connection.UpdateAsync(mi);
+                }
+            }
+        }
+
+        /// <summary>
+        /// استرجاع كل الأصناف للتأكد من مستوى المخزون
+        /// </summary>
+        public async Task<MenuItem[]> GetAllMenuItemsAsync() =>
+            await _connection.Table<MenuItem>().ToArrayAsync();
+
         public async ValueTask DisposeAsync()
         {
             if (_connection != null)
                 await _connection.CloseAsync();
         }
+
+
     }
 }
