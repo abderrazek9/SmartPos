@@ -16,11 +16,14 @@ namespace SmartPos.ViewModels
     {
         private readonly DataBaseService _dataBaseService;
         private readonly IBluetoothPrinterService _printerService;
+        private readonly NotificationsService _notificationsService;
 
-        public OrdersViewModel(DataBaseService dataBaseService, IBluetoothPrinterService printerService)
+
+        public OrdersViewModel(DataBaseService dataBaseService, IBluetoothPrinterService printerService, NotificationsService notificationsService)
         {
             _dataBaseService = dataBaseService;
             _printerService = printerService;
+            _notificationsService = notificationsService;
         }
 
         // مجموعة الطلبات لعرضها في الواجهة
@@ -141,6 +144,39 @@ namespace SmartPos.ViewModels
 
         public async Task<bool> PlaceOrderAsync(CartModel[] cartItems, bool isPaidOnline)
         {
+
+
+
+            var allMenuItems = await _dataBaseService.GetAllMenuItemsAsync();
+            foreach (var cart in cartItems)
+            {
+                var mi = allMenuItems.FirstOrDefault(x => x.Id == cart.ItemId);
+                if (mi == null || mi.StockQuantity == 0)
+                {
+                    await Shell.Current.DisplayAlert(
+                        "نفاد المخزون",
+                        $"لا يمكنك طلب \"{cart.Name}\" لأن المنتج غير متوفر.",
+                        "موافق"
+                    );
+                    return false;
+                }
+                if (cart.Quantity > mi.StockQuantity)
+                {
+                    await Shell.Current.DisplayAlert(
+                        "كمية غير متاحة",
+                        $"لا يمكنك طلب {cart.Quantity} من \"{cart.Name}\"، المتوفر: {mi.StockQuantity}.",
+                        "موافق"
+                    );
+                    return false;
+                }
+            }
+
+
+
+
+
+
+
             // منطقيتك الحالية لإنشاء الطلب
             var orderItems = cartItems.Select(c => new OrdersItem
             {
@@ -169,26 +205,57 @@ namespace SmartPos.ViewModels
                 // 1) تقليل المخزون
                 await _dataBaseService.ReduceStockAsync(orderModel.Items);
 
-                // 2) التحقق من الأصناف منخفضة المخزون
-                var allItems = await _dataBaseService.GetAllMenuItemsAsync();
-                var lowStock = allItems.Where(mi => mi.StockQuantity <= 4).ToArray();
-                if (lowStock.Any())
+
+
+                // تحديث الكميات بعد التقليص
+                allMenuItems = await _dataBaseService.GetAllMenuItemsAsync();
+                var lowStockOrdered = orderModel.Items
+                    .Select(oi => new {
+                        oi.Name,
+                        Remaining = allMenuItems.First(mi => mi.Id == oi.ItemId).StockQuantity
+                    })
+                    .Where(x => x.Remaining > 0 && x.Remaining <= 4)
+                    .ToArray();
+
+                if (lowStockOrdered.Any())
                 {
-                    // نبني مصفوفة من "اسم المنتج - الكمية المتبقية"
-                    var lines = lowStock
-                        .Select(li => $"{li.Name} - الكمية المتبقية: {li.StockQuantity}")
-                        .ToArray();
-
-                    // نجمعها بفواصل سطرية
-                    var alertMessage = string.Join("\n", lines);
-
-                    // نعرض التنبيه
-                    await Shell.Current.DisplayAlert(
-                        "تنبيه المخزون",
-                        alertMessage,
-                        "حسنًا"
+                    var msg = string.Join("\n",
+                        lowStockOrdered.Select(li => $"{li.Name} — المتبقي: {li.Remaining}")
                     );
+                    await Shell.Current.DisplayAlert("تنبيه المخزون المنخفض", msg, "حسنًا");
+                    _notificationsService.Add(new NotificationModel
+                    {
+                        Message = msg,
+                        Timestamp = DateTime.Now,
+                        Type = "LowStock"
+                    });
                 }
+
+
+
+                //// 2) التحقق من الأصناف منخفضة المخزون
+                //var allItems = await _dataBaseService.GetAllMenuItemsAsync();
+                //var lowStock = allItems.Where(mi => mi.StockQuantity <= 4).ToArray();
+                //if (lowStock.Any())
+                //{
+                //    // نبني مصفوفة من "اسم المنتج - الكمية المتبقية"
+                //    var lines = lowStock
+                //        .Select(li => $"{li.Name} - الكمية المتبقية: {li.StockQuantity}")
+                //        .ToArray();
+
+                //    // نجمعها بفواصل سطرية
+                //    var alertMessage = string.Join("\n", lines);
+
+                //    // نعرض التنبيه
+                //    await Shell.Current.DisplayAlert("تنبيه المخزون", alertMessage, "حسنًا");
+                //}
+
+
+
+
+
+
+
                   //   ______________ //
                 //var lowStock = allItems.Where(mi => mi.StockQuantity <= 4).ToArray();
                 //if (lowStock.Any())

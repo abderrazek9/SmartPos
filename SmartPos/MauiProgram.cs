@@ -37,9 +37,12 @@ public static class MauiProgram
 			.AddTransient<ManageMenuItemsViewModel>()
 			.AddTransient<ManageMenuItemPage>()
 			.AddSingleton<SettingsViewModel>()
-			.AddSingleton<IBluetoothPrinterService, DummyBluetoothPrinterService>();
-			//.AddSingleton<IBluetoothPrinterService, BluetoothPrinterService>();
+			.AddSingleton<IBluetoothPrinterService, DummyBluetoothPrinterService>()
+		    .AddSingleton<NotificationsService>()
+			.AddSingleton<NotificationsViewModel>()
+			.AddSingleton<NotificationsPage>();
+        //.AddSingleton<IBluetoothPrinterService, BluetoothPrinterService>();
 
-		return builder.Build();
+        return builder.Build();
 	}
 }

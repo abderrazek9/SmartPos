@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui.Views;
 using SmartPos.Controls;
+using SmartPos.Pages;
 
 namespace SmartPos
 {
@@ -8,7 +9,11 @@ namespace SmartPos
         public AppShell()
         {
             InitializeComponent();
+            Routing.RegisterRoute(nameof(NotificationsPage), typeof(NotificationsPage));
         }
+
+
+
 
         private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
         {

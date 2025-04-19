@@ -9,6 +9,8 @@
              x:DataType="vm:HomeViewModel"
              x:Class="SmartPos.Pages.MainPage">
 
+
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="lbl" TargetType="Label">
@@ -200,15 +202,33 @@
 
         <Grid Grid.Column="1"
               BackgroundColor="{StaticResource LightWheat}" 
-              RowDefinitions="Auto, *,Auto" Padding="3,1">
+              RowDefinitions="Auto, *,Auto"
+              ColumnDefinitions="*, Auto"
+              Padding="3,1">
             
             <VerticalStackLayout Grid.Row="0" 
                                  Spacing="1">
                 
-                <Label Text="Current Order"
+                <Label Grid.Column="0" Text="Current Order"
                        FontSize="16" 
-                       FontAttributes="Bold"/>
-                
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"/>
+
+                <ImageButton
+                    Margin="0,-20,0,0"
+                    Grid.Column="1"
+                             CornerRadius="8"
+                Source="bell.png"
+                    MinimumHeightRequest="20"
+                    MinimumWidthRequest="20"
+                WidthRequest="20"
+                HeightRequest="20"
+                BackgroundColor="Transparent"
+                Clicked="OnNotificationsClicked"
+                HorizontalOptions="End"
+                    VerticalOptions="Center"
+                 />
+
                 <controls:CurrentDateTimeControl/>
             </VerticalStackLayout>
 

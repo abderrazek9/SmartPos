@@ -244,6 +244,9 @@ namespace SmartPos.Data
             }
         }
 
+
+
+
         /// <summary>
         /// استرجاع كل الأصناف للتأكد من مستوى المخزون
         /// </summary>

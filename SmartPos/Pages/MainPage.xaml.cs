@@ -8,6 +8,15 @@ namespace SmartPos.Pages
         private readonly HomeViewModel _homeViewModel;
         private readonly SettingsViewModel _settingsViewModel;
 
+
+        private async void OnNotificationsClicked(object sender, EventArgs e)
+        {
+            // هذا المسار سجّلناه في MauiProgram.cs باسم "NotificationsPage"
+            await Shell.Current.GoToAsync(nameof(NotificationsPage));
+        }
+
+
+
         public MainPage(HomeViewModel homeViewModel, SettingsViewModel settingsViewModel)
         {
             InitializeComponent();

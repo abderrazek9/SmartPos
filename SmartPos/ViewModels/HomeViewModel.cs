@@ -1,8 +1,10 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using SmartPos.Data;
 using SmartPos.Models;
+using SmartPos.Pages;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Threading.Tasks;
@@ -118,6 +120,79 @@ namespace SmartPos.ViewModels
 
         }
 
+
+
+        //[RelayCommand]
+        //private async Task AddToCartAsync(MenuItem menuItem)
+        //{
+        //    // 1) منع الطلب إذا نفد المنتج
+        //    if (menuItem.StockQuantity == 0)
+        //    {
+        //        await Shell.Current.DisplayAlert(
+        //            "عذرًا",
+        //            $"لا يمكنك الطلب، المنتج \"{menuItem.Name}\" نفد من المخزون.",
+        //            "موافق");
+        //        return;
+        //    }
+
+        //    // 2) نقص المخزون وتحديثه في قاعدة البيانات
+        //    menuItem.StockQuantity--;
+        //    await _dataBaseService.UpdateMenuItemStockAsync(menuItem.Id, menuItem.StockQuantity);
+
+        //    // 3) عرض إشعار عند وصول المخزون للعتبة المنخفضة أو النفاد
+        //    const int LOW_STOCK_THRESHOLD = 5;
+        //    if (menuItem.StockQuantity > 0 && menuItem.StockQuantity <= LOW_STOCK_THRESHOLD)
+        //    {
+        //        await Toast.Make(
+        //            $"انتباه: كمية \"{menuItem.Name}\" أصبحت {menuItem.StockQuantity} فقط."
+        //        ).Show();
+
+        //        Notifications.Add(
+        //            new StockNotification(menuItem.Name, menuItem.StockQuantity, isOutOfStock: false)
+        //        );
+        //    }
+        //    else if (menuItem.StockQuantity == 0)
+        //    {
+        //        Notifications.Add(
+        //            new StockNotification(menuItem.Name, 0, isOutOfStock: true)
+        //        );
+        //    }
+
+        //    // 4) إضافة العنصر إلى السلة أو زيادة الكمية
+        //    var cartItem = CartItems.FirstOrDefault(c => c.ItemId == menuItem.Id);
+        //    if (cartItem == null)
+        //    {
+        //        cartItem = new CartModel
+        //        {
+        //            ItemId = menuItem.Id,
+        //            Icon = menuItem.Icon,
+        //            Name = menuItem.Name,
+        //            Price = menuItem.Price,
+        //            Quantity = 1
+        //        };
+        //        CartItems.Add(cartItem);
+        //    }
+        //    else
+        //    {
+        //        cartItem.Quantity++;
+        //        RecalculateAmounts();
+        //    }
+
+        //    // 5) إعادة حساب الإجمالي
+        //    RecalculateAmounts();
+        //}
+
+        //public ObservableCollection<StockNotification> Notifications { get; }
+        //     = new ObservableCollection<StockNotification>();
+
+        //// الأمر لعرض صفحة الإشعارات:
+        //[RelayCommand]
+        //private async Task ShowNotificationsAsync()
+        //{
+        //    await Shell.Current.GoToAsync(nameof(NotificationPage));
+        //}
+
+
         [RelayCommand]
         private void AddToCart(MenuItem menuItem)
         {
@@ -144,7 +219,7 @@ namespace SmartPos.ViewModels
                 cartItem.Quantity++;
                 RecalculateAmounts();
             }
-            
+
         }
 
         [RelayCommand]
