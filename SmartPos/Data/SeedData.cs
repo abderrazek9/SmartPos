@@ -11,8 +11,8 @@ public static class SeedData
     {
         return new List<MenuCategory>
         {
-            new MenuCategory { Id = 1, Name = "المشروبات", Icon = "drinks.png" },
-            new MenuCategory { Id = 2, Name = "المواد الأساسية", Icon = "basics.png" },
+            new MenuCategory { Id = 1, Name = "المواد الأساسية", Icon = "basics.png" },
+            new MenuCategory { Id = 2, Name = "المشروبات", Icon = "drinks.png" },
             new MenuCategory { Id = 3, Name = "المعلبات والمجمدات", Icon = "canned_frozen.png" },
             new MenuCategory { Id = 4, Name = "منتجات الألبان", Icon = "dairy.png" },
             new MenuCategory { Id = 5, Name = "الوجبات الخفيفة", Icon = "snacks.png" },
@@ -23,20 +23,20 @@ public static class SeedData
     public static List<MenuItem> GetMenuItems()
     {
         return new List<MenuItem>
-        {
-            // 🥤 المشروبات (1-5)
-            new MenuItem { Id = 1, Name = "ماء معدني", Icon = "water.png", Description = "قارورة ماء 1.5 لتر", Price = 50, StockQuantity = 30  },
-            new MenuItem { Id = 2, Name = "مشروب غازي", Icon = "soda.png", Description = "عبوة 1 لتر", Price = 120, StockQuantity = 30  },
-            new MenuItem { Id = 3, Name = "حليب معقم", Icon = "milk.png", Description = "لتر حليب كامل الدسم", Price = 75, StockQuantity = 30  },
-            new MenuItem { Id = 4, Name = "عصير طبيعي", Icon = "juice.png", Description = "عبوة 1 لتر", Price = 150, StockQuantity = 30  },
-            new MenuItem { Id = 5, Name = "قهوة ", Icon = "coffee.png", Description = "علبة 200 جرام", Price = 250, StockQuantity = 30  },
+        {  
+            // 🍚 المواد الأساسية (1-5)
+            new MenuItem { Id = 1, Name = "طحين القمح", Icon = "flour.png", Description = "كيس 2 كجم", Price = 210, StockQuantity = 30  },
+            new MenuItem { Id = 2, Name = "أرز ", Icon = "rice.png", Description = "كيس 1 كجم", Price = 450, StockQuantity = 30 },
+            new MenuItem { Id = 3, Name = "سكر أبيض", Icon = "sugar.png", Description = "كيس 1 كجم", Price = 95, StockQuantity = 30  },
+            new MenuItem { Id = 4, Name = "زيت نباتي", Icon = "oil.png", Description = "عبوة 1 لتر", Price = 125, StockQuantity = 30  },
+            new MenuItem { Id = 5, Name = "سميد", Icon = "semolina.png", Description = "كيس 2 كجم", Price = 320, StockQuantity = 30  },
 
-            // 🍚 المواد الأساسية (6-10)
-            new MenuItem { Id = 6, Name = "طحين القمح", Icon = "flour.png", Description = "كيس 2 كجم", Price = 210, StockQuantity = 30  },
-            new MenuItem { Id = 7, Name = "أرز ", Icon = "rice.png", Description = "كيس 1 كجم", Price = 450, StockQuantity = 30 },
-            new MenuItem { Id = 8, Name = "سكر أبيض", Icon = "sugar.png", Description = "كيس 1 كجم", Price = 95, StockQuantity = 30  },
-            new MenuItem { Id = 9, Name = "زيت نباتي", Icon = "oil.png", Description = "عبوة 1 لتر", Price = 125, StockQuantity = 30  },
-            new MenuItem { Id = 10, Name = "سميد", Icon = "semolina.png", Description = "كيس 2 كجم", Price = 320, StockQuantity = 30  },
+            // 🥤 المشروبات (6-10)
+            new MenuItem { Id = 6, Name = "ماء معدني", Icon = "water.png", Description = "قارورة ماء 1.5 لتر", Price = 50, StockQuantity = 30  },
+            new MenuItem { Id = 7, Name = "مشروب غازي", Icon = "soda.png", Description = "عبوة 1 لتر", Price = 120, StockQuantity = 30  },
+            new MenuItem { Id = 8, Name = "حليب معقم", Icon = "milk.png", Description = "لتر حليب كامل الدسم", Price = 75, StockQuantity = 30  },
+            new MenuItem { Id = 9, Name = "عصير طبيعي", Icon = "juice.png", Description = "عبوة 1 لتر", Price = 150, StockQuantity = 30  },
+            new MenuItem { Id = 10, Name = "قهوة ", Icon = "coffee.png", Description = "علبة 200 جرام", Price = 250, StockQuantity = 30  },
 
             // 🥫 المعلبات والمجمدات (11-15)
             new MenuItem { Id = 11, Name = "فول معلب", Icon = "beans.png", Description = "علبة 400 جرام", Price = 230, StockQuantity = 30 },

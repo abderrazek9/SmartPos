@@ -260,5 +260,48 @@ namespace SmartPos.Data
         }
 
 
+        /// <summary>
+        /// إنشاء أو تحديث فئة قائمة
+        /// </summary>
+        public async Task<string?> SaveMenuCategoryAsync(MenuCategoryModel model)
+        {
+            if (model.Id == 0)
+            {
+                // إنشاء جديد
+                var entity = new MenuCategory
+                {
+                    Name = model.Name,
+                    Icon = model.Icon
+                };
+                if (await _connection.InsertAsync(entity) > 0)
+                {
+                    model.Id = entity.Id;
+                    return null;
+                }
+                return "فشل في إضافة الفئة";
+            }
+            else
+            {
+                // تحديث موجود
+                var entity = await _connection.FindAsync<MenuCategory>(model.Id);
+                entity.Name = model.Name;
+                entity.Icon = model.Icon;
+                if (await _connection.UpdateAsync(entity) > 0)
+                    return null;
+                return "فشل في تحديث الفئة";
+            }
+        }
+
+        /// <summary>
+        /// حذف فئة وقصّ جميع الربطيات معها
+        /// </summary>
+        public async Task DeleteMenuCategoryAsync(int id)
+        {
+            await _connection.DeleteAsync<MenuCategory>(id);
+            await _connection.ExecuteAsync(
+                "DELETE FROM MenuItemCategoryMapping WHERE MenuCategoryId = ?", id);
+        }
+
+
     }
 }

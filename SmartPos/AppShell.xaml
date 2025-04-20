@@ -35,6 +35,12 @@
      Icon="grid.png"
      Route="ManageMenuItemPage" />
 
+    <ShellContent
+        Title="Manage Categories"
+        ContentTemplate="{DataTemplate Pages:ManageMenuCategoriesPage}"
+        Icon="category_icon.png"
+        Route="ManageMenuCategoriesPage"/>
+
     <Shell.FlyoutFooter>
         <Image
             Source="phone.png" 

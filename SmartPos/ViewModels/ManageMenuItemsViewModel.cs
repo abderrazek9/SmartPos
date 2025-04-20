@@ -220,6 +220,7 @@ namespace SmartPos.ViewModels
                 menuItem.Description = model.Description;
                 menuItem.Icon = model.Icon;
                 menuItem.Name = model.Name;
+                menuItem.StockQuantity = model.StockQuantity;
 
                 MenuItems = [.. MenuItems];
             }
@@ -236,6 +237,7 @@ namespace SmartPos.ViewModels
                     Icon = model.Icon,
                     Name = model.Name,
                     Price = model.Price,
+                    StockQuantity = model.StockQuantity,
                 };
 
                 MenuItems = [.. MenuItems, newMenuItem];
