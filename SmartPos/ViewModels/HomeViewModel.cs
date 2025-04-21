@@ -12,7 +12,7 @@ using MenuItem = SmartPos.Data.MenuItem;
 
 namespace SmartPos.ViewModels
 {
-    public partial class HomeViewModel : ObservableObject, IRecipient<MenuItemChangedMessage>
+    public partial class HomeViewModel : ObservableObject, IRecipient<MenuItemChangedMessage>, IRecipient<CategoryChangedMessage>
     {
         private readonly DataBaseService _dataBaseService;
         private readonly OrdersViewModel _ordersViewModel;
@@ -41,6 +41,39 @@ namespace SmartPos.ViewModels
         private int _promopercentage;
 
 
+
+        public async void Receive(CategoryChangedMessage message)
+        {
+            await LoadMenuAsync();
+        }
+        private async Task LoadMenuAsync()
+        {
+            IsLoading = true;
+
+            Categories = (await _dataBaseService.GetMenuCategoriesAsync())
+                .Select(MenuCategoryModel.FromEntity)
+                .ToArray();
+
+            if (Categories.Length > 0)
+            {
+                Categories[0].IsSelected = true;
+                SelectedCategory = Categories[0];
+                MenuItems = await _dataBaseService.GetMenuItemsByCategoryAsync(SelectedCategory.Id);
+            }
+            else
+            {
+                MenuItems = [];
+                SelectedCategory = null;
+            }
+
+            IsLoading = false;
+        }
+
+
+
+
+
+
         public decimal PromoAmount => (Subtotal * Promopercentage) / 100;
 
         public decimal Total => Subtotal - PromoAmount;
@@ -56,6 +89,7 @@ namespace SmartPos.ViewModels
             CartItems.CollectionChanged += CartItems_CollectionChanged;
 
             WeakReferenceMessenger.Default.Register<MenuItemChangedMessage>(this);
+            WeakReferenceMessenger.Default.Register<CategoryChangedMessage>(this);
             WeakReferenceMessenger.Default.Register<NameChangedMessage>(this, (recipient, message) => Name = message.Value);
 
             // Get PromoPercentage from preferences
