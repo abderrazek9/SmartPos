@@ -1,56 +1,39 @@
 using CommunityToolkit.Mvvm.Input;
 using SmartPos.Models;
-using System.Threading.Tasks;
-
 namespace SmartPos.Controls;
 
-public partial class SaveMenuItemFormControl : ContentView
+public partial class SaveMenuCategoriesFormControl : ContentView
 {
 
     private const string DefaultIcon = "imageadd.png";
 
-
-    public SaveMenuItemFormControl()
+    public SaveMenuCategoriesFormControl()
 	{
 		InitializeComponent();
 	}
 
-   // public static readonly BindableProperty CategoriesProperty =
-   //     BindableProperty.Create(nameof(Categories), typeof(MenuCategoryModel[]), typeof(SaveMenuItemFormControl), Array.Empty<MenuCategoryModel>());
+    public static readonly BindableProperty catproperty =
+    BindableProperty.Create(nameof(Cat), typeof(MenuCategoryModel), typeof(SaveMenuCategoriesFormControl), new MenuCategoryModel(), propertyChanged: OnItemChanged);
 
-
-
-     //  public MenuCategoryModel[] Categories
-     //  {
-
-       // get => (MenuCategoryModel[])GetValue(CategoriesProperty);
-
-       // set => SetValue(CategoriesProperty, value);
-
-     //   }
-
-
-    public static readonly BindableProperty ItemProperty =
-        BindableProperty.Create(nameof(Item), typeof(MenuItemModel), typeof(SaveMenuItemFormControl), new MenuItemModel(), propertyChanged : OnItemChanged);
-    public MenuItemModel Item
+    public  MenuCategoryModel Cat
     {
-        get => (MenuItemModel)GetValue(ItemProperty);
-        set => SetValue(ItemProperty, value); 
+        get => (MenuCategoryModel)GetValue(catproperty);
+        set => SetValue(catproperty, value);
     }
 
     public static void OnItemChanged(BindableObject bindable, object oldValue, object newValue)
     {
-        if(newValue is MenuItemModel menuItemModel)
+        if (newValue is MenuCategoryModel menuCategoryModel)
         {
-            if(bindable is SaveMenuItemFormControl thisControl)
+            if (bindable is SaveMenuCategoriesFormControl thisControl)
             {
-                if(menuItemModel.Id > 0)
+                if (menuCategoryModel.Id > 0)
                 {
                     // thisControl.itemIcon.Source = menuItemModel.Icon;
                     // thisControl.itemIcon.HeightRequest = thisControl.itemIcon.WidthRequest = 60;
 
-                    thisControl.SetIconImage(false, menuItemModel.Icon, thisControl);
-                    thisControl.ExistingIcon = menuItemModel.Icon;
+                    thisControl.SetIconImage(false, menuCategoryModel.Icon, thisControl);
+                    thisControl.ExistingIcon = menuCategoryModel.Icon;
                 }
                 else
                 {
@@ -64,13 +47,11 @@ public partial class SaveMenuItemFormControl : ContentView
         }
     }
 
-
     public string? ExistingIcon { get; set; }
 
-    [RelayCommand]
-    private void ToggleCategorySelection(MenuCategoryModel category) =>
 
-        category.IsSelected = !category.IsSelected;
+
+
 
     public event Action? OnCancel;
 
@@ -100,7 +81,7 @@ public partial class SaveMenuItemFormControl : ContentView
 
             SetIconImage(isDefault: false, localPath);
 
-            Item.Icon = localPath;
+            Cat.Icon = localPath;
         }
         else
         {
@@ -109,7 +90,7 @@ public partial class SaveMenuItemFormControl : ContentView
             // itemIcon.Source = "imageadd.png";
             // itemIcon.HeightRequest = itemIcon.WidthRequest = 25;
 
-            if(ExistingIcon != null)
+            if (ExistingIcon != null)
             {
                 SetIconImage(isDefault: false, ExistingIcon);
 
@@ -121,7 +102,8 @@ public partial class SaveMenuItemFormControl : ContentView
         }
     }
 
-    public void SetIconImage(bool isDefault, string? iconSource=null, SaveMenuItemFormControl? control = null)
+
+    public void SetIconImage(bool isDefault, string? iconSource = null, SaveMenuCategoriesFormControl? control = null)
     {
         int size = 50;
         if (isDefault)
@@ -135,41 +117,35 @@ public partial class SaveMenuItemFormControl : ContentView
         control.itemIcon.HeightRequest = control.itemIcon.WidthRequest = size;
     }
 
-    public event Action<MenuItemModel>? OnSaveItem;
+    public event Action<MenuCategoryModel>? OnSaveItem;
 
     [RelayCommand]
-    private async Task SaveMenuItemAsync()
+    private async Task SaveMenuCategoryAsync()
     {
         // validation
 
-        if(string.IsNullOrWhiteSpace(Item.Name) || string.IsNullOrWhiteSpace(Item.Description))
+        if (string.IsNullOrWhiteSpace(Cat.Name) )
         {
-            await ErrorAlertAsync("Item Name and Description are mendatory");
+            await ErrorAlertAsync("Category Name are mendatory");
             return;
         }
 
 
-        if(//!Item.Categories.Any(c=> c.IsSelected) ||
-            Item.SelectedCategories.Length == 0
-            )
-        {
-
-            await ErrorAlertAsync("Please Select At-least 1 Category");
-            return;
-        }
+      
 
 
-        if(Item.Icon == DefaultIcon)
+        if (Cat.Icon == DefaultIcon)
         {
             await ErrorAlertAsync("Icon Image is mendatory");
             return;
         }
 
 
-        OnSaveItem?.Invoke(Item);
+        OnSaveItem?.Invoke(Cat);
 
         static async Task ErrorAlertAsync(string message) =>
             await Shell.Current.DisplayAlert("Validation Error", message, "OK");
 
     }
+
 }

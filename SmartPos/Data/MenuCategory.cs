@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using SmartPos.Models;
+using SQLite;
 
 namespace SmartPos.Data
 {
@@ -10,6 +11,7 @@ namespace SmartPos.Data
         public string Name { get; set; }
 
         public string Icon { get; set; }
+
 
     }
 

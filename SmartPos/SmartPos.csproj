@@ -82,6 +82,9 @@
 	  <MauiXaml Update="Controls\MenuItemsListControl.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Controls\SaveMenuCategoriesFormControl.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Controls\SaveMenuItemFormControl.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartPos.Controls.SaveMenuCategoriesFormControl"
+             xmlns:models="clr-namespace:SmartPos.Models"
+             xmlns:controls="clr-namespace:SmartPos.Controls"
+             x:Name="this">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry" x:Key="txt">
+                <Setter Property="BackgroundColor" Value="Wheat"/>
+                <Setter Property="PlaceholderColor" Value="Black"/>
+                <Setter Property="FontSize" Value="10"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="lbl">
+
+                <Setter Property="FontSize" Value="12"/>
+            </Style>
+
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+
+    <ScrollView BindingContext="{x:Reference this}">
+        
+        <VerticalStackLayout Spacing="2">
+            <VerticalStackLayout Spacing="2" >
+                <Label Text="Name" Style="{StaticResource lbl}"/>
+                <Entry Text="{Binding Cat.Name}" Placeholder="Enter Name" VerticalOptions="Center" MinimumHeightRequest="20" HeightRequest="35" Style="{StaticResource txt}"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="1"  >
+                <Label Text="Image/Icon" Style="{StaticResource lbl}"/>
+                <Border BackgroundColor="Wheat"  HeightRequest="50"
+                        WidthRequest="50"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        StrokeThickness="0">
+                    <Image  x:Name="itemIcon"
+                            VerticalOptions="Center" HorizontalOptions="Center"
+                            Source="imageadd.png" HeightRequest="22"
+                            WidthRequest="22"
+                            Aspect="AspectFit"/>
+                </Border>
+                <Button Text="Pick Image" Clicked="PickImageButton_Clicked"  FontSize="10" Margin="0,5,0,0" WidthRequest="80" MinimumHeightRequest="20" Padding="5,0" HeightRequest="20" HorizontalOptions="Center" BackgroundColor="DarkOliveGreen"/>
+            </VerticalStackLayout>
+
+            <Grid ColumnDefinitions="*,*">
+                <Button HorizontalOptions="Start" Grid.Column="0" FontSize="10" MinimumHeightRequest="20" HeightRequest="25" Padding="5,0"
+                        Text="Cancel" 
+                        Command="{Binding CancelCommand}" Margin="0,5,0,0"
+                        BackgroundColor="red"/>
+
+                <Button Grid.Column="1" 
+                        FontSize="10"
+                        MinimumHeightRequest="20"
+                        HeightRequest="25"
+                        Padding="5,0"
+                        Text="Save"
+                        Command="{Binding SaveMenuCategoryCommand}"
+                        CommandParameter="{Binding .}"
+                        Margin="0,5,0,0"
+                        BackgroundColor="DarkOliveGreen"/>
+
+            </Grid>
+
+        </VerticalStackLayout>
+        
+    </ScrollView>
+
+</ContentView>

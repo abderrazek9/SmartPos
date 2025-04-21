@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:vm="clr-namespace:SmartPos.ViewModels"
     xmlns:models="clr-namespace:SmartPos.Models"
+    xmlns:data="clr-namespace:SmartPos.Data"
     xmlns:controls="clr-namespace:SmartPos.Controls"
     x:Class="SmartPos.Pages.ManageMenuCategoriesPage"
     x:Name="ThisPage"
@@ -40,11 +41,6 @@
                 VerticalOptions="Center"
                 Margin="10,0,0,0" />
                             <Button
-                Grid.Column="2"
-                Text="Edit"
-                Command="{Binding Source={x:Reference ThisPage}, Path=BindingContext.EditCategoryCommand}"
-                CommandParameter="{Binding .}" />
-                            <Button
                 Grid.Column="3"
                 Text="Delete"
                 BackgroundColor="Tomato"
@@ -75,6 +71,17 @@
                 <controls:CurrentDateTimeControl/>
             </VerticalStackLayout>
 
+            <Grid  Grid.Row="1"
+                   Padding="8,1"
+                   BackgroundColor="{StaticResource LightWheat}">
+
+                <!-- save menu Category form   -->
+                <!--<controls:SaveMenuCategoriesFormControl Cat="{Binding Categories}"
+                                                  OnCancel="SaveMenuCategoriesFormControl_OnCancel"
+                                                  OnSaveItem="SaveMenuCategoriesFormControl_OnSaveItem"/>-->
+
+            </Grid>
+
             <VerticalStackLayout Grid.Row="1" Spacing="10">
                 <Label
           FontSize="15"
@@ -102,12 +109,7 @@
                 <HorizontalStackLayout Spacing="10">
 
 
-                    <!--<Button
-            Text="حفظ"
-            Command="{Binding SaveCategoryAsyncCommand}" />
-                    <Button
-            Text="جديد"
-            Command="{Binding InitializeAsyncCommand}" />-->
+
                 </HorizontalStackLayout>
                 <Grid ColumnDefinitions="*,*">
                     <Button  HorizontalOptions="Start" Grid.Column="0" FontSize="10" MinimumHeightRequest="20" HeightRequest="25" Padding="5,0"
@@ -136,103 +138,4 @@
 
 
 
-<!--<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:vm="clr-namespace:SmartPos.ViewModels"
-    xmlns:models="clr-namespace:SmartPos.Models"
-    x:Class="SmartPos.Pages.ManageMenuCategoriesPage"
-    x:Name="ThisPage"
-    Shell.NavBarIsVisible="False"
-    x:DataType="vm:ManageMenuCategoriesViewModel">
-    --><!-- تحديد نوع الـ ViewModel للتلميح عند الربط --><!--
 
-    <Grid ColumnDefinitions=".68*, .32*">
-        --><!-- عمود للقائمة وعمود للنموذج -->
-
-        <!-- قائمة الفئات --><!--
-        <Grid Grid.Column="0" Padding="10" RowDefinitions="Auto, *" RowSpacing="10">
-            <Label
-        Grid.Row="0"
-        FontAttributes="Bold"
-        FontSize="19"
-        Text="Manage Menu Categories" />
-
-            <CollectionView
-        Grid.Row="1"
-        ItemsSource="{Binding Categories}"  
-                SelectionMode="Single"
-        SelectedItem="{Binding SelectedCategory}">
-                --><!-- تحميل جميع الفئات من الـ VM --><!--
-
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:MenuCategoryModel">
-                        <SwipeView>
-                            --><!-- يعتمد على SwipeView لإجراءات التعديل والحذف --><!--
-                            <SwipeView.LeftItems>
-                                <SwipeItems Mode="Reveal">
-                                    <SwipeItem
-                    Text="تعديل"
-                    Command="{Binding Source={x:Reference ThisPage}, Path=BindingContext.EditCategoryCommand}"
-                    CommandParameter="{Binding .}" />
-                                    <SwipeItem
-                    Text="حذف"
-                    BackgroundColor="Tomato"
-                    Command="{Binding Source={x:Reference ThisPage}, Path=BindingContext.DeleteCategoryAsyncCommand}"
-                    CommandParameter="{Binding .}" />
-                                </SwipeItems>
-                            </SwipeView.LeftItems>
-
-                            <Grid Padding="10" ColumnDefinitions="Auto, *">
-                                <Image
-                  Source="{Binding Icon}"
-                  WidthRequest="40"
-                  HeightRequest="40"
-                  VerticalOptions="Center" />
-                                <Label
-                  Grid.Column="1"
-                  Text="{Binding Name}"
-                  VerticalOptions="Center"
-                  Margin="10,0,0,0" />
-                            </Grid>
-                        </SwipeView>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </Grid>
-
-        --><!-- نموذج إضافة/تعديل فئة جديدة --><!--
-        <Grid
-      Grid.Column="1"
-      BackgroundColor="{StaticResource LightWheat}"
-      RowDefinitions="Auto, *"
-      Padding="8,10">
-
-            <VerticalStackLayout Spacing="10">
-                <Label
-          FontSize="15"
-          FontAttributes="Bold"
-          Text="Save Menu Category" />
-
-                <Entry
-          Placeholder="اسم الفئة"
-          Text="{Binding SelectedCategory.Name}" />
-
-                <Entry
-          Placeholder="Icon (path)"
-          Text="{Binding SelectedCategory.Icon}" />
-
-                <HorizontalStackLayout Spacing="10">
-                    <Button
-            Text="حفظ"
-            Command="{Binding SaveCategoryAsyncCommand}" />
-                    <Button
-            Text="جديد"
-            Command="{Binding InitializeAsyncCommand}" />
-                </HorizontalStackLayout>
-            </VerticalStackLayout>
-        </Grid>
-
-    </Grid>
-</ContentPage>-->

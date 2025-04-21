@@ -4,15 +4,25 @@ namespace SmartPos.Pages;
 
 public partial class ManageMenuCategoriesPage : ContentPage
 {
-    private readonly ManageMenuCategoriesViewModel _vm;
-    public ManageMenuCategoriesPage(ManageMenuCategoriesViewModel vm)
+    private readonly ManageMenuCategoriesViewModel _manageMenuCategoriesViewModel;
+    public ManageMenuCategoriesPage(ManageMenuCategoriesViewModel manageMenuCategoriesViewModel)
     {
         InitializeComponent();
-        BindingContext = _vm = vm;
+        _manageMenuCategoriesViewModel = manageMenuCategoriesViewModel;
+        BindingContext = _manageMenuCategoriesViewModel;
+        InitializeAsync();
     }
-    protected override async void OnAppearing()
+
+    private async void InitializeAsync() =>
+    await _manageMenuCategoriesViewModel.InitializeAsync();
+
+    private void SaveMenuCategoriesFormControl_OnCancel()
     {
-        base.OnAppearing();
-        await _vm.InitializeAsync();
+        _manageMenuCategoriesViewModel.CancelCommand.Execute(null);
+    }
+
+    private async void SaveMenuCategoriesFormControl_OnSaveItem(Models.MenuCategoryModel menuCategoryModel)
+    {
+        await _manageMenuCategoriesViewModel.SaveCategoryCommand.ExecuteAsync(menuCategoryModel);
     }
 }

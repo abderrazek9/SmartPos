@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MenuCategory = SmartPos.Data.MenuCategory;
+
 
 namespace SmartPos.ViewModels
 {
@@ -68,6 +70,12 @@ namespace SmartPos.ViewModels
             await _db.DeleteMenuCategoryAsync(model.Id);
             await InitializeAsync();
             WeakReferenceMessenger.Default.Send(CategoryChangedMessage.From(model));
+        }
+
+        [RelayCommand]
+        private void Cancel()
+        {
+            
         }
     }
 }
