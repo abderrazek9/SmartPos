@@ -71,13 +71,14 @@ namespace SmartPos.ViewModels
                 return;
             await _db.DeleteMenuCategoryAsync(model.Id);
             await InitializeAsync();
+            SelectedCategory = new MenuCategoryModel();
             WeakReferenceMessenger.Default.Send(CategoryChangedMessage.From(model));
         }
 
         [RelayCommand]
         private void Cancel()
         {
-
+            SelectedCategory = new MenuCategoryModel();
         }
     }
 }

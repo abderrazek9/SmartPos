@@ -45,7 +45,7 @@
                 Text="Delete"
                 BackgroundColor="Tomato"
                 TextColor="White"
-                Command="{Binding Source={x:Reference ThisPage}, Path=BindingContext.DeleteCategoryAsyncCommand}"
+                Command="{Binding Source={x:Reference ThisPage}, Path=BindingContext.DeleteCategoryCommand}"
                 CommandParameter="{Binding .}" />
                         </Grid>
                     </DataTemplate>
