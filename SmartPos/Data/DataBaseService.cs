@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace SmartPos.Data
 {
-   public class DataBaseService : IAsyncDisposable
-   {
+    public class DataBaseService : IAsyncDisposable
+    {
         private readonly SQLiteAsyncConnection _connection;
         public DataBaseService()
         {
@@ -44,7 +44,7 @@ namespace SmartPos.Data
         }
 
 
-        public async Task <MenuCategory[]> GetMenuCategoriesAsync() => await _connection.Table<MenuCategory>().ToArrayAsync();
+        public async Task<MenuCategory[]> GetMenuCategoriesAsync() => await _connection.Table<MenuCategory>().ToArrayAsync();
 
         public async Task<MenuItem[]> GetMenuItemsByCategoryAsync(int CategoryId)
         {
@@ -64,7 +64,7 @@ namespace SmartPos.Data
         /// </summary>
         /// <param name="model"></param>
         /// <returns>Returns Error message or null (if the opeation was succesfully)</returns>
-        public async Task <string?> PlaceOrderAsync(OrderModel model)
+        public async Task<string?> PlaceOrderAsync(OrderModel model)
         {
             var order = new Order
             {
@@ -73,17 +73,17 @@ namespace SmartPos.Data
                 TotalAmountPaid = model.TotalAmountPaid,
                 TotalItemsCount = model.TotalItemsCount,
             };
-           
+
             if (await _connection.InsertAsync(order) > 0)
             {
                 // Order Insert succesfully 
                 // Now we have newly inserted order id in order.Id
                 // we can add the orderId to the OrderItems and Insert the OrderItems in the database
-                foreach (var item in model.Items )
+                foreach (var item in model.Items)
                 {
                     item.OrderId = order.Id;
                 }
-                if (await _connection.InsertAllAsync(model.Items) ==0 )
+                if (await _connection.InsertAllAsync(model.Items) == 0)
                 {
                     // OrderItems insert operation failed
                     // Remove the newly inserted order in the method
@@ -122,7 +122,7 @@ namespace SmartPos.Data
 
         public async Task<string?> SaveMenuItemAsync(MenuItemModel model)
         {
-            if(model.Id == 0)
+            if (model.Id == 0)
             {
                 // Creating a new menu item
 
@@ -134,10 +134,10 @@ namespace SmartPos.Data
                     Icon = model.Icon,
                     Price = model.Price,
                     StockQuantity = model.StockQuantity,
-                   // LowStockThreshold = model.LowStockThreshold
+                    // LowStockThreshold = model.LowStockThreshold
                 };
 
-                if(await _connection.InsertAsync(menuItem) > 0)
+                if (await _connection.InsertAsync(menuItem) > 0)
                 {
                     var categoryMapping = model.SelectedCategories
                         .Select(c => new MenuItemCategoryMapping
@@ -147,7 +147,7 @@ namespace SmartPos.Data
                             MenuItemId = menuItem.Id
                         });
 
-                    if(await _connection.InsertAllAsync(categoryMapping) > 0)
+                    if (await _connection.InsertAllAsync(categoryMapping) > 0)
                     {
                         model.Id = menuItem.Id;
                         return null;
@@ -170,7 +170,7 @@ namespace SmartPos.Data
 
                 string? errorMessage = null;
 
-                await _connection.RunInTransactionAsync(db => 
+                await _connection.RunInTransactionAsync(db =>
                 {
                     var menuItem = db.Find<MenuItem>(model.Id);
 
@@ -186,7 +186,7 @@ namespace SmartPos.Data
                     menuItem.Price = model.Price;
 
                     menuItem.StockQuantity = model.StockQuantity;
-                   // menuItem.LowStockThreshold = model.LowStockThreshold;
+                    // menuItem.LowStockThreshold = model.LowStockThreshold;
 
                     if (db.Update(menuItem) == 0)
                     {
@@ -204,9 +204,9 @@ namespace SmartPos.Data
                     var categoryMapping = model.SelectedCategories
                                           .Select(c => new MenuItemCategoryMapping
                                           {
-                                            // Id = c.Id,
-                                             MenuCategoryId = c.Id,
-                                             MenuItemId = menuItem.Id
+                                              // Id = c.Id,
+                                              MenuCategoryId = c.Id,
+                                              MenuItemId = menuItem.Id
                                           });
 
                     //if (categoryMapping.Any() && db.InsertAll(categoryMapping) == 0)
@@ -221,7 +221,7 @@ namespace SmartPos.Data
                         errorMessage = "Error in Updating menu item";
                         throw new Exception(); // to trigger rollback
                     }
-                    
+
                 });
 
                 return errorMessage;

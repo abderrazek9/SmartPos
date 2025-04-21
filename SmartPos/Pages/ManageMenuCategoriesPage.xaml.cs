@@ -25,4 +25,12 @@ public partial class ManageMenuCategoriesPage : ContentPage
     {
         await _manageMenuCategoriesViewModel.SaveCategoryCommand.ExecuteAsync(menuCategoryModel);
     }
+
+    private async void VerticalCategories_OnCategorySelected(Models.MenuCategoryModel obj)
+    {
+        if (obj is Models.MenuCategoryModel category)
+        {
+            
+        }
+    }
 }

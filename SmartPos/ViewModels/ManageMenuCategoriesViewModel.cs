@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using SmartPos.Data;
@@ -57,6 +58,7 @@ namespace SmartPos.ViewModels
             else
             {
                 await InitializeAsync();
+                await Toast.Make("New Category Saved Successfully").Show();
                 SelectedCategory = new MenuCategoryModel();
                 WeakReferenceMessenger.Default.Send(CategoryChangedMessage.From(SelectedCategory));
             }
@@ -75,7 +77,7 @@ namespace SmartPos.ViewModels
         [RelayCommand]
         private void Cancel()
         {
-            
+
         }
     }
 }

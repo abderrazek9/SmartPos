@@ -1,4 +1,5 @@
 using CommunityToolkit.Mvvm.Input;
+using SmartPos.Data;
 using SmartPos.Models;
 namespace SmartPos.Controls;
 
@@ -8,17 +9,17 @@ public partial class SaveMenuCategoriesFormControl : ContentView
     private const string DefaultIcon = "imageadd.png";
 
     public SaveMenuCategoriesFormControl()
-	{
-		InitializeComponent();
-	}
+    {
+        InitializeComponent();
+    }
 
-    public static readonly BindableProperty catproperty =
+    public static readonly BindableProperty CatProperty =
     BindableProperty.Create(nameof(Cat), typeof(MenuCategoryModel), typeof(SaveMenuCategoriesFormControl), new MenuCategoryModel(), propertyChanged: OnItemChanged);
 
-    public  MenuCategoryModel Cat
+    public MenuCategoryModel Cat
     {
-        get => (MenuCategoryModel)GetValue(catproperty);
-        set => SetValue(catproperty, value);
+        get => (MenuCategoryModel)GetValue(CatProperty);
+        set => SetValue(CatProperty, value);
     }
 
     public static void OnItemChanged(BindableObject bindable, object oldValue, object newValue)
@@ -124,14 +125,14 @@ public partial class SaveMenuCategoriesFormControl : ContentView
     {
         // validation
 
-        if (string.IsNullOrWhiteSpace(Cat.Name) )
+        if (string.IsNullOrWhiteSpace(Cat.Name))
         {
             await ErrorAlertAsync("Category Name are mendatory");
             return;
         }
 
 
-      
+
 
 
         if (Cat.Icon == DefaultIcon)
@@ -147,5 +148,8 @@ public partial class SaveMenuCategoriesFormControl : ContentView
             await Shell.Current.DisplayAlert("Validation Error", message, "OK");
 
     }
+
+
+
 
 }

@@ -76,13 +76,13 @@
                    BackgroundColor="{StaticResource LightWheat}">
 
                 <!-- save menu Category form   -->
-                <!--<controls:SaveMenuCategoriesFormControl Cat="{Binding Categories}"
+                <controls:SaveMenuCategoriesFormControl Cat="{Binding SelectedCategory}"
                                                   OnCancel="SaveMenuCategoriesFormControl_OnCancel"
-                                                  OnSaveItem="SaveMenuCategoriesFormControl_OnSaveItem"/>-->
+                                                  OnSaveItem="SaveMenuCategoriesFormControl_OnSaveItem"/>
 
             </Grid>
 
-            <VerticalStackLayout Grid.Row="1" Spacing="10">
+            <!--<VerticalStackLayout Grid.Row="1" Spacing="10">
                 <Label
           FontSize="15"
           FontAttributes="Bold"
@@ -114,7 +114,7 @@
                 <Grid ColumnDefinitions="*,*">
                     <Button  HorizontalOptions="Start" Grid.Column="0" FontSize="10" MinimumHeightRequest="20" HeightRequest="25" Padding="5,0"
              Text="Cancel" Margin="0,5,0,0" BackgroundColor="red"/>
-                    <!--Command="{Binding CancelCommand}"-->
+                    --><!--Command="{Binding CancelCommand}"--><!--
 
 
                     <Button Grid.Column="1" 
@@ -129,13 +129,8 @@
              BackgroundColor="DarkOliveGreen"/>
 
                 </Grid>
-            </VerticalStackLayout>
+            </VerticalStackLayout>-->
         </Grid>
 
     </Grid>
 </ContentPage>
-
-
-
-
-

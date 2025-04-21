@@ -24,7 +24,7 @@
 
 
     <ScrollView BindingContext="{x:Reference this}">
-        
+
         <VerticalStackLayout Spacing="2">
             <VerticalStackLayout Spacing="2" >
                 <Label Text="Name" Style="{StaticResource lbl}"/>
@@ -60,14 +60,14 @@
                         Padding="5,0"
                         Text="Save"
                         Command="{Binding SaveMenuCategoryCommand}"
-                        CommandParameter="{Binding .}"
+                        CommandParameter="{Binding Cat}"
                         Margin="0,5,0,0"
                         BackgroundColor="DarkOliveGreen"/>
 
             </Grid>
 
         </VerticalStackLayout>
-        
+
     </ScrollView>
 
 </ContentView>
