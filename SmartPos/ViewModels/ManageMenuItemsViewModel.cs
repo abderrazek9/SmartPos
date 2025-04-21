@@ -21,6 +21,11 @@ namespace SmartPos.ViewModels
         public ManageMenuItemsViewModel(DataBaseService dataBaseService)
         {
             _dataBaseService = dataBaseService;
+
+            WeakReferenceMessenger.Default.Register<CategoryChangedMessage>(this, async (r, msg) =>
+            {
+                await InitializeAsync();
+            });
         }
 
 

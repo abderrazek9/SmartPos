@@ -60,7 +60,7 @@ namespace SmartPos.ViewModels
                 await InitializeAsync();
                 await Toast.Make("New Category Saved Successfully").Show();
                 SelectedCategory = new MenuCategoryModel();
-                WeakReferenceMessenger.Default.Send(CategoryChangedMessage.From(SelectedCategory));
+                WeakReferenceMessenger.Default.Send(new CategoryChangedMessage(SelectedCategory));
             }
         }
 
@@ -72,7 +72,7 @@ namespace SmartPos.ViewModels
             await _db.DeleteMenuCategoryAsync(model.Id);
             await InitializeAsync();
             SelectedCategory = new MenuCategoryModel();
-            WeakReferenceMessenger.Default.Send(CategoryChangedMessage.From(model));
+            WeakReferenceMessenger.Default.Send(new CategoryChangedMessage(model));
         }
 
         [RelayCommand]
