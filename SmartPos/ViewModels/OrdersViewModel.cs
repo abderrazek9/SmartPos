@@ -220,7 +220,7 @@ namespace SmartPos.ViewModels
                 if (lowStockOrdered.Any())
                 {
                     var msg = string.Join("\n",
-                        lowStockOrdered.Select(li => $"{li.Name} — المتبقي: {li.Remaining}")
+                        lowStockOrdered.Select(li => $"{li.Name} - الكمية المتبقية: {li.Remaining}")
                     );
                     await Shell.Current.DisplayAlert("تنبيه المخزون المنخفض", msg, "حسنًا");
                     _notificationsService.Add(new NotificationModel

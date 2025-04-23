@@ -2,14 +2,28 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:SmartPos.ViewModels"
+             xmlns:models="clr-namespace:SmartPos.Models"
              x:Class="SmartPos.Pages.NotificationsPage"
-             Title="Notifications">
+             Title="Notifications"
+             x:Name="ThisPage"
+             >
+    <ContentPage.Content>
 
-
-
-    <CollectionView ItemsSource="{Binding Notifications}">
+        <StackLayout Padding="10">
+    
+    <CollectionView ItemsSource="{Binding Notifications}" x:DataType="vm:NotificationsViewModel">
         <CollectionView.ItemTemplate>
-            <DataTemplate>
+            <DataTemplate x:DataType="models:NotificationModel">
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Delete"
+                                               IconImageSource="delete.png"
+                                               BackgroundColor="LightSalmon"
+                                               Command="{Binding Source={x:Reference ThisPage}, Path=BindingContext.DeleteCommand}"
+                                               CommandParameter="{Binding .}"/>
+                                </SwipeItems>
+                            </SwipeView.RightItems>
                 <Grid Padding="10" Margin="10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -25,9 +39,10 @@
             FontSize="Medium"
             Grid.Row="1" />
                 </Grid>
-            </DataTemplate>
+                        </SwipeView>
+                    </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
-
-
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
