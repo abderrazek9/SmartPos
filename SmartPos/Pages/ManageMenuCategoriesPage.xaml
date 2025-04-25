@@ -1,53 +1,102 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:vm="clr-namespace:SmartPos.ViewModels"
-    xmlns:models="clr-namespace:SmartPos.Models"
-    xmlns:data="clr-namespace:SmartPos.Data"
-    xmlns:controls="clr-namespace:SmartPos.Controls"
-    x:Class="SmartPos.Pages.ManageMenuCategoriesPage"
-    x:Name="ThisPage"
-    Shell.NavBarIsVisible="False"
-    x:DataType="vm:ManageMenuCategoriesViewModel">
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:vm="clr-namespace:SmartPos.ViewModels"
+  xmlns:models="clr-namespace:SmartPos.Models"
+  xmlns:controls="clr-namespace:SmartPos.Controls"
+  x:Class="SmartPos.Pages.ManageMenuCategoriesPage"
+  x:Name="ThisPage"
+  Shell.NavBarIsVisible="False"
+  x:DataType="vm:ManageMenuCategoriesViewModel">
 
     <Grid ColumnDefinitions=".68*, .32*">
 
         <!-- قائمة الفئات -->
-        <Grid Grid.Column="0" Padding="10" RowDefinitions="Auto, *" RowSpacing="10">
-            <Label
-        Grid.Row="0"
+        <Grid
+      Grid.Column="0"
+      Padding="10"
+      RowDefinitions="Auto, *"
+      RowSpacing="10">
+
+            <Grid Grid.Row="0" ColumnDefinitions="Auto,*">
+                            <Label
+        Grid.Column="0"
         FontAttributes="Bold"
         FontSize="19"
         Text="Manage Menu Categories" />
+
+                <Label Grid.Column="1"
+  Text="اسحب لليسار للحذف  ←"
+  FontSize="10"
+  TextColor="Gray"
+  HorizontalOptions="Center"
+  Margin="5,4,0,10"/>
+
+            </Grid>
+            
+
+            
+
 
             <CollectionView
         Grid.Row="1"
         ItemsSource="{Binding Categories}"
         SelectionMode="Single"
         SelectedItem="{Binding SelectedCategory}">
-
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:MenuCategoryModel">
-                        <Grid Padding="10" ColumnDefinitions="Auto, *, Auto, Auto" ColumnSpacing="10">
-                            <Image
-                Source="{Binding Icon}"
-                WidthRequest="40"
-                HeightRequest="40"
-                VerticalOptions="Center" />
-                            <Label
-                Grid.Column="1"
-                Text="{Binding Name}"
-                VerticalOptions="Center"
-                Margin="10,0,0,0" />
-                            <Button
-                Grid.Column="3"
-                Text="Delete"
-                BackgroundColor="Tomato"
-                TextColor="White"
-                Command="{Binding Source={x:Reference ThisPage}, Path=BindingContext.DeleteCategoryCommand}"
-                CommandParameter="{Binding .}" />
-                        </Grid>
+                        <SwipeView>
+
+                            <!-- هنا نضيف VisualStateManager -->
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualState Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="White" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="#4DC6B4" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <!-- زر الحذف عند السحب -->
+                            <SwipeView.RightItems>
+                                <SwipeItems Mode="Reveal">
+                                    <SwipeItem
+                    Text="Delete"
+                    IconImageSource="delete.png"
+                    BackgroundColor="Tomato"
+                    Command="{Binding Source={x:Reference ThisPage}, Path=BindingContext.DeleteCategoryCommand}"
+                    CommandParameter="{Binding .}" />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+
+                            <!-- المحتوى الأصلي مع الأعمدة والمسافات كما في الأصل -->
+                            <Grid
+                Padding="10"
+                ColumnDefinitions="Auto, *, Auto, Auto"
+                ColumnSpacing="10"
+                BackgroundColor="Transparent">
+                                <Image
+                  Source="{Binding Icon}"
+                  WidthRequest="40"
+                  HeightRequest="40"
+                  VerticalOptions="Center" />
+                                <Label
+                  Grid.Column="1"
+                  Text="{Binding Name}"
+                  VerticalOptions="Center"
+                  Margin="10,0,0,0" />
+                                <!-- عمود 2 و3 يبقيان فارغين للحفاظ على التخطيط -->
+                                <BoxView Grid.Column="2" WidthRequest="0" IsVisible="False" />
+                                <BoxView Grid.Column="3" WidthRequest="0" IsVisible="False" />
+                            </Grid>
+                        </SwipeView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
@@ -59,77 +108,16 @@
       BackgroundColor="{StaticResource LightWheat}"
       RowDefinitions="Auto, *"
       Padding="8,10">
-
-
-            <VerticalStackLayout Grid.Row="0" 
-                                 Spacing="0">
-
-                <Label Text="Save Menu Category "
-                       FontSize="15" 
-                       FontAttributes="Bold"/>
-
+            <VerticalStackLayout Grid.Row="0" Spacing="0">
+                <Label Text="Save Menu Category" FontSize="15" FontAttributes="Bold" />
                 <controls:CurrentDateTimeControl/>
             </VerticalStackLayout>
-
-            <Grid  Grid.Row="1"
-                   Padding="8,1"
-                   BackgroundColor="{StaticResource LightWheat}">
-
-                <!-- save menu Category form   -->
-                <controls:SaveMenuCategoriesFormControl Cat="{Binding SelectedCategory}"
-                                                  OnCancel="SaveMenuCategoriesFormControl_OnCancel"
-                                                  OnSaveItem="SaveMenuCategoriesFormControl_OnSaveItem"/>
-
+            <Grid Grid.Row="1" Padding="8,1" BackgroundColor="{StaticResource LightWheat}">
+                <controls:SaveMenuCategoriesFormControl
+          Cat="{Binding SelectedCategory}"
+          OnCancel="SaveMenuCategoriesFormControl_OnCancel"
+          OnSaveItem="SaveMenuCategoriesFormControl_OnSaveItem"/>
             </Grid>
-
-            <!--<VerticalStackLayout Grid.Row="1" Spacing="10">
-                <Label
-          FontSize="15"
-          FontAttributes="Bold"
-           />
-
-                <Entry
-          Placeholder="Name of Category"
-          Text="{Binding SelectedCategory.Name}" />
-
-                <Label Text="Image/Icon" FontSize="15"/>
-                <Border BackgroundColor="Wheat"  HeightRequest="50"
-                        WidthRequest="50"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center"
-                        StrokeThickness="0">
-                    <Image  x:Name="itemIcon"
-                            VerticalOptions="Center" HorizontalOptions="Center"
-                            Source="imageadd.png" HeightRequest="22"
-                            WidthRequest="22"
-                            Aspect="AspectFit"/>
-                </Border>
-                <Button Text="Pick Image"   FontSize="10" Margin="0,5,0,0" WidthRequest="80" MinimumHeightRequest="20" Padding="5,0" HeightRequest="20" HorizontalOptions="Center" BackgroundColor="DarkOliveGreen"/>
-
-                <HorizontalStackLayout Spacing="10">
-
-
-
-                </HorizontalStackLayout>
-                <Grid ColumnDefinitions="*,*">
-                    <Button  HorizontalOptions="Start" Grid.Column="0" FontSize="10" MinimumHeightRequest="20" HeightRequest="25" Padding="5,0"
-             Text="Cancel" Margin="0,5,0,0" BackgroundColor="red"/>
-                    --><!--Command="{Binding CancelCommand}"--><!--
-
-
-                    <Button Grid.Column="1" 
-             FontSize="10"
-             MinimumHeightRequest="20"
-             HeightRequest="25"
-             Padding="5,0"
-             Text="Save"
-             Command="{Binding SaveCategoryAsyncCommand}"
-             CommandParameter="{Binding .}"
-             Margin="0,5,0,0"
-             BackgroundColor="DarkOliveGreen"/>
-
-                </Grid>
-            </VerticalStackLayout>-->
         </Grid>
 
     </Grid>

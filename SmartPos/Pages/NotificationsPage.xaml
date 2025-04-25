@@ -7,11 +7,21 @@
              Title="Notifications"
              x:Name="ThisPage"
              >
+
+
+
     <ContentPage.Content>
 
         <StackLayout Padding="10">
-    
-    <CollectionView ItemsSource="{Binding Notifications}" x:DataType="vm:NotificationsViewModel">
+
+            <Label 
+  Text="اسحب لليسار للحذف  ←"
+  FontSize="10"
+  TextColor="Gray"
+  HorizontalOptions="Center"
+  Margin="5,4,0,10"/>
+
+            <CollectionView ItemsSource="{Binding Notifications}" x:DataType="vm:NotificationsViewModel">
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="models:NotificationModel">
                         <SwipeView>

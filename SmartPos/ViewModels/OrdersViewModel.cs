@@ -207,29 +207,76 @@ namespace SmartPos.ViewModels
 
 
 
-                // تحديث الكميات بعد التقليص
+
+
+
+
+
+
+
+
+                // 1) تحديث الكميات بعد التقليص
                 allMenuItems = await _dataBaseService.GetAllMenuItemsAsync();
+
                 var lowStockOrdered = orderModel.Items
-                    .Select(oi => new {
-                        oi.Name,
-                        Remaining = allMenuItems.First(mi => mi.Id == oi.ItemId).StockQuantity
+                    .Select(oi =>
+                    {
+                        // استرجاع العنصر من القائمة
+                        var item = allMenuItems.First(mi => mi.Id == oi.ItemId);
+                        return new
+                        {
+                            item.Name,
+                            item.Description,            // إضافة الوصف هنا
+                            Remaining = item.StockQuantity
+                        };
                     })
                     .Where(x => x.Remaining > 0 && x.Remaining <= 4)
                     .ToArray();
 
                 if (lowStockOrdered.Any())
                 {
+                    // 2) بناء نص الرسالة ليضمّ الوصف
                     var msg = string.Join("\n",
-                        lowStockOrdered.Select(li => $"{li.Name} - الكمية المتبقية: {li.Remaining}")
-                    );
+                        lowStockOrdered.Select(li =>
+                            $"{li.Name} ({li.Description}) - الكمية المتبقية: {li.Remaining}"
+                        )
+                    );  // استخدام String Interpolation 0
+
                     await Shell.Current.DisplayAlert("تنبيه المخزون المنخفض", msg, "حسنًا");
+
+                    // 3) إضافة الإشعار بالرسالة المحدثة
                     _notificationsService.Add(new NotificationModel
                     {
                         Message = msg,
-                        Timestamp = DateTime.Now,
+                        Timestamp = DateTime.Now,    // الحصول على الوقت الحالي 1
                         Type = "LowStock"
                     });
                 }
+
+
+                //// تحديث الكميات بعد التقليص
+                //allMenuItems = await _dataBaseService.GetAllMenuItemsAsync();
+                //var lowStockOrdered = orderModel.Items
+                //    .Select(oi => new {
+                //        oi.Name,
+                //        Remaining = allMenuItems.First(mi => mi.Id == oi.ItemId).StockQuantity
+                //    })
+                //    .Where(x => x.Remaining > 0 && x.Remaining <= 4)
+                //    .ToArray();
+
+                //if (lowStockOrdered.Any())
+                //{
+                //    var msg = string.Join("\n",
+                //        lowStockOrdered.Select(li => $"{li.Name} - الكمية المتبقية: {li.Remaining}")
+                //    );
+                //    await Shell.Current.DisplayAlert("تنبيه المخزون المنخفض", msg, "حسنًا");
+                //    _notificationsService.Add(new NotificationModel
+                //    {
+                //        Message = msg,
+                //        Timestamp = DateTime.Now,
+                //        Type = "LowStock"
+                //    });
+                //}
 
 
 
@@ -256,7 +303,7 @@ namespace SmartPos.ViewModels
 
 
 
-                  //   ______________ //
+                //   ______________ //
                 //var lowStock = allItems.Where(mi => mi.StockQuantity <= 4).ToArray();
                 //if (lowStock.Any())
                 //{
