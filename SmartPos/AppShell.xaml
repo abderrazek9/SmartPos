@@ -41,6 +41,13 @@
         Icon="category_icon.png"
         Route="ManageMenuCategoriesPage"/>
 
+
+    <ShellContent
+    Title="Settings"
+    Icon="settings.png"
+    Route="SettingsPage"
+    ContentTemplate="{DataTemplate Pages:SettingsPage}" />
+
     <Shell.FlyoutFooter>
         <Image
             Source="phone.png" 
