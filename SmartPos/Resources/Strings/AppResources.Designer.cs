@@ -61,6 +61,87 @@ namespace SmartPos.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string Button_Cancel {
+            get {
+                return ResourceManager.GetString("Button_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick Image.
+        /// </summary>
+        internal static string Button_PickImage {
+            get {
+                return ResourceManager.GetString("Button_PickImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string Button_Save {
+            get {
+                return ResourceManager.GetString("Button_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BasicMaterials.
+        /// </summary>
+        internal static string Category_Basics {
+            get {
+                return ResourceManager.GetString("Category_Basics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Canned &amp; Frozen.
+        /// </summary>
+        internal static string Category_CannedFrozen {
+            get {
+                return ResourceManager.GetString("Category_CannedFrozen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cleaning Supplies.
+        /// </summary>
+        internal static string Category_Cleaning {
+            get {
+                return ResourceManager.GetString("Category_Cleaning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dairy Products.
+        /// </summary>
+        internal static string Category_Dairy {
+            get {
+                return ResourceManager.GetString("Category_Dairy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Beverages.
+        /// </summary>
+        internal static string Category_Drinks {
+            get {
+                return ResourceManager.GetString("Category_Drinks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Snacks.
+        /// </summary>
+        internal static string Category_Snacks {
+            get {
+                return ResourceManager.GetString("Category_Snacks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose language.
         /// </summary>
         internal static string ChooseLanguage {
@@ -70,20 +151,1289 @@ namespace SmartPos.Resources.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select a language.
+        ///   Looks up a localized string similar to X.
         /// </summary>
-        internal static string LanguagePickerTitle {
+        internal static string ClearCartButton {
             get {
-                return ResourceManager.GetString("LanguagePickerTitle", resourceCulture);
+                return ResourceManager.GetString("ClearCartButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DZD.
+        /// </summary>
+        internal static string CurrencySymbol {
+            get {
+                return ResourceManager.GetString("CurrencySymbol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current Order.
+        /// </summary>
+        internal static string CurrentOrder {
+            get {
+                return ResourceManager.GetString("CurrentOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hello, {0}.
+        /// </summary>
+        internal static string HelloFormat {
+            get {
+                return ResourceManager.GetString("HelloFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Call us at.
+        /// </summary>
+        internal static string HelpPopup_CallUsAt {
+            get {
+                return ResourceManager.GetString("HelpPopup_CallUsAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy to Clipboard.
+        /// </summary>
+        internal static string HelpPopup_CopyToClipboard {
+            get {
+                return ResourceManager.GetString("HelpPopup_CopyToClipboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Designed &amp; Developed by:.
+        /// </summary>
+        internal static string HelpPopup_DesignedAndDevelopedBy {
+            get {
+                return ResourceManager.GetString("HelpPopup_DesignedAndDevelopedBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email us at.
+        /// </summary>
+        internal static string HelpPopup_EmailUsAt {
+            get {
+                return ResourceManager.GetString("HelpPopup_EmailUsAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Need Help !.
+        /// </summary>
+        internal static string HelpPopup_Title {
+            get {
+                return ResourceManager.GetString("HelpPopup_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can connect with us.
+        /// </summary>
+        internal static string HelpPopup_YouCanConnectWithUs {
+            get {
+                return ResourceManager.GetString("HelpPopup_YouCanConnectWithUs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1.5 L bottle.
+        /// </summary>
+        internal static string Item_1_Desc {
+            get {
+                return ResourceManager.GetString("Item_1_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mineral Water.
+        /// </summary>
+        internal static string Item_1_Name {
+            get {
+                return ResourceManager.GetString("Item_1_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2 kg bag.
+        /// </summary>
+        internal static string Item_10_Desc {
+            get {
+                return ResourceManager.GetString("Item_10_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Semolina.
+        /// </summary>
+        internal static string Item_10_Name {
+            get {
+                return ResourceManager.GetString("Item_10_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 400 g can.
+        /// </summary>
+        internal static string Item_11_Desc {
+            get {
+                return ResourceManager.GetString("Item_11_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Caneed Beans.
+        /// </summary>
+        internal static string Item_11_Name {
+            get {
+                return ResourceManager.GetString("Item_11_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 400 g can.
+        /// </summary>
+        internal static string Item_12_Desc {
+            get {
+                return ResourceManager.GetString("Item_12_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Caneed Tomatoes.
+        /// </summary>
+        internal static string Item_12_Name {
+            get {
+                return ResourceManager.GetString("Item_12_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 125 g can.
+        /// </summary>
+        internal static string Item_13_Desc {
+            get {
+                return ResourceManager.GetString("Item_13_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Caneed Sardines.
+        /// </summary>
+        internal static string Item_13_Name {
+            get {
+                return ResourceManager.GetString("Item_13_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1  kg imported meat.
+        /// </summary>
+        internal static string Item_14_Desc {
+            get {
+                return ResourceManager.GetString("Item_14_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Frozen Meat.
+        /// </summary>
+        internal static string Item_14_Name {
+            get {
+                return ResourceManager.GetString("Item_14_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Whole 1.2 kg chicken.
+        /// </summary>
+        internal static string Item_15_Desc {
+            get {
+                return ResourceManager.GetString("Item_15_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Frozen Chicken.
+        /// </summary>
+        internal static string Item_15_Name {
+            get {
+                return ResourceManager.GetString("Item_15_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 500 g tub .
+        /// </summary>
+        internal static string Item_16_Desc {
+            get {
+                return ResourceManager.GetString("Item_16_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plain Yogurt.
+        /// </summary>
+        internal static string Item_16_Name {
+            get {
+                return ResourceManager.GetString("Item_16_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 8-piece pack.
+        /// </summary>
+        internal static string Item_17_Desc {
+            get {
+                return ResourceManager.GetString("Item_17_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cheese Triangles.
+        /// </summary>
+        internal static string Item_17_Name {
+            get {
+                return ResourceManager.GetString("Item_17_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 250 g pack.
+        /// </summary>
+        internal static string Item_18_Desc {
+            get {
+                return ResourceManager.GetString("Item_18_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Butter.
+        /// </summary>
+        internal static string Item_18_Name {
+            get {
+                return ResourceManager.GetString("Item_18_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 200 g .
+        /// </summary>
+        internal static string Item_19_Desc {
+            get {
+                return ResourceManager.GetString("Item_19_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roumy Cheese.
+        /// </summary>
+        internal static string Item_19_Name {
+            get {
+                return ResourceManager.GetString("Item_19_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1 L bottle.
+        /// </summary>
+        internal static string Item_2_Desc {
+            get {
+                return ResourceManager.GetString("Item_2_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Soda.
+        /// </summary>
+        internal static string Item_2_Name {
+            get {
+                return ResourceManager.GetString("Item_2_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 500 g can.
+        /// </summary>
+        internal static string Item_20_Desc {
+            get {
+                return ResourceManager.GetString("Item_20_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Powdered Milk.
+        /// </summary>
+        internal static string Item_20_Name {
+            get {
+                return ResourceManager.GetString("Item_20_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 300 g pack.
+        /// </summary>
+        internal static string Item_21_Desc {
+            get {
+                return ResourceManager.GetString("Item_21_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Biscuits.
+        /// </summary>
+        internal static string Item_21_Name {
+            get {
+                return ResourceManager.GetString("Item_21_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 100 g bar.
+        /// </summary>
+        internal static string Item_22_Desc {
+            get {
+                return ResourceManager.GetString("Item_22_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chocolate.
+        /// </summary>
+        internal static string Item_22_Name {
+            get {
+                return ResourceManager.GetString("Item_22_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 250 g bag .
+        /// </summary>
+        internal static string Item_23_Desc {
+            get {
+                return ResourceManager.GetString("Item_23_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nuts.
+        /// </summary>
+        internal static string Item_23_Name {
+            get {
+                return ResourceManager.GetString("Item_23_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 150 g bag .
+        /// </summary>
+        internal static string Item_24_Desc {
+            get {
+                return ResourceManager.GetString("Item_24_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potato Chips.
+        /// </summary>
+        internal static string Item_24_Name {
+            get {
+                return ResourceManager.GetString("Item_24_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 10-piece pack.
+        /// </summary>
+        internal static string Item_25_Desc {
+            get {
+                return ResourceManager.GetString("Item_25_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gum.
+        /// </summary>
+        internal static string Item_25_Name {
+            get {
+                return ResourceManager.GetString("Item_25_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1 L bottle.
+        /// </summary>
+        internal static string Item_26_Desc {
+            get {
+                return ResourceManager.GetString("Item_26_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Liquid Soap.
+        /// </summary>
+        internal static string Item_26_Name {
+            get {
+                return ResourceManager.GetString("Item_26_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3 kg bag.
+        /// </summary>
+        internal static string Item_27_Desc {
+            get {
+                return ResourceManager.GetString("Item_27_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Washing Powder.
+        /// </summary>
+        internal static string Item_27_Name {
+            get {
+                return ResourceManager.GetString("Item_27_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 300 ml bottle.
+        /// </summary>
+        internal static string Item_28_Desc {
+            get {
+                return ResourceManager.GetString("Item_28_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Air Freshener.
+        /// </summary>
+        internal static string Item_28_Name {
+            get {
+                return ResourceManager.GetString("Item_28_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5-piece pack.
+        /// </summary>
+        internal static string Item_29_Desc {
+            get {
+                return ResourceManager.GetString("Item_29_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dish Sponge.
+        /// </summary>
+        internal static string Item_29_Name {
+            get {
+                return ResourceManager.GetString("Item_29_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1 L full-cream milk.
+        /// </summary>
+        internal static string Item_3_Desc {
+            get {
+                return ResourceManager.GetString("Item_3_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UHT Milk.
+        /// </summary>
+        internal static string Item_3_Name {
+            get {
+                return ResourceManager.GetString("Item_3_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 150-sheet pack.
+        /// </summary>
+        internal static string Item_30_Desc {
+            get {
+                return ResourceManager.GetString("Item_30_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tissues.
+        /// </summary>
+        internal static string Item_30_Name {
+            get {
+                return ResourceManager.GetString("Item_30_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1 L bottle.
+        /// </summary>
+        internal static string Item_4_Desc {
+            get {
+                return ResourceManager.GetString("Item_4_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fresh Juice.
+        /// </summary>
+        internal static string Item_4_Name {
+            get {
+                return ResourceManager.GetString("Item_4_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 200 g pack.
+        /// </summary>
+        internal static string Item_5_Desc {
+            get {
+                return ResourceManager.GetString("Item_5_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coffee.
+        /// </summary>
+        internal static string Item_5_Name {
+            get {
+                return ResourceManager.GetString("Item_5_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2 kg bag.
+        /// </summary>
+        internal static string Item_6_Desc {
+            get {
+                return ResourceManager.GetString("Item_6_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wheat Flour.
+        /// </summary>
+        internal static string Item_6_Name {
+            get {
+                return ResourceManager.GetString("Item_6_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1 kg bag.
+        /// </summary>
+        internal static string Item_7_Desc {
+            get {
+                return ResourceManager.GetString("Item_7_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rice.
+        /// </summary>
+        internal static string Item_7_Name {
+            get {
+                return ResourceManager.GetString("Item_7_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1 kg bag.
+        /// </summary>
+        internal static string Item_8_Desc {
+            get {
+                return ResourceManager.GetString("Item_8_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to White Sugar.
+        /// </summary>
+        internal static string Item_8_Name {
+            get {
+                return ResourceManager.GetString("Item_8_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1 L bottle.
+        /// </summary>
+        internal static string Item_9_Desc {
+            get {
+                return ResourceManager.GetString("Item_9_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vegetable Oil.
+        /// </summary>
+        internal static string Item_9_Name {
+            get {
+                return ResourceManager.GetString("Item_9_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Categories.
+        /// </summary>
+        internal static string Label_Categories {
+            get {
+                return ResourceManager.GetString("Label_Categories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        internal static string Label_Date {
+            get {
+                return ResourceManager.GetString("Label_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        internal static string Label_Description {
+            get {
+                return ResourceManager.GetString("Label_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image/Icon.
+        /// </summary>
+        internal static string Label_ImageIcon {
+            get {
+                return ResourceManager.GetString("Label_ImageIcon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string Label_Name {
+            get {
+                return ResourceManager.GetString("Label_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price.
+        /// </summary>
+        internal static string Label_Price {
+            get {
+                return ResourceManager.GetString("Label_Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity.
+        /// </summary>
+        internal static string Label_Quantity_Field {
+            get {
+                return ResourceManager.GetString("Label_Quantity_Field", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time.
+        /// </summary>
+        internal static string Label_Time {
+            get {
+                return ResourceManager.GetString("Label_Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        internal static string ManageMenuCategoriesPage_Button_Delete {
+            get {
+                return ResourceManager.GetString("ManageMenuCategoriesPage_Button_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Swipe left to delete ←.
+        /// </summary>
+        internal static string ManageMenuCategoriesPage_SwipeLeftDelete {
+            get {
+                return ResourceManager.GetString("ManageMenuCategoriesPage_SwipeLeftDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manage Menu Categories.
+        /// </summary>
+        internal static string ManageMenuCategoriesPage_Title {
+            get {
+                return ResourceManager.GetString("ManageMenuCategoriesPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manage Menu Items.
+        /// </summary>
+        internal static string ManageMenuItemPage_Title {
+            get {
+                return ResourceManager.GetString("ManageMenuItemPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        internal static string NotificationsPage_SwipeItem_Delete {
+            get {
+                return ResourceManager.GetString("NotificationsPage_SwipeItem_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notifications.
+        /// </summary>
+        internal static string NotificationsPage_Title {
+            get {
+                return ResourceManager.GetString("NotificationsPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Printing.
+        /// </summary>
+        internal static string OrdersPage_Button_Printing {
+            get {
+                return ResourceManager.GetString("OrdersPage_Button_Printing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Order Selected.
+        /// </summary>
+        internal static string OrdersPage_Empty_NoOrderSelected {
+            get {
+                return ResourceManager.GetString("OrdersPage_Empty_NoOrderSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select an Order from the left section to view it&apos;s items.
+        /// </summary>
+        internal static string OrdersPage_Empty_SelectOrder {
+            get {
+                return ResourceManager.GetString("OrdersPage_Empty_SelectOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Amount.
+        /// </summary>
+        internal static string OrdersPage_Header_Amount {
+            get {
+                return ResourceManager.GetString("OrdersPage_Header_Amount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.of Items.
+        /// </summary>
+        internal static string OrdersPage_Header_NoOfItems {
+            get {
+                return ResourceManager.GetString("OrdersPage_Header_NoOfItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order Date.
+        /// </summary>
+        internal static string OrdersPage_Header_OrderDate {
+            get {
+                return ResourceManager.GetString("OrdersPage_Header_OrderDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order Id.
+        /// </summary>
+        internal static string OrdersPage_Header_OrderId {
+            get {
+                return ResourceManager.GetString("OrdersPage_Header_OrderId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pay Mode.
+        /// </summary>
+        internal static string OrdersPage_Header_PayMode {
+            get {
+                return ResourceManager.GetString("OrdersPage_Header_PayMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Item(s).
+        /// </summary>
+        internal static string OrdersPage_ItemCountFormat {
+            get {
+                return ResourceManager.GetString("OrdersPage_ItemCountFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to x.
+        /// </summary>
+        internal static string OrdersPage_MultiplicationSign {
+            get {
+                return ResourceManager.GetString("OrdersPage_MultiplicationSign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected Order Items.
+        /// </summary>
+        internal static string OrdersPage_SelectedItems_Title {
+            get {
+                return ResourceManager.GetString("OrdersPage_SelectedItems_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Orders.
+        /// </summary>
+        internal static string OrdersPage_Title {
+            get {
+                return ResourceManager.GetString("OrdersPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Order Items.
+        /// </summary>
+        internal static string OrdersPage_ToolTip_ViewOrderItems {
+            get {
+                return ResourceManager.GetString("OrdersPage_ToolTip_ViewOrderItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Paid Cash.
+        /// </summary>
+        internal static string PaidCash {
+            get {
+                return ResourceManager.GetString("PaidCash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Paid Online.
+        /// </summary>
+        internal static string PaidOnline {
+            get {
+                return ResourceManager.GetString("PaidOnline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter Description.
+        /// </summary>
+        internal static string Placeholder_EnterDescription {
+            get {
+                return ResourceManager.GetString("Placeholder_EnterDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter Name.
+        /// </summary>
+        internal static string Placeholder_EnterName {
+            get {
+                return ResourceManager.GetString("Placeholder_EnterName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter Price.
+        /// </summary>
+        internal static string Placeholder_EnterPrice {
+            get {
+                return ResourceManager.GetString("Placeholder_EnterPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter Quantity.
+        /// </summary>
+        internal static string Placeholder_EnterQuantity {
+            get {
+                return ResourceManager.GetString("Placeholder_EnterQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Promotion.
+        /// </summary>
+        internal static string Promotion {
+            get {
+                return ResourceManager.GetString("Promotion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string Prompt_ClearCart_Accept {
+            get {
+                return ResourceManager.GetString("Prompt_ClearCart_Accept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string Prompt_ClearCart_Cancel {
+            get {
+                return ResourceManager.GetString("Prompt_ClearCart_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you really want to clear the cart.
+        /// </summary>
+        internal static string Prompt_ClearCart_Message {
+            get {
+                return ResourceManager.GetString("Prompt_ClearCart_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear Cart?.
+        /// </summary>
+        internal static string Prompt_ClearCart_Title {
+            get {
+                return ResourceManager.GetString("Prompt_ClearCart_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Entered Discount Percentage Is Invalid.
+        /// </summary>
+        internal static string Prompt_InvalidPercentage_NotNumber_Message {
+            get {
+                return ResourceManager.GetString("Prompt_InvalidPercentage_NotNumber_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid Value.
+        /// </summary>
+        internal static string Prompt_InvalidPercentage_NotNumber_Title {
+            get {
+                return ResourceManager.GetString("Prompt_InvalidPercentage_NotNumber_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discount Percentage Cannot be more than 100.
+        /// </summary>
+        internal static string Prompt_InvalidPercentage_TooHigh_Message {
+            get {
+                return ResourceManager.GetString("Prompt_InvalidPercentage_TooHigh_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid Value.
+        /// </summary>
+        internal static string Prompt_InvalidPercentage_TooHigh_Title {
+            get {
+                return ResourceManager.GetString("Prompt_InvalidPercentage_TooHigh_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        internal static string Prompt_LowStockAlert_Accept {
+            get {
+                return ResourceManager.GetString("Prompt_LowStockAlert_Accept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Low Stock Warning.
+        /// </summary>
+        internal static string Prompt_LowStockAlert_Title {
+            get {
+                return ResourceManager.GetString("Prompt_LowStockAlert_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        internal static string Prompt_Ok {
+            get {
+                return ResourceManager.GetString("Prompt_Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        internal static string Prompt_PlaceOrderError_Accept {
+            get {
+                return ResourceManager.GetString("Prompt_PlaceOrderError_Accept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string Prompt_PlaceOrderError_Title {
+            get {
+                return ResourceManager.GetString("Prompt_PlaceOrderError_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to connect to printer via Bluettoth..
+        /// </summary>
+        internal static string Prompt_PrintError_Connection_Message {
+            get {
+                return ResourceManager.GetString("Prompt_PrintError_Connection_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string Prompt_PrintError_Connection_Title {
+            get {
+                return ResourceManager.GetString("Prompt_PrintError_Connection_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        internal static string Prompt_PrintError_Exception_Accept {
+            get {
+                return ResourceManager.GetString("Prompt_PrintError_Exception_Accept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string Prompt_PrintError_Exception_Title {
+            get {
+                return ResourceManager.GetString("Prompt_PrintError_Exception_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred during printing..
+        /// </summary>
+        internal static string Prompt_PrintError_PrintFailed_Message {
+            get {
+                return ResourceManager.GetString("Prompt_PrintError_PrintFailed_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string Prompt_PrintError_PrintFailed_Title {
+            get {
+                return ResourceManager.GetString("Prompt_PrintError_PrintFailed_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter The Applicable Discount Percentage.
+        /// </summary>
+        internal static string Prompt_PromoMessage {
+            get {
+                return ResourceManager.GetString("Prompt_PromoMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prom Percentage.
+        /// </summary>
+        internal static string Prompt_PromoTitle {
+            get {
+                return ResourceManager.GetString("Prompt_PromoTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You cannot order &quot;{0}&quot; because it is not available..
+        /// </summary>
+        internal static string Prompt_StockEmpty_Message {
+            get {
+                return ResourceManager.GetString("Prompt_StockEmpty_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Out of Stock.
+        /// </summary>
+        internal static string Prompt_StockEmpty_Title {
+            get {
+                return ResourceManager.GetString("Prompt_StockEmpty_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to you cannot order {0} of &quot;{1}&quot;, available: {2}..
+        /// </summary>
+        internal static string Prompt_StockQuantityUnavailable_Message {
+            get {
+                return ResourceManager.GetString("Prompt_StockQuantityUnavailable_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity Unavailable .
+        /// </summary>
+        internal static string Prompt_StockQuantityUnavailable_Title {
+            get {
+                return ResourceManager.GetString("Prompt_StockQuantityUnavailable_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your name.
+        /// </summary>
+        internal static string Prompt_YourName_Message {
+            get {
+                return ResourceManager.GetString("Prompt_YourName_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your name.
+        /// </summary>
+        internal static string Prompt_YourName_Title {
+            get {
+                return ResourceManager.GetString("Prompt_YourName_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity: {0}.
+        /// </summary>
+        internal static string QuantityFormat {
+            get {
+                return ResourceManager.GetString("QuantityFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Menu Category.
+        /// </summary>
+        internal static string SaveMenuCategoriesPage_Section_Title {
+            get {
+                return ResourceManager.GetString("SaveMenuCategoriesPage_Section_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Menu Item.
+        /// </summary>
+        internal static string SaveMenuItemPage_Title {
+            get {
+                return ResourceManager.GetString("SaveMenuItemPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change User Name.
+        /// </summary>
+        internal static string SettingsPage_Button_ChangeUserName {
+            get {
+                return ResourceManager.GetString("SettingsPage_Button_ChangeUserName", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
-        internal static string Settings {
+        internal static string SettingsPage_Title {
             get {
-                return ResourceManager.GetString("Settings", resourceCulture);
+                return ResourceManager.GetString("SettingsPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SubTotal.
+        /// </summary>
+        internal static string SubTotal {
+            get {
+                return ResourceManager.GetString("SubTotal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (empty).
+        /// </summary>
+        internal static string Toast_NoOrderSelected {
+            get {
+                return ResourceManager.GetString("Toast_NoOrderSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (empty).
+        /// </summary>
+        internal static string Toast_OrderCreated {
+            get {
+                return ResourceManager.GetString("Toast_OrderCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (empty).
+        /// </summary>
+        internal static string Toast_PrintSuccess {
+            get {
+                return ResourceManager.GetString("Toast_PrintSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear the Cart.
+        /// </summary>
+        internal static string ToolTip_ClearCart {
+            get {
+                return ResourceManager.GetString("ToolTip_ClearCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove This Item From Cart.
+        /// </summary>
+        internal static string ToolTip_RemoveItemFromCart {
+            get {
+                return ResourceManager.GetString("ToolTip_RemoveItemFromCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total.
+        /// </summary>
+        internal static string Total {
+            get {
+                return ResourceManager.GetString("Total", resourceCulture);
             }
         }
     }

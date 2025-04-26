@@ -117,13 +117,463 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="Button_PickImage" xml:space="preserve">
+    <value>إختيار صورة</value>
+  </data>
+  <data name="Button_Save" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="Category_Basics" xml:space="preserve">
+    <value>المواد الأساسية</value>
+  </data>
+  <data name="Category_CannedFrozen" xml:space="preserve">
+    <value>المعلبات والمجمدات</value>
+  </data>
+  <data name="Category_Cleaning" xml:space="preserve">
+    <value>مواد التنظيف</value>
+  </data>
+  <data name="Category_Dairy" xml:space="preserve">
+    <value>منتجات الألبان</value>
+  </data>
+  <data name="Category_Drinks" xml:space="preserve">
+    <value>المشروبات</value>
+  </data>
+  <data name="Category_Snacks" xml:space="preserve">
+    <value>الوجبات الخفيفة</value>
+  </data>
   <data name="ChooseLanguage" xml:space="preserve">
     <value>اختر اللغة</value>
   </data>
-  <data name="LanguagePickerTitle" xml:space="preserve">
-    <value>حدد اللغة</value>
+  <data name="ClearCartButton" xml:space="preserve">
+    <value>X</value>
   </data>
-  <data name="Settings" xml:space="preserve">
+  <data name="CurrencySymbol" xml:space="preserve">
+    <value>دج</value>
+  </data>
+  <data name="CurrentOrder" xml:space="preserve">
+    <value>الطلب الحالي</value>
+  </data>
+  <data name="HelloFormat" xml:space="preserve">
+    <value>مرحبا، ‎ {0}‎</value>
+  </data>
+  <data name="HelpPopup_CallUsAt" xml:space="preserve">
+    <value>إتصل بنا على </value>
+  </data>
+  <data name="HelpPopup_CopyToClipboard" xml:space="preserve">
+    <value>نسخ الى الحافظة </value>
+  </data>
+  <data name="HelpPopup_DesignedAndDevelopedBy" xml:space="preserve">
+    <value>: مصمم و مطور بواسطة</value>
+  </data>
+  <data name="HelpPopup_EmailUsAt" xml:space="preserve">
+    <value>راسلنا عبر البريد الإلكتروني</value>
+  </data>
+  <data name="HelpPopup_Title" xml:space="preserve">
+    <value>! هل تحتاج المساعدة</value>
+  </data>
+  <data name="HelpPopup_YouCanConnectWithUs" xml:space="preserve">
+    <value>بإمكانك التواصل معنا</value>
+  </data>
+  <data name="Item_10_Desc" xml:space="preserve">
+    <value>كيس 2 كجم</value>
+  </data>
+  <data name="Item_10_Name" xml:space="preserve">
+    <value>سميد</value>
+  </data>
+  <data name="Item_11_Desc" xml:space="preserve">
+    <value>علبة 400 جرام</value>
+  </data>
+  <data name="Item_11_Name" xml:space="preserve">
+    <value>فول معلب</value>
+  </data>
+  <data name="Item_12_Desc" xml:space="preserve">
+    <value>علبة 400 جرام</value>
+  </data>
+  <data name="Item_12_Name" xml:space="preserve">
+    <value>طماطم مصبرة</value>
+  </data>
+  <data name="Item_13_Desc" xml:space="preserve">
+    <value>علبة 125 جرام</value>
+  </data>
+  <data name="Item_13_Name" xml:space="preserve">
+    <value>سردين معلب</value>
+  </data>
+  <data name="Item_14_Desc" xml:space="preserve">
+    <value>كيلو لحم مستورد</value>
+  </data>
+  <data name="Item_14_Name" xml:space="preserve">
+    <value>لحم مجمد</value>
+  </data>
+  <data name="Item_15_Desc" xml:space="preserve">
+    <value>دجاجة كاملة 1.2 كجم</value>
+  </data>
+  <data name="Item_15_Name" xml:space="preserve">
+    <value>دجاج مجمد</value>
+  </data>
+  <data name="Item_16_Desc" xml:space="preserve">
+    <value>علبة 500 جرام</value>
+  </data>
+  <data name="Item_16_Name" xml:space="preserve">
+    <value>لبن طبيعي</value>
+  </data>
+  <data name="Item_17_Desc" xml:space="preserve">
+    <value>علبة 8 قطع</value>
+  </data>
+  <data name="Item_17_Name" xml:space="preserve">
+    <value>جبن مثلثات</value>
+  </data>
+  <data name="Item_18_Desc" xml:space="preserve">
+    <value>عبوة 250 جرام</value>
+  </data>
+  <data name="Item_18_Name" xml:space="preserve">
+    <value>زبدة</value>
+  </data>
+  <data name="Item_19_Desc" xml:space="preserve">
+    <value>200 جرام</value>
+  </data>
+  <data name="Item_19_Name" xml:space="preserve">
+    <value>جبن رومي</value>
+  </data>
+  <data name="Item_1_Desc" xml:space="preserve">
+    <value>قارورة ماء 1.5 لتر</value>
+  </data>
+  <data name="Item_1_Name" xml:space="preserve">
+    <value>ماء معدني</value>
+  </data>
+  <data name="Item_20_Desc" xml:space="preserve">
+    <value>علبة 500 جرام</value>
+  </data>
+  <data name="Item_20_Name" xml:space="preserve">
+    <value>حليب بودرة</value>
+  </data>
+  <data name="Item_21_Desc" xml:space="preserve">
+    <value>علبة 300 جرام</value>
+  </data>
+  <data name="Item_21_Name" xml:space="preserve">
+    <value>بسكويت</value>
+  </data>
+  <data name="Item_22_Desc" xml:space="preserve">
+    <value>لوح 100 جرام</value>
+  </data>
+  <data name="Item_22_Name" xml:space="preserve">
+    <value>شوكولاتة</value>
+  </data>
+  <data name="Item_23_Desc" xml:space="preserve">
+    <value>كيس 250 جرام</value>
+  </data>
+  <data name="Item_23_Name" xml:space="preserve">
+    <value>مكسرات</value>
+  </data>
+  <data name="Item_24_Desc" xml:space="preserve">
+    <value>كيس 150 جرام</value>
+  </data>
+  <data name="Item_24_Name" xml:space="preserve">
+    <value>رقائق البطاطس</value>
+  </data>
+  <data name="Item_25_Desc" xml:space="preserve">
+    <value>عبوة 10 قطع</value>
+  </data>
+  <data name="Item_25_Name" xml:space="preserve">
+    <value>علكة</value>
+  </data>
+  <data name="Item_26_Desc" xml:space="preserve">
+    <value>عبوة 1 لتر</value>
+  </data>
+  <data name="Item_26_Name" xml:space="preserve">
+    <value>صابون سائل</value>
+  </data>
+  <data name="Item_27_Desc" xml:space="preserve">
+    <value>كيس 3 كجم</value>
+  </data>
+  <data name="Item_27_Name" xml:space="preserve">
+    <value>مسحوق غسيل</value>
+  </data>
+  <data name="Item_28_Desc" xml:space="preserve">
+    <value>عبوة 300 مل</value>
+  </data>
+  <data name="Item_28_Name" xml:space="preserve">
+    <value>معطر جو</value>
+  </data>
+  <data name="Item_29_Desc" xml:space="preserve">
+    <value>عبوة 5 قطع</value>
+  </data>
+  <data name="Item_29_Name" xml:space="preserve">
+    <value>إسفنج أطباق</value>
+  </data>
+  <data name="Item_2_Desc" xml:space="preserve">
+    <value>عبوة 1 لتر</value>
+  </data>
+  <data name="Item_2_Name" xml:space="preserve">
+    <value>مشروب غازي</value>
+  </data>
+  <data name="Item_30_Desc" xml:space="preserve">
+    <value>رزمة 150 ورقة</value>
+  </data>
+  <data name="Item_30_Name" xml:space="preserve">
+    <value>مناديل ورقية</value>
+  </data>
+  <data name="Item_3_Desc" xml:space="preserve">
+    <value>لتر حليب كامل الدسم</value>
+  </data>
+  <data name="Item_3_Name" xml:space="preserve">
+    <value>حليب معقم</value>
+  </data>
+  <data name="Item_4_Desc" xml:space="preserve">
+    <value>عبوة 1 لتر</value>
+  </data>
+  <data name="Item_4_Name" xml:space="preserve">
+    <value>عصير طبيعي</value>
+  </data>
+  <data name="Item_5_Desc" xml:space="preserve">
+    <value>علبة 200 جرام</value>
+  </data>
+  <data name="Item_5_Name" xml:space="preserve">
+    <value>قهوة</value>
+  </data>
+  <data name="Item_6_Desc" xml:space="preserve">
+    <value>كيس 2 كجم</value>
+  </data>
+  <data name="Item_6_Name" xml:space="preserve">
+    <value>طحين القمح</value>
+  </data>
+  <data name="Item_7_Desc" xml:space="preserve">
+    <value>كيس 1 كجم</value>
+  </data>
+  <data name="Item_7_Name" xml:space="preserve">
+    <value>أرز</value>
+  </data>
+  <data name="Item_8_Desc" xml:space="preserve">
+    <value>كيس 1 كجم</value>
+  </data>
+  <data name="Item_8_Name" xml:space="preserve">
+    <value>سكر أبيض</value>
+  </data>
+  <data name="Item_9_Desc" xml:space="preserve">
+    <value>عبوة 1 لتر</value>
+  </data>
+  <data name="Item_9_Name" xml:space="preserve">
+    <value>زيت نباتي</value>
+  </data>
+  <data name="Label_Categories" xml:space="preserve">
+    <value>الأصناف</value>
+  </data>
+  <data name="Label_Date" xml:space="preserve">
+    <value>التاريخ </value>
+  </data>
+  <data name="Label_Description" xml:space="preserve">
+    <value>الوصف</value>
+  </data>
+  <data name="Label_ImageIcon" xml:space="preserve">
+    <value>الصورة/الأيقونة </value>
+  </data>
+  <data name="Label_Name" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="Label_Price" xml:space="preserve">
+    <value>السعر</value>
+  </data>
+  <data name="Label_Quantity_Field" xml:space="preserve">
+    <value>الكمية</value>
+  </data>
+  <data name="Label_Time" xml:space="preserve">
+    <value>الوقت</value>
+  </data>
+  <data name="ManageMenuCategoriesPage_Button_Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="ManageMenuCategoriesPage_SwipeLeftDelete" xml:space="preserve">
+    <value>اسحب لليسار للحذف ←</value>
+  </data>
+  <data name="ManageMenuCategoriesPage_Title" xml:space="preserve">
+    <value>إدارة فئات القائمة</value>
+  </data>
+  <data name="ManageMenuItemPage_Title" xml:space="preserve">
+    <value>إدارة الأصناف </value>
+  </data>
+  <data name="NotificationsPage_SwipeItem_Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="NotificationsPage_Title" xml:space="preserve">
+    <value>الإشعارات</value>
+  </data>
+  <data name="OrdersPage_Button_Printing" xml:space="preserve">
+    <value>طباعة</value>
+  </data>
+  <data name="OrdersPage_Empty_NoOrderSelected" xml:space="preserve">
+    <value>لم يتم اختيار الطلب </value>
+  </data>
+  <data name="OrdersPage_Empty_SelectOrder" xml:space="preserve">
+    <value>اختر طلبا من القسم الأيسر لعرض عناصره </value>
+  </data>
+  <data name="OrdersPage_Header_Amount" xml:space="preserve">
+    <value>المبلغ</value>
+  </data>
+  <data name="OrdersPage_Header_NoOfItems" xml:space="preserve">
+    <value>عدد العناصر </value>
+  </data>
+  <data name="OrdersPage_Header_OrderDate" xml:space="preserve">
+    <value>تاريخ الطلب </value>
+  </data>
+  <data name="OrdersPage_Header_OrderId" xml:space="preserve">
+    <value>رقم الطلب </value>
+  </data>
+  <data name="OrdersPage_Header_PayMode" xml:space="preserve">
+    <value>طريقة الدفع </value>
+  </data>
+  <data name="OrdersPage_ItemCountFormat" xml:space="preserve">
+    <value>عنصر ‎{0}‎</value>
+  </data>
+  <data name="OrdersPage_MultiplicationSign" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="OrdersPage_SelectedItems_Title" xml:space="preserve">
+    <value>عناصر الطلب المحدد </value>
+  </data>
+  <data name="OrdersPage_Title" xml:space="preserve">
+    <value>الطلبات </value>
+  </data>
+  <data name="OrdersPage_ToolTip_ViewOrderItems" xml:space="preserve">
+    <value>عرض عناصر الطلب </value>
+  </data>
+  <data name="PaidCash" xml:space="preserve">
+    <value>دفع نقداً </value>
+  </data>
+  <data name="PaidOnline" xml:space="preserve">
+    <value>دفع الكتروني </value>
+  </data>
+  <data name="Placeholder_EnterDescription" xml:space="preserve">
+    <value>أدخل الوصف</value>
+  </data>
+  <data name="Placeholder_EnterName" xml:space="preserve">
+    <value>أدخل الاسم </value>
+  </data>
+  <data name="Placeholder_EnterPrice" xml:space="preserve">
+    <value>أدخل السعر</value>
+  </data>
+  <data name="Placeholder_EnterQuantity" xml:space="preserve">
+    <value>أدخل الكمية</value>
+  </data>
+  <data name="Promotion" xml:space="preserve">
+    <value>الخصم </value>
+  </data>
+  <data name="Prompt_ClearCart_Accept" xml:space="preserve">
+    <value>نعم </value>
+  </data>
+  <data name="Prompt_ClearCart_Cancel" xml:space="preserve">
+    <value>لا</value>
+  </data>
+  <data name="Prompt_ClearCart_Message" xml:space="preserve">
+    <value>هل تريد فعلا مسح السلة ؟</value>
+  </data>
+  <data name="Prompt_ClearCart_Title" xml:space="preserve">
+    <value>مسح السلة ؟</value>
+  </data>
+  <data name="Prompt_InvalidPercentage_NotNumber_Message" xml:space="preserve">
+    <value>النسبة المدخلة غير صالحة </value>
+  </data>
+  <data name="Prompt_InvalidPercentage_NotNumber_Title" xml:space="preserve">
+    <value>قيمة غير صالحة</value>
+  </data>
+  <data name="Prompt_InvalidPercentage_TooHigh_Message" xml:space="preserve">
+    <value>نسبة الخصم لا يمكن أن تتجاوز 100</value>
+  </data>
+  <data name="Prompt_InvalidPercentage_TooHigh_Title" xml:space="preserve">
+    <value>قيمة غير صالحة</value>
+  </data>
+  <data name="Prompt_LowStockAlert_Accept" xml:space="preserve">
+    <value>حسناً </value>
+  </data>
+  <data name="Prompt_LowStockAlert_Title" xml:space="preserve">
+    <value>تنبيه المخزون منخفض </value>
+  </data>
+  <data name="Prompt_Ok" xml:space="preserve">
+    <value>حسناً </value>
+  </data>
+  <data name="Prompt_PlaceOrderError_Accept" xml:space="preserve">
+    <value>موافق </value>
+  </data>
+  <data name="Prompt_PlaceOrderError_Title" xml:space="preserve">
+    <value>خطأ</value>
+  </data>
+  <data name="Prompt_PrintError_Connection_Message" xml:space="preserve">
+    <value>فشل الاتصال بالطابعة عبر البلوتوث </value>
+  </data>
+  <data name="Prompt_PrintError_Connection_Title" xml:space="preserve">
+    <value>خطأ</value>
+  </data>
+  <data name="Prompt_PrintError_Exception_Accept" xml:space="preserve">
+    <value>موافق </value>
+  </data>
+  <data name="Prompt_PrintError_Exception_Title" xml:space="preserve">
+    <value>خطأ</value>
+  </data>
+  <data name="Prompt_PrintError_PrintFailed_Message" xml:space="preserve">
+    <value>حدث خلل أثناء عملية الطباعة </value>
+  </data>
+  <data name="Prompt_PrintError_PrintFailed_Title" xml:space="preserve">
+    <value>خطأ</value>
+  </data>
+  <data name="Prompt_PromoMessage" xml:space="preserve">
+    <value>أدخل نسبة الخصم المطبقة </value>
+  </data>
+  <data name="Prompt_PromoTitle" xml:space="preserve">
+    <value>نسبة الخصم </value>
+  </data>
+  <data name="Prompt_StockEmpty_Message" xml:space="preserve">
+    <value>لان المنتج غير متوفر‎ ‎‎"{0}"‎‎ لا يمكنك طلب</value>
+  </data>
+  <data name="Prompt_StockEmpty_Title" xml:space="preserve">
+    <value>نفاد المخزون</value>
+  </data>
+  <data name="Prompt_StockQuantityUnavailable_Message" xml:space="preserve">
+    <value> ‎المتوفر: ‎‎"{2}"‎‎  ‎‎"{1}"‎‎ من‎‎ ‎{0}‎ لا يمكنك طلب</value>
+  </data>
+  <data name="Prompt_StockQuantityUnavailable_Title" xml:space="preserve">
+    <value>كمية غير متاحة </value>
+  </data>
+  <data name="Prompt_YourName_Message" xml:space="preserve">
+    <value>أدخل اسمك</value>
+  </data>
+  <data name="Prompt_YourName_Title" xml:space="preserve">
+    <value>اسمك</value>
+  </data>
+  <data name="QuantityFormat" xml:space="preserve">
+    <value>الكمية: ‎{0}‎</value>
+  </data>
+  <data name="SaveMenuCategoriesPage_Section_Title" xml:space="preserve">
+    <value>حفظ الفئة</value>
+  </data>
+  <data name="SaveMenuItemPage_Title" xml:space="preserve">
+    <value>حفظ الصنف</value>
+  </data>
+  <data name="SettingsPage_Button_ChangeUserName" xml:space="preserve">
+    <value>تغيير اسم المستخدم</value>
+  </data>
+  <data name="SettingsPage_Title" xml:space="preserve">
     <value>الإعدادات</value>
+  </data>
+  <data name="SubTotal" xml:space="preserve">
+    <value>المجموع الفرعي </value>
+  </data>
+  <data name="Toast_NoOrderSelected" xml:space="preserve">
+    <value>لم يتم إختيار طلب للطباعة</value>
+  </data>
+  <data name="Toast_OrderCreated" xml:space="preserve">
+    <value>تم إنشاء الطلب بنجاح </value>
+  </data>
+  <data name="Toast_PrintSuccess" xml:space="preserve">
+    <value>تمت الطباعة بنجاح </value>
+  </data>
+  <data name="ToolTip_ClearCart" xml:space="preserve">
+    <value>مسح السلة</value>
+  </data>
+  <data name="ToolTip_RemoveItemFromCart" xml:space="preserve">
+    <value>إزالة هذا العنصر من السلة</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>الاجمالي </value>
   </data>
 </root>

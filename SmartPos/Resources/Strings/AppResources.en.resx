@@ -117,13 +117,463 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Button_PickImage" xml:space="preserve">
+    <value>Pick Image</value>
+  </data>
+  <data name="Button_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Category_Basics" xml:space="preserve">
+    <value>Basic Materials</value>
+  </data>
+  <data name="Category_CannedFrozen" xml:space="preserve">
+    <value>Canned &amp; Frozen</value>
+  </data>
+  <data name="Category_Cleaning" xml:space="preserve">
+    <value>Cleaning Supplies</value>
+  </data>
+  <data name="Category_Dairy" xml:space="preserve">
+    <value>Dairy Products</value>
+  </data>
+  <data name="Category_Drinks" xml:space="preserve">
+    <value>Beverages</value>
+  </data>
+  <data name="Category_Snacks" xml:space="preserve">
+    <value>Snacks</value>
+  </data>
   <data name="ChooseLanguage" xml:space="preserve">
     <value>Choose language</value>
   </data>
-  <data name="LanguagePickerTitle" xml:space="preserve">
-    <value>Select a language</value>
+  <data name="ClearCartButton" xml:space="preserve">
+    <value>X</value>
   </data>
-  <data name="Settings" xml:space="preserve">
+  <data name="CurrencySymbol" xml:space="preserve">
+    <value>DZD</value>
+  </data>
+  <data name="CurrentOrder" xml:space="preserve">
+    <value>Current Order</value>
+  </data>
+  <data name="HelloFormat" xml:space="preserve">
+    <value>Hello, {0}</value>
+  </data>
+  <data name="HelpPopup_CallUsAt" xml:space="preserve">
+    <value>Call us at</value>
+  </data>
+  <data name="HelpPopup_CopyToClipboard" xml:space="preserve">
+    <value>Copy to Clipboard</value>
+  </data>
+  <data name="HelpPopup_DesignedAndDevelopedBy" xml:space="preserve">
+    <value>Designed &amp; Developed by:</value>
+  </data>
+  <data name="HelpPopup_EmailUsAt" xml:space="preserve">
+    <value>Email us at</value>
+  </data>
+  <data name="HelpPopup_Title" xml:space="preserve">
+    <value>Need Help !</value>
+  </data>
+  <data name="HelpPopup_YouCanConnectWithUs" xml:space="preserve">
+    <value>You can connect with us</value>
+  </data>
+  <data name="Item_10_Desc" xml:space="preserve">
+    <value>2 kg bag</value>
+  </data>
+  <data name="Item_10_Name" xml:space="preserve">
+    <value>Semolina</value>
+  </data>
+  <data name="Item_11_Desc" xml:space="preserve">
+    <value>400 g can</value>
+  </data>
+  <data name="Item_11_Name" xml:space="preserve">
+    <value>Caneed Beans</value>
+  </data>
+  <data name="Item_12_Desc" xml:space="preserve">
+    <value>400 g can</value>
+  </data>
+  <data name="Item_12_Name" xml:space="preserve">
+    <value>Caneed Tomatoes</value>
+  </data>
+  <data name="Item_13_Desc" xml:space="preserve">
+    <value>125 g can</value>
+  </data>
+  <data name="Item_13_Name" xml:space="preserve">
+    <value>Caneed Sardines</value>
+  </data>
+  <data name="Item_14_Desc" xml:space="preserve">
+    <value>1  kg imported meat</value>
+  </data>
+  <data name="Item_14_Name" xml:space="preserve">
+    <value>Frozen Meat</value>
+  </data>
+  <data name="Item_15_Desc" xml:space="preserve">
+    <value>Whole 1.2 kg chicken</value>
+  </data>
+  <data name="Item_15_Name" xml:space="preserve">
+    <value>Frozen Chicken</value>
+  </data>
+  <data name="Item_16_Desc" xml:space="preserve">
+    <value>500 g tub </value>
+  </data>
+  <data name="Item_16_Name" xml:space="preserve">
+    <value>Plain Yogurt</value>
+  </data>
+  <data name="Item_17_Desc" xml:space="preserve">
+    <value>8-piece pack</value>
+  </data>
+  <data name="Item_17_Name" xml:space="preserve">
+    <value>Cheese Triangles</value>
+  </data>
+  <data name="Item_18_Desc" xml:space="preserve">
+    <value>250 g pack</value>
+  </data>
+  <data name="Item_18_Name" xml:space="preserve">
+    <value>Butter</value>
+  </data>
+  <data name="Item_19_Desc" xml:space="preserve">
+    <value>200 g </value>
+  </data>
+  <data name="Item_19_Name" xml:space="preserve">
+    <value>Roumy Cheese</value>
+  </data>
+  <data name="Item_1_Desc" xml:space="preserve">
+    <value>1.5 L bottle</value>
+  </data>
+  <data name="Item_1_Name" xml:space="preserve">
+    <value>Mineral Water</value>
+  </data>
+  <data name="Item_20_Desc" xml:space="preserve">
+    <value>500 g can</value>
+  </data>
+  <data name="Item_20_Name" xml:space="preserve">
+    <value>Powdered Milk</value>
+  </data>
+  <data name="Item_21_Desc" xml:space="preserve">
+    <value>300 g pack</value>
+  </data>
+  <data name="Item_21_Name" xml:space="preserve">
+    <value>Biscuits</value>
+  </data>
+  <data name="Item_22_Desc" xml:space="preserve">
+    <value>100 g bar</value>
+  </data>
+  <data name="Item_22_Name" xml:space="preserve">
+    <value>Chocolate</value>
+  </data>
+  <data name="Item_23_Desc" xml:space="preserve">
+    <value>250 g bag </value>
+  </data>
+  <data name="Item_23_Name" xml:space="preserve">
+    <value>Nuts</value>
+  </data>
+  <data name="Item_24_Desc" xml:space="preserve">
+    <value>150 g bag </value>
+  </data>
+  <data name="Item_24_Name" xml:space="preserve">
+    <value>Potato Chips</value>
+  </data>
+  <data name="Item_25_Desc" xml:space="preserve">
+    <value>10-piece pack</value>
+  </data>
+  <data name="Item_25_Name" xml:space="preserve">
+    <value>Gum</value>
+  </data>
+  <data name="Item_26_Desc" xml:space="preserve">
+    <value>1 L bottle</value>
+  </data>
+  <data name="Item_26_Name" xml:space="preserve">
+    <value>Liquid Soap</value>
+  </data>
+  <data name="Item_27_Desc" xml:space="preserve">
+    <value>3 kg bag</value>
+  </data>
+  <data name="Item_27_Name" xml:space="preserve">
+    <value>Washing Powder</value>
+  </data>
+  <data name="Item_28_Desc" xml:space="preserve">
+    <value>300 ml bottle</value>
+  </data>
+  <data name="Item_28_Name" xml:space="preserve">
+    <value>Air Freshener</value>
+  </data>
+  <data name="Item_29_Desc" xml:space="preserve">
+    <value>5-piece pack</value>
+  </data>
+  <data name="Item_29_Name" xml:space="preserve">
+    <value>Dish Sponge</value>
+  </data>
+  <data name="Item_2_Desc" xml:space="preserve">
+    <value>1 L bottle</value>
+  </data>
+  <data name="Item_2_Name" xml:space="preserve">
+    <value>Soda</value>
+  </data>
+  <data name="Item_30_Desc" xml:space="preserve">
+    <value>150-sheet pack</value>
+  </data>
+  <data name="Item_30_Name" xml:space="preserve">
+    <value>Tissues</value>
+  </data>
+  <data name="Item_3_Desc" xml:space="preserve">
+    <value>1 L full-cream milk</value>
+  </data>
+  <data name="Item_3_Name" xml:space="preserve">
+    <value>UHT Milk</value>
+  </data>
+  <data name="Item_4_Desc" xml:space="preserve">
+    <value>1 L bottle</value>
+  </data>
+  <data name="Item_4_Name" xml:space="preserve">
+    <value>Fresh Juice</value>
+  </data>
+  <data name="Item_5_Desc" xml:space="preserve">
+    <value>200 g pack</value>
+  </data>
+  <data name="Item_5_Name" xml:space="preserve">
+    <value>Coffee</value>
+  </data>
+  <data name="Item_6_Desc" xml:space="preserve">
+    <value>2 kg bag</value>
+  </data>
+  <data name="Item_6_Name" xml:space="preserve">
+    <value>Wheat Flour</value>
+  </data>
+  <data name="Item_7_Desc" xml:space="preserve">
+    <value>1 kg bag</value>
+  </data>
+  <data name="Item_7_Name" xml:space="preserve">
+    <value>Rice</value>
+  </data>
+  <data name="Item_8_Desc" xml:space="preserve">
+    <value>1 kg bag</value>
+  </data>
+  <data name="Item_8_Name" xml:space="preserve">
+    <value>White Sugar</value>
+  </data>
+  <data name="Item_9_Desc" xml:space="preserve">
+    <value>1 L bottle</value>
+  </data>
+  <data name="Item_9_Name" xml:space="preserve">
+    <value>Vegetable Oil</value>
+  </data>
+  <data name="Label_Categories" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="Label_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Label_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Label_ImageIcon" xml:space="preserve">
+    <value>Image/Icon</value>
+  </data>
+  <data name="Label_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Label_Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="Label_Quantity_Field" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="Label_Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="ManageMenuCategoriesPage_Button_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="ManageMenuCategoriesPage_SwipeLeftDelete" xml:space="preserve">
+    <value>Swipe left to delete ←</value>
+  </data>
+  <data name="ManageMenuCategoriesPage_Title" xml:space="preserve">
+    <value>Manage Menu Categories</value>
+  </data>
+  <data name="ManageMenuItemPage_Title" xml:space="preserve">
+    <value>Manage Menu Items</value>
+  </data>
+  <data name="NotificationsPage_SwipeItem_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="NotificationsPage_Title" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="OrdersPage_Button_Printing" xml:space="preserve">
+    <value>Printing</value>
+  </data>
+  <data name="OrdersPage_Empty_NoOrderSelected" xml:space="preserve">
+    <value>No Order Selected</value>
+  </data>
+  <data name="OrdersPage_Empty_SelectOrder" xml:space="preserve">
+    <value>Select an Order from the left section to view it's items</value>
+  </data>
+  <data name="OrdersPage_Header_Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="OrdersPage_Header_NoOfItems" xml:space="preserve">
+    <value>No.of Items</value>
+  </data>
+  <data name="OrdersPage_Header_OrderDate" xml:space="preserve">
+    <value>Order Date</value>
+  </data>
+  <data name="OrdersPage_Header_OrderId" xml:space="preserve">
+    <value>Order Id</value>
+  </data>
+  <data name="OrdersPage_Header_PayMode" xml:space="preserve">
+    <value>Pay Mode</value>
+  </data>
+  <data name="OrdersPage_ItemCountFormat" xml:space="preserve">
+    <value>{0} Item(s)</value>
+  </data>
+  <data name="OrdersPage_MultiplicationSign" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="OrdersPage_SelectedItems_Title" xml:space="preserve">
+    <value>Selected Order Items</value>
+  </data>
+  <data name="OrdersPage_Title" xml:space="preserve">
+    <value>Orders</value>
+  </data>
+  <data name="OrdersPage_ToolTip_ViewOrderItems" xml:space="preserve">
+    <value>View Order Items</value>
+  </data>
+  <data name="PaidCash" xml:space="preserve">
+    <value>Paid Cash</value>
+  </data>
+  <data name="PaidOnline" xml:space="preserve">
+    <value>Paid Online</value>
+  </data>
+  <data name="Placeholder_EnterDescription" xml:space="preserve">
+    <value>Enter Description</value>
+  </data>
+  <data name="Placeholder_EnterName" xml:space="preserve">
+    <value>Enter Name</value>
+  </data>
+  <data name="Placeholder_EnterPrice" xml:space="preserve">
+    <value>Enter Price</value>
+  </data>
+  <data name="Placeholder_EnterQuantity" xml:space="preserve">
+    <value>Enter Quantity</value>
+  </data>
+  <data name="Promotion" xml:space="preserve">
+    <value>Promotion</value>
+  </data>
+  <data name="Prompt_ClearCart_Accept" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Prompt_ClearCart_Cancel" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Prompt_ClearCart_Message" xml:space="preserve">
+    <value>Do you really want to clear the cart</value>
+  </data>
+  <data name="Prompt_ClearCart_Title" xml:space="preserve">
+    <value>Clear Cart?</value>
+  </data>
+  <data name="Prompt_InvalidPercentage_NotNumber_Message" xml:space="preserve">
+    <value>Entered Discount Percentage Is Invalid</value>
+  </data>
+  <data name="Prompt_InvalidPercentage_NotNumber_Title" xml:space="preserve">
+    <value>Invalid Value</value>
+  </data>
+  <data name="Prompt_InvalidPercentage_TooHigh_Message" xml:space="preserve">
+    <value>Discount Percentage Cannot be more than 100</value>
+  </data>
+  <data name="Prompt_InvalidPercentage_TooHigh_Title" xml:space="preserve">
+    <value>Invalid Value</value>
+  </data>
+  <data name="Prompt_LowStockAlert_Accept" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="Prompt_LowStockAlert_Title" xml:space="preserve">
+    <value>Low Stock Warning</value>
+  </data>
+  <data name="Prompt_Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="Prompt_PlaceOrderError_Accept" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="Prompt_PlaceOrderError_Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Prompt_PrintError_Connection_Message" xml:space="preserve">
+    <value>Failed to connect to printer via Bluettoth.</value>
+  </data>
+  <data name="Prompt_PrintError_Connection_Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Prompt_PrintError_Exception_Accept" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="Prompt_PrintError_Exception_Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Prompt_PrintError_PrintFailed_Message" xml:space="preserve">
+    <value>An error occurred during printing.</value>
+  </data>
+  <data name="Prompt_PrintError_PrintFailed_Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Prompt_PromoMessage" xml:space="preserve">
+    <value>Enter The Applicable Discount Percentage</value>
+  </data>
+  <data name="Prompt_PromoTitle" xml:space="preserve">
+    <value>Prom Percentage</value>
+  </data>
+  <data name="Prompt_StockEmpty_Message" xml:space="preserve">
+    <value>You cannot order "{0}" because it is not available.</value>
+  </data>
+  <data name="Prompt_StockEmpty_Title" xml:space="preserve">
+    <value>Out of Stock</value>
+  </data>
+  <data name="Prompt_StockQuantityUnavailable_Message" xml:space="preserve">
+    <value>you cannot order {0} of "{1}", available: {2}.</value>
+  </data>
+  <data name="Prompt_StockQuantityUnavailable_Title" xml:space="preserve">
+    <value>Quantity Unavailable </value>
+  </data>
+  <data name="Prompt_YourName_Message" xml:space="preserve">
+    <value>Enter your name</value>
+  </data>
+  <data name="Prompt_YourName_Title" xml:space="preserve">
+    <value>Your name</value>
+  </data>
+  <data name="QuantityFormat" xml:space="preserve">
+    <value>Quantity: {0}</value>
+  </data>
+  <data name="SaveMenuCategoriesPage_Section_Title" xml:space="preserve">
+    <value>Save Menu Category</value>
+  </data>
+  <data name="SaveMenuItemPage_Title" xml:space="preserve">
+    <value>Save Menu Item</value>
+  </data>
+  <data name="SettingsPage_Button_ChangeUserName" xml:space="preserve">
+    <value>Change User Name</value>
+  </data>
+  <data name="SettingsPage_Title" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="SubTotal" xml:space="preserve">
+    <value>SubTotal</value>
+  </data>
+  <data name="Toast_NoOrderSelected" xml:space="preserve">
+    <value>No order selected for printing.</value>
+  </data>
+  <data name="Toast_OrderCreated" xml:space="preserve">
+    <value>Order creation successfully</value>
+  </data>
+  <data name="Toast_PrintSuccess" xml:space="preserve">
+    <value>Printing succeeded !</value>
+  </data>
+  <data name="ToolTip_ClearCart" xml:space="preserve">
+    <value>Clear the Cart</value>
+  </data>
+  <data name="ToolTip_RemoveItemFromCart" xml:space="preserve">
+    <value>Remove This Item From Cart</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
   </data>
 </root>
