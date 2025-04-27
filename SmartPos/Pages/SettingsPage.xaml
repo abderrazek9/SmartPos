@@ -3,12 +3,28 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:vm="clr-namespace:SmartPos.ViewModels"
+    xmlns:resx="clr-namespace:SmartPos.Resources.Strings;assembly=SmartPos"
     x:Class="SmartPos.Pages.SettingsPage"
     x:DataType="vm:SettingsViewModel"
-    Title="Settings">
+    Title="{Binding TitleText}">
     <VerticalStackLayout Padding="20" Spacing="15">
         <Button
-      Text="Change User Name"
+      Text="{Binding ChangeUserNameText}"
+            FontAttributes="Bold"
       Command="{Binding PromptForUserNameCommand}" />
+
+
+        <!-- Label للغة -->
+        <Label
+    Text="{Binding LanguageLabelText}"
+    FontAttributes="Bold" />
+
+        <!-- Picker لاختيار اللغة -->
+        <Picker
+    Title="{Binding LanguageLabelText}"
+    ItemsSource="{Binding AvailableCultures}"
+    ItemDisplayBinding="{Binding NativeName}"
+    SelectedItem="{Binding SelectedCulture}" />
+
     </VerticalStackLayout>
 </ContentPage>

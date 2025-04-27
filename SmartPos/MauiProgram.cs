@@ -1,7 +1,14 @@
-﻿using CommunityToolkit.Maui;
+﻿using System;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls.Hosting;
+using Microsoft.Maui.Hosting;
+using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using SmartPos.Data;
 using SmartPos.Models;
+using System.Globalization;
+using SmartPos.Resources.Strings;
+using Microsoft.Maui.Storage;
 using SmartPos.Pages;
 using SmartPos.Services;
 using SmartPos.ViewModels;
@@ -27,6 +34,17 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+
+
+		var savedCulture = Preferences.Default.Get("culture", CultureInfo.CurrentCulture.Name);
+
+		var ci = new CultureInfo(savedCulture);
+
+		CultureInfo.DefaultThreadCurrentCulture = ci;
+
+		CultureInfo.DefaultThreadCurrentUICulture = ci;
+
+		AppResources.Culture = ci;
 
 
 		builder.Services.AddSingleton<DataBaseService>()

@@ -144,7 +144,7 @@
   <data name="Category_Snacks" xml:space="preserve">
     <value>الوجبات الخفيفة</value>
   </data>
-  <data name="ChooseLanguage" xml:space="preserve">
+  <data name="SettingsPage_Label_Language" xml:space="preserve">
     <value>اختر اللغة</value>
   </data>
   <data name="ClearCartButton" xml:space="preserve">
@@ -575,5 +575,11 @@
   </data>
   <data name="Total" xml:space="preserve">
     <value>الاجمالي </value>
+  </data>
+  <data name="SettingsPage_Language_English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="SettingsPage_Language_Arabic" xml:space="preserve">
+    <value>العربية </value>
   </data>
 </root>

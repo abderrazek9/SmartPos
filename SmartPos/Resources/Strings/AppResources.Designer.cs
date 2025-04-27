@@ -142,15 +142,6 @@ namespace SmartPos.Resources.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose language.
-        /// </summary>
-        internal static string ChooseLanguage {
-            get {
-                return ResourceManager.GetString("ChooseLanguage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to X.
         /// </summary>
         internal static string ClearCartButton {
@@ -1362,6 +1353,33 @@ namespace SmartPos.Resources.Strings {
         internal static string SettingsPage_Button_ChangeUserName {
             get {
                 return ResourceManager.GetString("SettingsPage_Button_ChangeUserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        internal static string SettingsPage_Label_Language {
+            get {
+                return ResourceManager.GetString("SettingsPage_Label_Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Arabic.
+        /// </summary>
+        internal static string SettingsPage_Language_Arabic {
+            get {
+                return ResourceManager.GetString("SettingsPage_Language_Arabic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        internal static string SettingsPage_Language_English {
+            get {
+                return ResourceManager.GetString("SettingsPage_Language_English", resourceCulture);
             }
         }
         

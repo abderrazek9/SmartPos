@@ -153,9 +153,9 @@
     <value>Snacks</value>
     <comment>Label for "Snacks" category</comment>
   </data>
-  <data name="ChooseLanguage" xml:space="preserve">
-    <value>Choose language</value>
-    <comment>Button for the language picker</comment>
+  <data name="SettingsPage_Label_Language" xml:space="preserve">
+    <value>Language</value>
+    <comment>Label for the language </comment>
   </data>
   <data name="ClearCartButton" xml:space="preserve">
     <value>X</value>
@@ -667,5 +667,11 @@
   <data name="Total" xml:space="preserve">
     <value>Total</value>
     <comment>Label for the total amount</comment>
+  </data>
+  <data name="SettingsPage_Language_English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="SettingsPage_Language_Arabic" xml:space="preserve">
+    <value>Arabic</value>
   </data>
 </root>
