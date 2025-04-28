@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using SmartPos.Data;
+using SmartPos.Resources.Strings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,11 @@ namespace SmartPos.Models
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string NameKey { get; set; }
 
         public string Icon { get; set; }
+
+        public string DisplayName => AppResources.ResourceManager.GetString(NameKey, AppResources.Culture) ?? NameKey;
 
         [ObservableProperty]
         private bool _isSelected;
@@ -23,7 +26,7 @@ namespace SmartPos.Models
             new()
             {
                 Id = entity.Id,
-                Name = entity.Name,
+                NameKey = entity.NameKey,
                 Icon = entity.Icon,
 
             };

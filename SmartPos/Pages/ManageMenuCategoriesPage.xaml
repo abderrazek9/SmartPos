@@ -4,6 +4,7 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:vm="clr-namespace:SmartPos.ViewModels"
   xmlns:models="clr-namespace:SmartPos.Models"
+    xmlns:resx="clr-namespace:SmartPos.Resources.Strings;assembly=SmartPos"
   xmlns:controls="clr-namespace:SmartPos.Controls"
   x:Class="SmartPos.Pages.ManageMenuCategoriesPage"
   x:Name="ThisPage"
@@ -24,10 +25,10 @@
         Grid.Column="0"
         FontAttributes="Bold"
         FontSize="19"
-        Text="Manage Menu Categories" />
+        Text="{x:Static resx:AppResources.ManageMenuCategoriesPage_Title}" />
 
                 <Label Grid.Column="1"
-  Text="اسحب لليسار للحذف  ←"
+  Text="{x:Static resx:AppResources.ManageMenuCategoriesPage_SwipeLeftDelete}"
   FontSize="10"
   TextColor="Gray"
   HorizontalOptions="Center"
@@ -68,7 +69,7 @@
                             <SwipeView.RightItems>
                                 <SwipeItems Mode="Reveal">
                                     <SwipeItem
-                    Text="Delete"
+                    Text="{x:Static resx:AppResources.ManageMenuCategoriesPage_Button_Delete}"
                     IconImageSource="delete.png"
                     BackgroundColor="Tomato"
                     Command="{Binding Source={x:Reference ThisPage}, Path=BindingContext.DeleteCategoryCommand}"
@@ -89,7 +90,7 @@
                   VerticalOptions="Center" />
                                 <Label
                   Grid.Column="1"
-                  Text="{Binding Name}"
+                  Text="{Binding DisplayName}"
                   VerticalOptions="Center"
                   Margin="10,0,0,0" />
                                 <!-- عمود 2 و3 يبقيان فارغين للحفاظ على التخطيط -->
@@ -109,7 +110,7 @@
       RowDefinitions="Auto, *"
       Padding="8,10">
             <VerticalStackLayout Grid.Row="0" Spacing="0">
-                <Label Text="Save Menu Category" FontSize="15" FontAttributes="Bold" />
+                <Label Text="{x:Static resx:AppResources.SaveMenuCategoriesPage_Section_Title}" FontSize="15" FontAttributes="Bold" />
                 <controls:CurrentDateTimeControl/>
             </VerticalStackLayout>
             <Grid Grid.Row="1" Padding="8,1" BackgroundColor="{StaticResource LightWheat}">

@@ -21,7 +21,10 @@ namespace SmartPos.ViewModels
         public ManageMenuItemsViewModel(DataBaseService dataBaseService)
         {
             _dataBaseService = dataBaseService;
-
+            WeakReferenceMessenger.Default.Register<CultureChangedMessage>(this, async (r, msg) =>
+            {
+                await InitializeAsync();
+            });
             WeakReferenceMessenger.Default.Register<CategoryChangedMessage>(this, async (r, msg) =>
             {
                 await InitializeAsync();
@@ -81,7 +84,7 @@ namespace SmartPos.ViewModels
                 {
                     Id = category.Id,
                     Icon = category.Icon,
-                    Name = category.Name,
+                    NameKey = category.NameKey,
                     IsSelected = false
                 };
                 MenuItem.Categories.Add(categoryOfItem);
@@ -135,7 +138,7 @@ namespace SmartPos.ViewModels
                 {
                     Icon = category.Icon,
                     Id = category.Id,
-                    Name = category.Name
+                    NameKey = category.NameKey
                 };
                 if (itemCategories.Any(c => c.Id == category.Id))
                     categoryOfItem.IsSelected = true;

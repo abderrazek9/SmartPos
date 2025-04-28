@@ -11,12 +11,12 @@ public static class SeedData
     {
         return new List<MenuCategory>
         {
-            new MenuCategory { Id = 1, Name = "المواد الأساسية", Icon = "basics.png" },
-            new MenuCategory { Id = 2, Name = "المشروبات", Icon = "drinks.png" },
-            new MenuCategory { Id = 3, Name = "المعلبات والمجمدات", Icon = "canned_frozen.png" },
-            new MenuCategory { Id = 4, Name = "منتجات الألبان", Icon = "dairy.png" },
-            new MenuCategory { Id = 5, Name = "الوجبات الخفيفة", Icon = "snacks.png" },
-            new MenuCategory { Id = 6, Name = "مواد التنظيف", Icon = "cleaning.png" }
+            new MenuCategory { Id = 1, NameKey = "Category_Basics", Icon = "basics.png" },
+            new MenuCategory { Id = 2, NameKey = "Category_Drinks", Icon = "drinks.png" },
+            new MenuCategory { Id = 3, NameKey = "Category_CannedFrozen", Icon = "canned_frozen.png" },
+            new MenuCategory { Id = 4, NameKey = "Category_Dairy", Icon = "dairy.png" },
+            new MenuCategory { Id = 5, NameKey = "Category_Snacks", Icon = "snacks.png" },
+            new MenuCategory { Id = 6, NameKey = "Category_Cleaning", Icon = "cleaning.png" }
         };
     }
 

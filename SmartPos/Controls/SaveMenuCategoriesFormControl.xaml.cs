@@ -125,7 +125,7 @@ public partial class SaveMenuCategoriesFormControl : ContentView
     {
         // validation
 
-        if (string.IsNullOrWhiteSpace(Cat.Name))
+        if (string.IsNullOrWhiteSpace(Cat.NameKey))
         {
             await ErrorAlertAsync("Category Name are mendatory");
             return;

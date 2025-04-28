@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SmartPos.Controls.MenuItemsListControl"
              xmlns:vm="clr-namespace:SmartPos.ViewModels"
+                                           xmlns:resx="clr-namespace:SmartPos.Resources.Strings;assembly=SmartPos"
              xmlns:data="clr-namespace:SmartPos.Data"
              xmlns:models="clr-namespace:SmartPos.Models"
              xmlns:controls="clr-namespace:SmartPos.Controls"

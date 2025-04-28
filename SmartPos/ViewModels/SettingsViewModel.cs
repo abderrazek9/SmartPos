@@ -58,6 +58,8 @@ namespace SmartPos.ViewModels
             OnPropertyChanged(nameof(ChangeUserNameText));
             OnPropertyChanged(nameof(LanguageLabelText));
 
+
+            WeakReferenceMessenger.Default.Send(new CultureChangedMessage(value));
             //// (اختياري) أعد تحميل الصفحة أو أعد تشغيل التطبيق
             // Shell.Current.GoToAsync("//SettingsPage", true);
         }

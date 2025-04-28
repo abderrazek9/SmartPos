@@ -2,6 +2,7 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SmartPos.Controls.SaveMenuCategoriesFormControl"
+                 xmlns:resx="clr-namespace:SmartPos.Resources.Strings;assembly=SmartPos"
              xmlns:models="clr-namespace:SmartPos.Models"
              xmlns:controls="clr-namespace:SmartPos.Controls"
              x:Name="this">
@@ -27,12 +28,12 @@
 
         <VerticalStackLayout Spacing="2">
             <VerticalStackLayout Spacing="2" >
-                <Label Text="Name" Style="{StaticResource lbl}"/>
-                <Entry Text="{Binding Cat.Name}" Placeholder="Enter Name" VerticalOptions="Center" MinimumHeightRequest="20" HeightRequest="35" Style="{StaticResource txt}"/>
+                <Label Text="{x:Static resx:AppResources.Label_Name}" Style="{StaticResource lbl}"/>
+                <Entry Text="{Binding Cat.NameKey,Mode=TwoWay}" Placeholder="{x:Static resx:AppResources.Placeholder_EnterName}" VerticalOptions="Center" MinimumHeightRequest="20" HeightRequest="35" Style="{StaticResource txt}"/>
             </VerticalStackLayout>
 
             <VerticalStackLayout Spacing="1"  >
-                <Label Text="Image/Icon" Style="{StaticResource lbl}"/>
+                <Label Text="{x:Static resx:AppResources.Label_ImageIcon}" Style="{StaticResource lbl}"/>
                 <Border BackgroundColor="Wheat"  HeightRequest="50"
                         WidthRequest="50"
                         HorizontalOptions="Center"
@@ -44,12 +45,12 @@
                             WidthRequest="22"
                             Aspect="AspectFit"/>
                 </Border>
-                <Button Text="Pick Image" Clicked="PickImageButton_Clicked"  FontSize="10" Margin="0,5,0,0" WidthRequest="80" MinimumHeightRequest="20" Padding="5,0" HeightRequest="20" HorizontalOptions="Center" BackgroundColor="DarkOliveGreen"/>
+                <Button Text="{x:Static resx:AppResources.Button_PickImage}" Clicked="PickImageButton_Clicked"  FontSize="10" Margin="0,5,0,0" WidthRequest="80" MinimumHeightRequest="20" Padding="5,0" HeightRequest="20" HorizontalOptions="Center" BackgroundColor="DarkOliveGreen"/>
             </VerticalStackLayout>
 
             <Grid ColumnDefinitions="*,*">
                 <Button HorizontalOptions="Start" Grid.Column="0" FontSize="10" MinimumHeightRequest="20" HeightRequest="25" Padding="5,0"
-                        Text="Cancel" 
+                        Text="{x:Static resx:AppResources.Button_Cancel}" 
                         Command="{Binding CancelCommand}" Margin="0,5,0,0"
                         BackgroundColor="red"/>
 
@@ -58,7 +59,7 @@
                         MinimumHeightRequest="20"
                         HeightRequest="25"
                         Padding="5,0"
-                        Text="Save"
+                        Text="{x:Static resx:AppResources.Button_Save}"
                         Command="{Binding SaveMenuCategoryCommand}"
                         CommandParameter="{Binding Cat}"
                         Margin="0,5,0,0"

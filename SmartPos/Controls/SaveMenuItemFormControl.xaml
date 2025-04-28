@@ -2,6 +2,7 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SmartPos.Controls.SaveMenuItemFormControl"
+                                           xmlns:resx="clr-namespace:SmartPos.Resources.Strings;assembly=SmartPos"
              xmlns:models="clr-namespace:SmartPos.Models"
              xmlns:controls="clr-namespace:SmartPos.Controls"
              x:Name="this">
@@ -26,12 +27,12 @@
         <VerticalStackLayout Spacing="2">
             
             <VerticalStackLayout Spacing="2" >
-                <Label Text="Name" Style="{StaticResource lbl}"/>
-                <Entry Text="{Binding Item.Name}" Placeholder="Enter Name" VerticalOptions="Center" MinimumHeightRequest="20" HeightRequest="35" Style="{StaticResource txt}"/>
+                <Label Text="{x:Static resx:AppResources.Label_Name}" Style="{StaticResource lbl}"/>
+                <Entry Text="{Binding Item.Name}" Placeholder="{x:Static resx:AppResources.Placeholder_EnterName}" VerticalOptions="Center" MinimumHeightRequest="20" HeightRequest="35" Style="{StaticResource txt}"/>
             </VerticalStackLayout>
 
             <VerticalStackLayout Spacing="1"  >
-                <Label Text="Image/Icon" Style="{StaticResource lbl}"/>
+                <Label Text="{x:Static resx:AppResources.Label_ImageIcon}" Style="{StaticResource lbl}"/>
                 <Border BackgroundColor="Wheat"  HeightRequest="50"
                         WidthRequest="50"
                         HorizontalOptions="Center"
@@ -43,18 +44,18 @@
                             WidthRequest="22"
                             Aspect="AspectFit"/>
                 </Border>
-                <Button Text="Pick Image" Clicked="PickImageButton_Clicked"  FontSize="10" Margin="0,5,0,0" WidthRequest="80" MinimumHeightRequest="20" Padding="5,0" HeightRequest="20" HorizontalOptions="Center" BackgroundColor="DarkOliveGreen"/>
+                <Button Text="{x:Static resx:AppResources.Button_PickImage}" Clicked="PickImageButton_Clicked"  FontSize="10" Margin="0,5,0,0" WidthRequest="80" MinimumHeightRequest="20" Padding="5,0" HeightRequest="20" HorizontalOptions="Center" BackgroundColor="DarkOliveGreen"/>
             </VerticalStackLayout>
 
             <VerticalStackLayout Spacing="1" >
-                <Label Text="Price" Style="{StaticResource lbl}"/>
-                <Entry Text="{Binding Item.Price}" Placeholder="Enter Price" MinimumHeightRequest="20" HeightRequest="35" Style="{StaticResource txt}" />
+                <Label Text="{x:Static resx:AppResources.Label_Price}" Style="{StaticResource lbl}"/>
+                <Entry Text="{Binding Item.Price}" Placeholder="{x:Static resx:AppResources.Placeholder_EnterPrice}" MinimumHeightRequest="20" HeightRequest="35" Style="{StaticResource txt}" />
             </VerticalStackLayout>
 
             <VerticalStackLayout Spacing="1">
-                <Label Text="الكمية" Style="{StaticResource lbl}" />
+                <Label Text="{x:Static resx:AppResources.Label_Quantity_Field}" Style="{StaticResource lbl}" />
                 <Entry Text="{Binding Item.StockQuantity}"
-         Placeholder="ادخل الكمية "
+         Placeholder="{x:Static resx:AppResources.Placeholder_EnterQuantity}"
          Keyboard="Numeric"
          MinimumHeightRequest="20"
          HeightRequest="35"
@@ -72,12 +73,12 @@
             </VerticalStackLayout>-->
 
             <VerticalStackLayout Spacing="1" >
-                <Label Text="Description" Style="{StaticResource lbl}"/>
-                <Editor Text="{Binding Item.Description}" Placeholder="Enter description" Style="{StaticResource txt}" HeightRequest="60" MinimumHeightRequest="60"/>
+                <Label Text="{x:Static resx:AppResources.Label_Description}" Style="{StaticResource lbl}"/>
+                <Editor Text="{Binding Item.Description}" Placeholder="{x:Static resx:AppResources.Placeholder_EnterDescription}" Style="{StaticResource txt}" HeightRequest="60" MinimumHeightRequest="60"/>
             </VerticalStackLayout>
 
             <VerticalStackLayout Spacing="1" >
-                <Label Text="Categories" Style="{StaticResource lbl}"/>
+                <Label Text="{x:Static resx:AppResources.Label_Categories}" Style="{StaticResource lbl}"/>
                 <!--Categories Collection View/-->
                 <CollectionView ItemsSource="{Binding Item.Categories}">
                     <CollectionView.ItemsLayout>
@@ -87,7 +88,17 @@
                         <DataTemplate x:DataType="models:MenuCategoryModel">
                             <Border BackgroundColor="Wheat"
                                     StrokeShape="RoundRectangle 10" HeightRequest="30" >
-                                <Label Text="{Binding Name}" FontSize="9" HorizontalOptions="Center" VerticalOptions="Center" Padding="1,0" HeightRequest="18">
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                <Label Text="{Binding NameKey}" FontSize="9" HorizontalOptions="Center" VerticalOptions="Center" Padding="1,0" HeightRequest="18">
                                     <Label.Triggers>
                                         <DataTrigger TargetType="Label" Binding="{Binding IsSelected}" Value="True">
                                             <Setter Property="TextColor" Value="White"/>
@@ -110,7 +121,7 @@
             </VerticalStackLayout>
             <Grid ColumnDefinitions="*,*">
                 <Button HorizontalOptions="Start" Grid.Column="0" FontSize="10" MinimumHeightRequest="20" HeightRequest="25" Padding="5,0"
-                        Text="Cancel" 
+                        Text="{x:Static resx:AppResources.Button_Cancel}" 
                         Command="{Binding CancelCommand}" Margin="0,5,0,0"
                         BackgroundColor="red"/>
 
@@ -119,7 +130,7 @@
                         MinimumHeightRequest="20"
                         HeightRequest="25"
                         Padding="5,0"
-                        Text="Save"
+                        Text="{x:Static resx:AppResources.Button_Save}"
                         Command="{Binding SaveMenuItemCommand}"
                         CommandParameter="{Binding .}"
                         Margin="0,5,0,0"

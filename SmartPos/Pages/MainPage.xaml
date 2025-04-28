@@ -4,6 +4,7 @@
              xmlns:vm="clr-namespace:SmartPos.ViewModels"
              xmlns:data="clr-namespace:SmartPos.Data"
              xmlns:models="clr-namespace:SmartPos.Models"
+                              xmlns:resx="clr-namespace:SmartPos.Resources.Strings;assembly=SmartPos"
              xmlns:controls="clr-namespace:SmartPos.Controls"
              Shell.NavBarIsVisible="False"
              x:DataType="vm:HomeViewModel"
@@ -208,8 +209,8 @@
             
             <VerticalStackLayout Grid.Row="0" 
                                  Spacing="1">
-                
-                <Label Grid.Column="0" Text="Current Order"
+
+                <Label Grid.Column="0" Text="{x:Static resx:AppResources.CurrentOrder}"
                        FontSize="16" 
                        FontAttributes="Bold"
                        VerticalOptions="Center"/>
@@ -329,7 +330,7 @@
                                              MinimumHeightRequest="15"
                                              MinimumWidthRequest="15"
                                              BackgroundColor="Red"
-                                             ToolTipProperties.Text="Remove This Item From Cart">
+                                             ToolTipProperties.Text="{x:Static resx:AppResources.ToolTip_RemoveItemFromCart}">
                                     <ImageButton.Shadow>
                                         <Shadow Brush="Red"/>
                                     </ImageButton.Shadow>
@@ -354,7 +355,7 @@
                         <Label Grid.Row="0"
                                Grid.Column="0"
                                Style="{StaticResource lbl}"
-                               Text="SubTotal"
+                               Text="{x:Static resx:AppResources.SubTotal}"
                                FontAttributes="Bold"/>
                         <Label Grid.Row="0"
                                FontSize="13"
@@ -365,7 +366,7 @@
                         <HorizontalStackLayout Grid.Row="1"
                                                Grid.Column="0"
                                                Spacing="1">
-                            <Label Text="Promotion" VerticalOptions="Center" FontSize="12"/>
+                            <Label Text="{x:Static resx:AppResources.Promotion}" VerticalOptions="Center" FontSize="12"/>
                             <Label Text="{Binding Promopercentage , StringFormat='{0}%'}" Padding="5,0" FontSize="13" BackgroundColor="Wheat" VerticalOptions="Center">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding PromoPercentageClickaCommand}"/>
@@ -387,7 +388,7 @@
                         <Label Grid.Row="3"
                                Grid.Column="0"
                                Style="{StaticResource lbl}"
-                               Text="Total"
+                               Text="{x:Static resx:AppResources.Total}"
                                FontAttributes="Bold"/>
                         <Label Grid.Row="3"
                                Grid.Column="1"
@@ -422,7 +423,7 @@
 
                             <Button Grid.Column="2"
                                     Padding="5,0"
-                                    Text="Paid Cash"
+                                    Text="{x:Static resx:AppResources.PaidCash}"
                                     Command="{Binding PlaceOrderCommand}"
                                     FontSize="10"
                                     BackgroundColor="DarkOliveGreen"
@@ -436,7 +437,7 @@
 
                             <Button Grid.Column="3"
                                     Padding="5,0"
-                                    Text="Paid Online"
+                                    Text="{x:Static resx:AppResources.PaidOnline}"
                                     Command="{Binding PlaceOrderCommand}"
                                     FontSize="10"
                                     BackgroundColor="DarkOliveGreen"

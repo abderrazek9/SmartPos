@@ -270,7 +270,7 @@ namespace SmartPos.Data
                 // إنشاء جديد
                 var entity = new MenuCategory
                 {
-                    Name = model.Name,
+                    NameKey = model.NameKey,
                     Icon = model.Icon
                 };
                 if (await _connection.InsertAsync(entity) > 0)
@@ -284,7 +284,7 @@ namespace SmartPos.Data
             {
                 // تحديث موجود
                 var entity = await _connection.FindAsync<MenuCategory>(model.Id);
-                entity.Name = model.Name;
+                entity.NameKey = model.NameKey;
                 entity.Icon = model.Icon;
                 if (await _connection.UpdateAsync(entity) > 0)
                     return null;

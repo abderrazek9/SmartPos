@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:SmartPos.Controls"
              xmlns:vm="clr-namespace:SmartPos.ViewModels"
+                              xmlns:resx="clr-namespace:SmartPos.Resources.Strings;assembly=SmartPos"
              xmlns:data="clr-namespace:SmartPos.Data"
              xmlns:models="clr-namespace:SmartPos.Models"
              x:Class="SmartPos.Pages.ManageMenuItemPage"
@@ -15,7 +16,7 @@
               Grid.Column="0"
               RowDefinitions="Auto,Auto,*" RowSpacing="10">
 
-            <Label Grid.Row="0" FontAttributes="Bold" FontSize="19" Text="Manage Menu Items"/>
+            <Label Grid.Row="0" FontAttributes="Bold" FontSize="19" Text="{x:Static resx:AppResources.ManageMenuItemPage_Title}"/>
 
             <!--controls:CategoriesListControl Grid.Row="1" Categories="{Binding Categories}" 
                                             
@@ -57,7 +58,7 @@
             <VerticalStackLayout Grid.Row="0" 
                                  Spacing="0">
 
-                <Label Text="Save Menu Item "
+                <Label Text="{x:Static resx:AppResources.SaveMenuItemPage_Title}"
                        FontSize="15" 
                        FontAttributes="Bold"/>
 

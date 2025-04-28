@@ -17,7 +17,14 @@ namespace SmartPos.ViewModels
     public partial class ManageMenuCategoriesViewModel : ObservableObject
     {
         private readonly DataBaseService _db;
-        public ManageMenuCategoriesViewModel(DataBaseService db) => _db = db;
+        public ManageMenuCategoriesViewModel(DataBaseService db)
+        { 
+            _db = db;
+            WeakReferenceMessenger.Default.Register<CultureChangedMessage>(this, async (r, msg) =>
+            {
+                await InitializeAsync();
+            });
+        }
 
         [ObservableProperty]
         private MenuCategoryModel[] _categories = [];
@@ -44,7 +51,7 @@ namespace SmartPos.ViewModels
             SelectedCategory = new MenuCategoryModel
             {
                 Id = model.Id,
-                Name = model.Name,
+                NameKey = model.NameKey,
                 Icon = model.Icon
             };
         }

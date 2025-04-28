@@ -1,3 +1,5 @@
+using SmartPos.Resources.Strings;
+
 namespace SmartPos.Controls;
 
 public partial class CurrentDateTimeControl : ContentView , IDisposable
@@ -9,6 +11,10 @@ public partial class CurrentDateTimeControl : ContentView , IDisposable
 
 		dayTimeLabel.Text = DateTime.Now.ToString("dddd, hh:mm:ss tt ");
 		dateLabel.Text = DateTime.Now.ToString("MMM dd,yyyy");
+
+		var ci = AppResources.Culture;
+		dayTimeLabel.Text = DateTime.Now.ToString("T", ci);
+		dateLabel.Text = DateTime.Now.ToString("d", ci);
 
 		_timer = new PeriodicTimer(TimeSpan.FromSeconds(1));
 
@@ -22,6 +28,7 @@ public partial class CurrentDateTimeControl : ContentView , IDisposable
 		{
             dayTimeLabel.Text = DateTime.Now.ToString("dddd, hh:mm:ss tt ");
             dateLabel.Text = DateTime.Now.ToString("MMM dd,yyyy");
+			var ci = AppResources.Culture;
         }
 	}
 
