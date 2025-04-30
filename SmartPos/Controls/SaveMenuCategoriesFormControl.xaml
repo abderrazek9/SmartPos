@@ -29,7 +29,7 @@
         <VerticalStackLayout Spacing="2">
             <VerticalStackLayout Spacing="2" >
                 <Label Text="{x:Static resx:AppResources.Label_Name}" Style="{StaticResource lbl}"/>
-                <Entry Text="{Binding Cat.NameKey,Mode=TwoWay}" Placeholder="{x:Static resx:AppResources.Placeholder_EnterName}" VerticalOptions="Center" MinimumHeightRequest="20" HeightRequest="35" Style="{StaticResource txt}"/>
+                <Entry Text="{Binding Cat.NameKey,Mode=TwoWay, Converter={StaticResource NameKeyToDisplayNameConverter}}" Placeholder="{x:Static resx:AppResources.Placeholder_EnterName}" VerticalOptions="Center" MinimumHeightRequest="20" HeightRequest="35" Style="{StaticResource txt}"/>
             </VerticalStackLayout>
 
             <VerticalStackLayout Spacing="1"  >
