@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using SmartPos.Resources.Strings;
 
 namespace SmartPos.Models
 {
@@ -6,7 +7,16 @@ namespace SmartPos.Models
     {
         public int ItemId { get; set; }
 
-        public string Name { get; set; }
+
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(DisplayNmKey))]
+        private string nmKey;
+
+        public string DisplayNmKey =>
+                                        AppResources.ResourceManager.GetString(NmKey, AppResources.Culture)
+                                                                                       ?? NmKey;
+
+        //public string Name { get; set; }
 
         public string Icon { get; set; }
 

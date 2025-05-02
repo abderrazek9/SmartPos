@@ -151,7 +151,7 @@ namespace SmartPos.Resources.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DZD.
+        ///   Looks up a localized string similar to DA.
         /// </summary>
         internal static string CurrencySymbol {
             get {

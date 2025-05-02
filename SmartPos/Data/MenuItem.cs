@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using SmartPos.Resources.Strings;
+using SQLite;
 
 namespace SmartPos.Data
 {
@@ -8,11 +9,18 @@ namespace SmartPos.Data
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string NameK { get; set; }
 
+        public string DisplayNameK =>
+                                        AppResources.ResourceManager.GetString(NameK, AppResources.Culture)
+                                                                                      ?? NameK;
         public string Icon { get; set; }
 
-        public string Description { get; set; }
+        public string DescriptionKey { get; set; }
+
+        public string DisplayDescription =>
+                                        AppResources.ResourceManager.GetString(DescriptionKey, AppResources.Culture)
+                                                                                      ?? DescriptionKey;
 
         public decimal Price { get; set; }
 

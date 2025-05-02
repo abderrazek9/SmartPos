@@ -129,8 +129,8 @@ namespace SmartPos.Data
                 MenuItem menuItem = new()
                 {
                     Id = model.Id,
-                    Name = model.Name,
-                    Description = model.Description,
+                    NameK = model.NameK,
+                    DescriptionKey = model.DescriptionKey,
                     Icon = model.Icon,
                     Price = model.Price,
                     StockQuantity = model.StockQuantity,
@@ -180,8 +180,8 @@ namespace SmartPos.Data
                     //    throw new Exception(); // stop the operation
                     //}
 
-                    menuItem.Name = model.Name;
-                    menuItem.Description = model.Description;
+                    menuItem.NameK = model.NameK;
+                    menuItem.DescriptionKey = model.DescriptionKey;
                     menuItem.Icon = model.Icon;
                     menuItem.Price = model.Price;
 

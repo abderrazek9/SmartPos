@@ -41,25 +41,37 @@
                                               />
                         </Border>
 
-                        <Label Text="{Binding Name}"
+                        <Label Text="{Binding DisplayNameK}"
                                            FontAttributes="Bold"
                                            FontSize="13"/>
 
-                        <Label Text="{Binding Description}"
+                        <Label Text="{Binding DisplayDescription}"
                                            FontSize="10"
                                            TextColor="Gray"/>
 
                         <FlexLayout JustifyContent="SpaceBetween">
 
-                            <Label Text="{Binding Price,StringFormat='{}{0:N2}دج'}"
-                                               FontSize="13"
-                                               FontAttributes="Bold"
-                                               TextColor="Maroon"/>
+                            <Label  FontSize="13">
+                                <Label.FormattedText >
+                                    <FormattedString >
+                                        <Span FontAttributes="Bold" TextColor="Maroon" Text="{Binding Price,StringFormat='{0:N2} '}"/>
+                                        <Span Text=" " />
+                                        <Span FontAttributes="Bold" TextColor="Maroon" Text="{x:Static resx:AppResources.CurrencySymbol}"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                                
+                            </Label>
 
                             <Label
-                                     Text="{Binding StockQuantity, StringFormat=' الكمية: {0}'}"
-                                     FontSize="12"
-                                      TextColor="DarkBlue"/>
+                                     FontSize="9">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span FontAttributes="Italic" TextColor="SlateGray" Text="{x:Static resx:AppResources.Label_Quantity_Field}"/>
+                                        <Span FontAttributes="Italic" TextColor="SlateGray" Text=": "/>
+                                        <Span FontAttributes="Italic" TextColor="SlateGray" Text="{Binding StockQuantity}"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
 
                             <ImageButton Source="{Binding Source={x:Reference this},Path=ActionIcon}"
                                          

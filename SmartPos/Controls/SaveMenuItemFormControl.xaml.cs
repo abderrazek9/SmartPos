@@ -142,7 +142,7 @@ public partial class SaveMenuItemFormControl : ContentView
     {
         // validation
 
-        if(string.IsNullOrWhiteSpace(Item.Name) || string.IsNullOrWhiteSpace(Item.Description))
+        if(string.IsNullOrWhiteSpace(Item.NameK) || string.IsNullOrWhiteSpace(Item.DescriptionKey))
         {
             await ErrorAlertAsync("Item Name and Description are mendatory");
             return;

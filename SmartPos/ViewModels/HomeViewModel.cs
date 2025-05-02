@@ -240,7 +240,7 @@ namespace SmartPos.ViewModels
                 {
                     ItemId = menuItem.Id,
                     Icon = menuItem.Icon,
-                    Name = menuItem.Name,
+                    NmKey = menuItem.NameK,
                     Price = menuItem.Price,
                     Quantity = 1
                 };
@@ -366,9 +366,9 @@ namespace SmartPos.ViewModels
                 }
                 // Update the details
                 menuItem.Price = model.Price;
-                menuItem.Description = model.Description;
+                menuItem.DescriptionKey = model.DescriptionKey;
                 menuItem.Icon = model.Icon;
-                menuItem.Name = model.Name;
+                menuItem.NameK = model.NameK;
                 menuItem.StockQuantity = model.StockQuantity;
 
                 MenuItems = [.. MenuItems];
@@ -382,9 +382,9 @@ namespace SmartPos.ViewModels
                 var newMenuItem = new MenuItem
                 {
                     Id = model.Id,
-                    Description = model.Description,
+                    DescriptionKey = model.DescriptionKey,
                     Icon = model.Icon,
-                    Name = model.Name,
+                    NameK = model.NameK,
                     Price = model.Price,
                     StockQuantity = model.StockQuantity,
                 };
@@ -398,7 +398,7 @@ namespace SmartPos.ViewModels
             if(cartItem != null)
             {
                 cartItem.Price = model.Price;
-                cartItem.Name = model.Name;
+                cartItem.NmKey = model.NameK;
                 cartItem.Icon = model.Icon;
 
                 var itemIndex = CartItems.IndexOf(cartItem);

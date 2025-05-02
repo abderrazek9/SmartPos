@@ -2,9 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:SmartPos.ViewModels"
+                                                        xmlns:resx="clr-namespace:SmartPos.Resources.Strings;assembly=SmartPos"
              xmlns:models="clr-namespace:SmartPos.Models"
              x:Class="SmartPos.Pages.NotificationsPage"
-             Title="Notifications"
+             Title="{x:Static resx:AppResources.NotificationsPage_Title}"
              x:Name="ThisPage"
              >
 
@@ -15,7 +16,7 @@
         <StackLayout Padding="10">
 
             <Label 
-  Text="اسحب لليسار للحذف  ←"
+  Text="{x:Static resx:AppResources.ManageMenuCategoriesPage_SwipeLeftDelete}"
   FontSize="10"
   TextColor="Gray"
   HorizontalOptions="Center"
@@ -27,7 +28,7 @@
                         <SwipeView>
                             <SwipeView.RightItems>
                                 <SwipeItems>
-                                    <SwipeItem Text="Delete"
+                                    <SwipeItem Text="{x:Static resx:AppResources.NotificationsPage_SwipeItem_Delete}"
                                                IconImageSource="delete.png"
                                                BackgroundColor="LightSalmon"
                                                Command="{Binding Source={x:Reference ThisPage}, Path=BindingContext.DeleteCommand}"

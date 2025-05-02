@@ -123,10 +123,10 @@ namespace SmartPos.ViewModels
 
             var menuItemModel = new MenuItemModel
             {
-                Description = menuItem.Description,
+                DescriptionKey = menuItem.DescriptionKey,
                 Icon = menuItem.Icon,
                 Id = menuItem.Id,
-                Name = menuItem.Name,
+                NameK = menuItem.NameK,
                 Price = menuItem.Price,
                 StockQuantity = menuItem.StockQuantity
             };
@@ -225,9 +225,9 @@ namespace SmartPos.ViewModels
                 }
                 // Update the details
                 menuItem.Price = model.Price;
-                menuItem.Description = model.Description;
+                menuItem.DescriptionKey = model.DescriptionKey;
                 menuItem.Icon = model.Icon;
-                menuItem.Name = model.Name;
+                menuItem.NameK = model.NameK;
                 menuItem.StockQuantity = model.StockQuantity;
 
                 MenuItems = [.. MenuItems];
@@ -241,9 +241,9 @@ namespace SmartPos.ViewModels
                 var newMenuItem = new MenuItem
                 {
                     Id = model.Id,
-                    Description = model.Description,
+                    DescriptionKey = model.DescriptionKey,
                     Icon = model.Icon,
-                    Name = model.Name,
+                    NameK = model.NameK,
                     Price = model.Price,
                     StockQuantity = model.StockQuantity,
                 };

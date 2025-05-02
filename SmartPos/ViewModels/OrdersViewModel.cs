@@ -155,7 +155,7 @@ namespace SmartPos.ViewModels
                 {
                     await Shell.Current.DisplayAlert(
                         "نفاد المخزون",
-                        $"لا يمكنك طلب \"{cart.Name}\" لأن المنتج غير متوفر.",
+                        $"لا يمكنك طلب \"{cart.NmKey}\" لأن المنتج غير متوفر.",
                         "موافق"
                     );
                     return false;
@@ -164,7 +164,7 @@ namespace SmartPos.ViewModels
                 {
                     await Shell.Current.DisplayAlert(
                         "كمية غير متاحة",
-                        $"لا يمكنك طلب {cart.Quantity} من \"{cart.Name}\"، المتوفر: {mi.StockQuantity}.",
+                        $"لا يمكنك طلب {cart.Quantity} من \"{cart.NmKey}\"، المتوفر: {mi.StockQuantity}.",
                         "موافق"
                     );
                     return false;
@@ -182,7 +182,7 @@ namespace SmartPos.ViewModels
             {
                 Icon = c.Icon,
                 ItemId = c.ItemId,
-                Name = c.Name,
+                Name = c.NmKey,
                 Price = c.Price,
                 Quantity = c.Quantity,
             }).ToArray();
@@ -225,8 +225,8 @@ namespace SmartPos.ViewModels
                         var item = allMenuItems.First(mi => mi.Id == oi.ItemId);
                         return new
                         {
-                            item.Name,
-                            item.Description,            // إضافة الوصف هنا
+                            item.DisplayNameK,
+                            item.DisplayDescription,            // إضافة الوصف هنا
                             Remaining = item.StockQuantity
                         };
                     })
@@ -238,7 +238,7 @@ namespace SmartPos.ViewModels
                     // 2) بناء نص الرسالة ليضمّ الوصف
                     var msg = string.Join("\n",
                         lowStockOrdered.Select(li =>
-                            $"{li.Name} ({li.Description}) - الكمية المتبقية: {li.Remaining}"
+                            $"{li.DisplayNameK} ({li.DisplayDescription}) - الكمية المتبقية: {li.Remaining}"
                         )
                     );  // استخدام String Interpolation 0
 

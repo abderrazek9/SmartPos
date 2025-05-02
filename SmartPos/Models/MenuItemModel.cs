@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using SmartPos.Resources.Strings;
 using System.Collections.ObjectModel;
 
 namespace SmartPos.Models
@@ -7,8 +8,17 @@ namespace SmartPos.Models
     {
         public int Id { get; set; }
 
+        //[ObservableProperty]
+        //private string? _name;
+
+           // مفتاح الترجمة للاسم
         [ObservableProperty]
-        private string? _name;
+        [NotifyPropertyChangedFor(nameof(DisplayNameK))]
+        private string nameK;
+
+        public string DisplayNameK =>
+                                       AppResources.ResourceManager.GetString(NameK, AppResources.Culture)
+                                                                                                         ?? NameK;
 
         [ObservableProperty]
         private decimal _price;
@@ -22,8 +32,16 @@ namespace SmartPos.Models
         [ObservableProperty]
         private string? _icon;
 
+        //[ObservableProperty]
+        //private string? _description;
+
         [ObservableProperty]
-        private string? _description;
+        [NotifyPropertyChangedFor(nameof(DisplayDescription))]
+        private string descriptionKey;
+
+        public string DisplayDescription =>
+                                            AppResources.ResourceManager.GetString(DescriptionKey, AppResources.Culture)
+                                                                                                        ?? DescriptionKey;
 
         public ObservableCollection<MenuCategoryModel> Categories { get; set; } = [];
 

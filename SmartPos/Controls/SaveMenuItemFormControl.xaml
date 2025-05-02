@@ -28,7 +28,7 @@
             
             <VerticalStackLayout Spacing="2" >
                 <Label Text="{x:Static resx:AppResources.Label_Name}" Style="{StaticResource lbl}"/>
-                <Entry Text="{Binding Item.Name}" Placeholder="{x:Static resx:AppResources.Placeholder_EnterName}" VerticalOptions="Center" MinimumHeightRequest="20" HeightRequest="35" Style="{StaticResource txt}"/>
+                <Entry Text="{Binding Item.NameK,Mode=TwoWay, Converter={StaticResource NameKeyToDisplayNameConverter}}" Placeholder="{x:Static resx:AppResources.Placeholder_EnterName}" VerticalOptions="Center" MinimumHeightRequest="20" HeightRequest="35" Style="{StaticResource txt}"/>
             </VerticalStackLayout>
 
             <VerticalStackLayout Spacing="1"  >
@@ -74,7 +74,7 @@
 
             <VerticalStackLayout Spacing="1" >
                 <Label Text="{x:Static resx:AppResources.Label_Description}" Style="{StaticResource lbl}"/>
-                <Editor Text="{Binding Item.Description}" Placeholder="{x:Static resx:AppResources.Placeholder_EnterDescription}" Style="{StaticResource txt}" HeightRequest="60" MinimumHeightRequest="60"/>
+                <Editor Text="{Binding Item.DescriptionKey,Mode=TwoWay, Converter={StaticResource NameKeyToDisplayNameConverter}}" Placeholder="{x:Static resx:AppResources.Placeholder_EnterDescription}" Style="{StaticResource txt}" HeightRequest="60" MinimumHeightRequest="60"/>
             </VerticalStackLayout>
 
             <VerticalStackLayout Spacing="1" >

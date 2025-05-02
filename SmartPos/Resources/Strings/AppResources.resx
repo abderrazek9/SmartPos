@@ -162,7 +162,7 @@
     <comment>Text for the "clear cart" button</comment>
   </data>
   <data name="CurrencySymbol" xml:space="preserve">
-    <value>DZD</value>
+    <value>DA</value>
     <comment>Currency symbol for Algerian Dinar</comment>
   </data>
   <data name="CurrentOrder" xml:space="preserve">
