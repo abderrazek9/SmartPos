@@ -12,7 +12,7 @@ using MenuItem = SmartPos.Data.MenuItem;
 
 namespace SmartPos.ViewModels
 {
-    public partial class HomeViewModel : ObservableObject, IRecipient<MenuItemChangedMessage>, IRecipient<CategoryChangedMessage>
+    public partial class HomeViewModel : ObservableObject, IRecipient<MenuItemChangedMessage>, IRecipient<CategoryChangedMessage>, IRecipient<CultureChangedMessage>
     {
         private readonly DataBaseService _dataBaseService;
         private readonly OrdersViewModel _ordersViewModel;
@@ -91,7 +91,7 @@ namespace SmartPos.ViewModels
             WeakReferenceMessenger.Default.Register<MenuItemChangedMessage>(this);
             WeakReferenceMessenger.Default.Register<CategoryChangedMessage>(this);
             WeakReferenceMessenger.Default.Register<NameChangedMessage>(this, (recipient, message) => Name = message.Value);
-
+            WeakReferenceMessenger.Default.Register<CultureChangedMessage>(this);
             // Get PromoPercentage from preferences
 
             Promopercentage = _settingsViewModel.GetPromoPercentage();
@@ -407,6 +407,11 @@ namespace SmartPos.ViewModels
                 // witch will recalculate amounts
                 CartItems[itemIndex] = cartItem;
             }
+        }
+
+        public async void Receive(CultureChangedMessage message)
+        {
+            await LoadMenuAsync();
         }
     }
 }
