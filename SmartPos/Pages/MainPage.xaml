@@ -25,8 +25,8 @@
         <Grid Padding="10,5"
               Grid.Column="0"
               RowDefinitions="Auto,Auto,*" RowSpacing="10">
-            
-                <Label Grid.Row="0" FontAttributes="Bold" FontSize="20" Text="{Binding Name, StringFormat='Hello,  {0}'}"/>
+
+            <Label Grid.Row="0" FontAttributes="Bold" FontSize="20" Text="{Binding Name, StringFormat='Hello,  {0}'}"></Label>
 
             <controls:CategoriesListControl Grid.Row="1" Categories="{Binding Categories}" OnCategorySelected="CategoriesListControl_OnCategorySelected"/>
 
@@ -232,7 +232,7 @@
             <VerticalStackLayout Grid.Row="0" 
                                  Spacing="1">
 
-                <Label Grid.Column="0" Text="{x:Static resx:AppResources.CurrentOrder}"
+                <Label Grid.Column="0" Text="{Binding CurrentOrderText}"
                        FontSize="16" 
                        FontAttributes="Bold"
                        VerticalOptions="Center"/>
@@ -387,7 +387,7 @@
                         <Label Grid.Row="0"
                                Grid.Column="0"
                                Style="{StaticResource lbl}"
-                               Text="{x:Static resx:AppResources.SubTotal}"
+                               Text="{Binding SubtotalText}"
                                FontAttributes="Bold"/>
                         <Label Grid.Row="0"
                                FontSize="13"
@@ -398,14 +398,14 @@
                                 <FormattedString>
                                     <Span FontAttributes="Bold" Text="{Binding Subtotal , StringFormat='{0:N2} '}"/>
                                     <Span Text=" "/>
-                                    <Span FontAttributes="Bold" Text="{x:Static resx:AppResources.CurrencySymbol}"/>
+                                    <Span FontAttributes="Bold" Text="{Binding CurrencyText}"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
                         <HorizontalStackLayout Grid.Row="1"
                                                Grid.Column="0"
                                                Spacing="1">
-                            <Label Text="{x:Static resx:AppResources.Promotion}" VerticalOptions="Center" FontSize="12"/>
+                            <Label Text="{Binding PromoText}" VerticalOptions="Center" FontSize="12"/>
                             <Label Text="{Binding Promopercentage , StringFormat='{0}%'}" Padding="5,0" FontSize="13" BackgroundColor="Wheat" VerticalOptions="Center">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding PromoPercentageClickaCommand}"/>
@@ -421,7 +421,7 @@
                                 <FormattedString>
                                     <Span Text="{Binding PromoAmount , StringFormat='{0:N2} '}"/>
                                     <Span Text=" "/>
-                                    <Span Text="{x:Static resx:AppResources.CurrencySymbol}"/>
+                                    <Span Text="{Binding CurrencyText}"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
@@ -434,19 +434,18 @@
                         <Label Grid.Row="3"
                                Grid.Column="0"
                                Style="{StaticResource lbl}"
-                               Text="{x:Static resx:AppResources.Total}"
+                               Text="{Binding TotText}"
                                FontAttributes="Bold"/>
                         <Label Grid.Row="3"
                                Grid.Column="1"
                                FontSize="13"
-                               Text="{Binding Total , StringFormat='{}{0:N2}دج'}"
                                HorizontalOptions="Center"
                                FontAttributes="Bold">
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span FontAttributes="Bold" Text="{Binding Total , StringFormat='{0:N2} '}"/>
                                     <Span Text=" "/>
-                                    <Span FontAttributes="Bold" Text="{x:Static resx:AppResources.CurrencySymbol}"/>
+                                    <Span FontAttributes="Bold" Text="{Binding CurrencyText}"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
@@ -477,7 +476,7 @@
 
                             <Button Grid.Column="2"
                                     Padding="5,0"
-                                    Text="{x:Static resx:AppResources.PaidCash}"
+                                    Text="{Binding PdCText}"
                                     Command="{Binding PlaceOrderCommand}"
                                     FontSize="10"
                                     BackgroundColor="DarkOliveGreen"
@@ -491,7 +490,7 @@
 
                             <Button Grid.Column="3"
                                     Padding="5,0"
-                                    Text="{x:Static resx:AppResources.PaidOnline}"
+                                    Text="{Binding PdOText}"
                                     Command="{Binding PlaceOrderCommand}"
                                     FontSize="10"
                                     BackgroundColor="DarkOliveGreen"

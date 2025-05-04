@@ -157,7 +157,7 @@
     <value>الطلب الحالي</value>
   </data>
   <data name="HelloFormat" xml:space="preserve">
-    <value>مرحبا، ‎ {0}‎</value>
+    <value>مرحبا‎، {0}‎</value>
   </data>
   <data name="HelpPopup_CallUsAt" xml:space="preserve">
     <value>إتصل بنا على </value>

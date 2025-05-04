@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using SmartPos.Data;
 using SmartPos.Models;
+using SmartPos.Resources.Strings;
 using SmartPos.Pages;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -409,9 +410,30 @@ namespace SmartPos.ViewModels
             }
         }
 
+        public string CurrentOrderText => AppResources.CurrentOrder;
+        public string SubtotalText => AppResources.SubTotal;
+        public string CurrencyText => AppResources.CurrencySymbol;
+        public string PromoText => AppResources.Promotion;
+        public string TotText => AppResources.Total;
+        public string PdCText => AppResources.PaidCash;
+        public string PdOText => AppResources.PaidOnline;
+        public string helloText => AppResources.HelloFormat;
+
+
+
+
         public async void Receive(CultureChangedMessage message)
         {
             await LoadMenuAsync();
+
+            OnPropertyChanged(nameof(CurrentOrderText));
+            OnPropertyChanged(nameof(SubtotalText));
+            OnPropertyChanged(nameof(CurrencyText));
+            OnPropertyChanged(nameof(PromoText));
+            OnPropertyChanged(nameof(TotText));
+            OnPropertyChanged(nameof(PdCText));
+            OnPropertyChanged(nameof(PdOText));
+            OnPropertyChanged(nameof(helloText));
         }
     }
 }

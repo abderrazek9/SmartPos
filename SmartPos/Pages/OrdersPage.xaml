@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SmartPos.Pages.OrdersPage"
              xmlns:vm="clr-namespace:SmartPos.ViewModels"
+                                           xmlns:resx="clr-namespace:SmartPos.Resources.Strings;assembly=SmartPos"
              xmlns:data="clr-namespace:SmartPos.Data"
              xmlns:models="clr-namespace:SmartPos.Models"
              xmlns:controls="clr-namespace:SmartPos.Controls"
@@ -38,7 +39,7 @@
                     Grid.Row="0"
                     FontAttributes="Bold"
                     FontSize="19" 
-                    Text="Orders"/>
+                    Text="{Binding ordtext}"/>
             <!--order table -->
             <Grid Grid.Row="1">
 
@@ -47,23 +48,23 @@
                         
                         <Label Grid.Column="0"
                                Padding="5,0,0,0"
-                               Text="Order Id"
+                               Text="{Binding orIdtext}"
                                Style="{StaticResource th}"/>
                         
                         <Label Grid.Column="4"
-                               Text="Order Date"
+                               Text="{Binding orDateText}"
                                Style="{StaticResource th}"/>
 
                         <Label Grid.Column="2"
-                               Text=" Amount"
+                               Text="{Binding orAmountText}"
                                Style="{StaticResource th}"/>
 
                         <Label Grid.Column="1"
-                               Text=" Pay Mode"
+                               Text="{Binding orPmodText}"
                                Style="{StaticResource th}"/>
 
                         <Label Grid.Column="3"
-                               Text="No.of Items"
+                               Text="{Binding orItemsText}"
                                Style="{StaticResource th}"/>
                         
                         <Label Grid.Column="5"
@@ -126,7 +127,7 @@
                                             Grid.Row="1"
                                             Grid.Column="5"
                                             FontSize="8" 
-                                            Text="Printing"
+                                            Text="{x:Static resx:AppResources.OrdersPage_Button_Printing}"
                                             BackgroundColor="DarkOliveGreen"
                                             MinimumHeightRequest="0"
                                             HeightRequest="18"
@@ -179,7 +180,7 @@
                                          Grid.Column="0"
                                             FontSize="16"
                                             FontAttributes="Bold"
-                                             Text="Selected Order Items"/>
+                                             Text="{Binding orSelectText}"/>
 
                                             <ImageButton
                                                     Grid.Column="1"
@@ -288,12 +289,12 @@
                                 <Image Source="cylinder.png"
                                        HeightRequest="35"
                                        WidthRequest="35"/>
-                                <Label Text="No Order Selected"
+                                <Label Text="{Binding NoOrdSText}"
                                        FontSize="15"
                                        FontAttributes="Bold"
                                        TextColor="Maroon"
                                        HorizontalOptions="Center"/>
-                                <Label Text="Select an Order from the left section to view it's items" 
+                                <Label Text="{Binding SeOrdText}" 
                                        FontSize="11" 
                                        HorizontalOptions="Center"
                                        HorizontalTextAlignment="Center"/>

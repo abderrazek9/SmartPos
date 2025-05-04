@@ -1,9 +1,11 @@
 ﻿using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using SmartPos.Data;
 using SmartPos.Models;
 using SmartPos.Services;
+using SmartPos.Resources.Strings;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -12,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace SmartPos.ViewModels
 {
-    public partial class OrdersViewModel : ObservableObject
+    public partial class OrdersViewModel : ObservableObject, IRecipient<CultureChangedMessage>
     {
         private readonly DataBaseService _dataBaseService;
         private readonly IBluetoothPrinterService _printerService;
@@ -24,6 +26,8 @@ namespace SmartPos.ViewModels
             _dataBaseService = dataBaseService;
             _printerService = printerService;
             _notificationsService = notificationsService;
+
+            WeakReferenceMessenger.Default.Register(this);
         }
 
         // مجموعة الطلبات لعرضها في الواجهة
@@ -155,7 +159,7 @@ namespace SmartPos.ViewModels
                 {
                     await Shell.Current.DisplayAlert(
                         "نفاد المخزون",
-                        $"لا يمكنك طلب \"{cart.NmKey}\" لأن المنتج غير متوفر.",
+                        $"لا يمكنك طلب \"{cart.DisplayNmKey}\" لأن المنتج غير متوفر.",
                         "موافق"
                     );
                     return false;
@@ -164,7 +168,7 @@ namespace SmartPos.ViewModels
                 {
                     await Shell.Current.DisplayAlert(
                         "كمية غير متاحة",
-                        $"لا يمكنك طلب {cart.Quantity} من \"{cart.NmKey}\"، المتوفر: {mi.StockQuantity}.",
+                        $"لا يمكنك طلب {cart.Quantity} من \"{cart.DisplayNmKey}\"، المتوفر: {mi.StockQuantity}.",
                         "موافق"
                     );
                     return false;
@@ -182,7 +186,7 @@ namespace SmartPos.ViewModels
             {
                 Icon = c.Icon,
                 ItemId = c.ItemId,
-                Name = c.NmKey,
+                Name = c.DisplayNmKey,
                 Price = c.Price,
                 Quantity = c.Quantity,
             }).ToArray();
@@ -345,6 +349,37 @@ namespace SmartPos.ViewModels
                 Orders.Add(ord);
 
             IsLoading = false;
+        }
+
+
+
+        public string ordtext => AppResources.OrdersPage_Title;
+        public string orIdtext => AppResources.OrdersPage_Header_OrderId;
+        public string orDateText => AppResources.OrdersPage_Header_OrderDate;
+        public string orAmountText => AppResources.OrdersPage_Header_Amount;
+        public string orPmodText => AppResources.OrdersPage_Header_PayMode;
+        public string orItemsText => AppResources.OrdersPage_Header_NoOfItems;
+        public string orPrintText => AppResources.OrdersPage_Button_Printing;
+        public string orSelectText => AppResources.OrdersPage_SelectedItems_Title;
+        public string NoOrdSText => AppResources.OrdersPage_Empty_NoOrderSelected;
+        public string SeOrdText => AppResources.OrdersPage_Empty_SelectOrder;
+        public string CurrencyText => AppResources.CurrencySymbol;
+
+        public async void Receive(CultureChangedMessage message)
+        {
+            await InitializeAsync();
+
+            OnPropertyChanged(nameof(ordtext));
+            OnPropertyChanged(nameof(orIdtext));
+            OnPropertyChanged(nameof(orDateText));
+            OnPropertyChanged(nameof(orAmountText));
+            OnPropertyChanged(nameof(orPmodText));
+            OnPropertyChanged(nameof(orItemsText));
+            OnPropertyChanged(nameof(orPrintText));
+            OnPropertyChanged(nameof(orSelectText));
+            OnPropertyChanged(nameof(NoOrdSText));
+            OnPropertyChanged(nameof(SeOrdText));
+            OnPropertyChanged(nameof(CurrencyText));
         }
     }
 }
