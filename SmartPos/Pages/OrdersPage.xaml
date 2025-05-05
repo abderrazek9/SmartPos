@@ -104,7 +104,7 @@
                                     <Label
                                         Grid.Row="1"
                                         Grid.Column="1"
-                               Text="{Binding PaymentMode}"
+                               Text="{Binding PaymentMode, Converter={StaticResource NameKeyToDisplayNameConverter}}"
                                Style="{StaticResource td}"/>
 
                                     <Label

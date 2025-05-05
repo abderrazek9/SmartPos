@@ -80,7 +80,7 @@ namespace SmartPos.ViewModels
         public decimal Total => Subtotal - PromoAmount;
 
         [ObservableProperty]
-        private string _name = "Guest";
+        private string _name = Preferences.Get("UserName", "Guest");
 
         public HomeViewModel(DataBaseService dataBaseService , OrdersViewModel ordersViewModel, SettingsViewModel settingsViewModel)
         {
@@ -91,7 +91,12 @@ namespace SmartPos.ViewModels
 
             WeakReferenceMessenger.Default.Register<MenuItemChangedMessage>(this);
             WeakReferenceMessenger.Default.Register<CategoryChangedMessage>(this);
-            WeakReferenceMessenger.Default.Register<NameChangedMessage>(this, (recipient, message) => Name = message.Value);
+            WeakReferenceMessenger.Default.Register<NameChangedMessage>(this, (recipient, message) => 
+            {
+                Name = message.Value;
+                Preferences.Set("UserName", message.Value);
+                OnPropertyChanged(nameof(helloText));
+            });
             WeakReferenceMessenger.Default.Register<CultureChangedMessage>(this);
             // Get PromoPercentage from preferences
 
@@ -417,7 +422,7 @@ namespace SmartPos.ViewModels
         public string TotText => AppResources.Total;
         public string PdCText => AppResources.PaidCash;
         public string PdOText => AppResources.PaidOnline;
-        public string helloText => AppResources.HelloFormat;
+        public string helloText => string.Format(AppResources.HelloFormat, Name);
 
 
 
@@ -425,6 +430,7 @@ namespace SmartPos.ViewModels
         public async void Receive(CultureChangedMessage message)
         {
             await LoadMenuAsync();
+
 
             OnPropertyChanged(nameof(CurrentOrderText));
             OnPropertyChanged(nameof(SubtotalText));

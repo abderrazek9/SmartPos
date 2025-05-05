@@ -582,4 +582,13 @@
   <data name="SettingsPage_Language_Arabic" xml:space="preserve">
     <value>العربية </value>
   </data>
+  <data name="Online" xml:space="preserve">
+    <value>الكتروني</value>
+  </data>
+  <data name="Cash" xml:space="preserve">
+    <value>نقداً</value>
+  </data>
+  <data name="Prompt_LowStockAlert_Message" xml:space="preserve">
+    <value>‎{0}‎ ‎({1})‎ ‎- ‎{2}‎‎ :‎‎الكمية المتبقية</value>
+  </data>
 </root>

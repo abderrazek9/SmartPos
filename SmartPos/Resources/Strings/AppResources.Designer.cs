@@ -88,6 +88,15 @@ namespace SmartPos.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cash.
+        /// </summary>
+        internal static string Cash {
+            get {
+                return ResourceManager.GetString("Cash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BasicMaterials.
         /// </summary>
         internal static string Category_Basics {
@@ -898,6 +907,15 @@ namespace SmartPos.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Online.
+        /// </summary>
+        internal static string Online {
+            get {
+                return ResourceManager.GetString("Online", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Printing.
         /// </summary>
         internal static string OrdersPage_Button_Printing {
@@ -1155,6 +1173,15 @@ namespace SmartPos.Resources.Strings {
         internal static string Prompt_LowStockAlert_Accept {
             get {
                 return ResourceManager.GetString("Prompt_LowStockAlert_Accept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} ({1}) - Remaining quantity: {2}.
+        /// </summary>
+        internal static string Prompt_LowStockAlert_Message {
+            get {
+                return ResourceManager.GetString("Prompt_LowStockAlert_Message", resourceCulture);
             }
         }
         

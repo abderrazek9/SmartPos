@@ -674,4 +674,14 @@
   <data name="SettingsPage_Language_Arabic" xml:space="preserve">
     <value>Arabic</value>
   </data>
+  <data name="Online" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="Cash" xml:space="preserve">
+    <value>Cash</value>
+  </data>
+  <data name="Prompt_LowStockAlert_Message" xml:space="preserve">
+    <value>{0} ({1}) - Remaining quantity: {2}</value>
+    <comment>Message for low-stock alert</comment>
+  </data>
 </root>

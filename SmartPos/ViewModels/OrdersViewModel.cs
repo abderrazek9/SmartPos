@@ -157,20 +157,12 @@ namespace SmartPos.ViewModels
                 var mi = allMenuItems.FirstOrDefault(x => x.Id == cart.ItemId);
                 if (mi == null || mi.StockQuantity == 0)
                 {
-                    await Shell.Current.DisplayAlert(
-                        "نفاد المخزون",
-                        $"لا يمكنك طلب \"{cart.DisplayNmKey}\" لأن المنتج غير متوفر.",
-                        "موافق"
-                    );
+                    await Shell.Current.DisplayAlert(AppResources.Prompt_StockEmpty_Title, string.Format(AppResources.Prompt_StockEmpty_Message, cart.DisplayNmKey),AppResources.Prompt_PlaceOrderError_Accept/*"نفاد المخزون", $"لا يمكنك طلب \"{cart.DisplayNmKey}\" لأن المنتج غير متوفر.", "موافق"*/);
                     return false;
                 }
                 if (cart.Quantity > mi.StockQuantity)
                 {
-                    await Shell.Current.DisplayAlert(
-                        "كمية غير متاحة",
-                        $"لا يمكنك طلب {cart.Quantity} من \"{cart.DisplayNmKey}\"، المتوفر: {mi.StockQuantity}.",
-                        "موافق"
-                    );
+                    await Shell.Current.DisplayAlert(AppResources.Prompt_StockQuantityUnavailable_Title, string.Format(AppResources.Prompt_StockQuantityUnavailable_Message, cart.Quantity, cart.DisplayNmKey, mi.StockQuantity), AppResources.Prompt_PlaceOrderError_Accept/*"كمية غير متاحة", $"لا يمكنك طلب {cart.Quantity} من \"{cart.DisplayNmKey}\"، المتوفر: {mi.StockQuantity}.","موافق"*/);
                     return false;
                 }
             }
@@ -204,7 +196,7 @@ namespace SmartPos.ViewModels
             if (string.IsNullOrEmpty(errorMessage))
             {
                 Orders.Add(orderModel);
-                await Toast.Make("تم إنشاء الطلب بنجاح").Show();
+                await Toast.Make(AppResources.Toast_OrderCreated).Show();
 
                 // 1) تقليل المخزون
                 await _dataBaseService.ReduceStockAsync(orderModel.Items);
@@ -241,12 +233,12 @@ namespace SmartPos.ViewModels
                 {
                     // 2) بناء نص الرسالة ليضمّ الوصف
                     var msg = string.Join("\n",
-                        lowStockOrdered.Select(li =>
-                            $"{li.DisplayNameK} ({li.DisplayDescription}) - الكمية المتبقية: {li.Remaining}"
+                        lowStockOrdered.Select(li => String.Format(AppResources.Prompt_LowStockAlert_Message, li.DisplayNameK, li.DisplayDescription, li.Remaining)
+                        //$"{li.DisplayNameK} ({li.DisplayDescription}) - الكمية المتبقية: {li.Remaining}"
                         )
                     );  // استخدام String Interpolation 0
 
-                    await Shell.Current.DisplayAlert("تنبيه المخزون المنخفض", msg, "حسنًا");
+                    await Shell.Current.DisplayAlert(AppResources.Prompt_LowStockAlert_Title/*"تنبيه المخزون المنخفض"*/, msg, AppResources.Prompt_LowStockAlert_Accept);
 
                     // 3) إضافة الإشعار بالرسالة المحدثة
                     _notificationsService.Add(new NotificationModel
@@ -322,7 +314,7 @@ namespace SmartPos.ViewModels
                 return true;
             }
 
-            await Shell.Current.DisplayAlert("خطأ", errorMessage, "موافق");
+            await Shell.Current.DisplayAlert(AppResources.Prompt_PlaceOrderError_Title, errorMessage, AppResources.Prompt_PlaceOrderError_Accept);
             return false;
         }
 
@@ -368,6 +360,8 @@ namespace SmartPos.ViewModels
         public async void Receive(CultureChangedMessage message)
         {
             await InitializeAsync();
+
+            OnPropertyChanged(nameof(Orders));
 
             OnPropertyChanged(nameof(ordtext));
             OnPropertyChanged(nameof(orIdtext));
