@@ -33,11 +33,24 @@ namespace SmartPos.ViewModels
         // مجموعة الطلبات لعرضها في الواجهة
         public ObservableCollection<OrderModel> Orders { get; set; } = new ObservableCollection<OrderModel>();
 
+
         [ObservableProperty]
         private bool _isLoading;
 
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(DisplayOrderItems))]
         private OrdersItem[] _orderItems = new OrdersItem[] { };
+
+        public CartModel[] DisplayOrderItems => _orderItems
+                        .Select(oi => new CartModel
+                        {
+                            ItemId = oi.ItemId,
+                            NmKey = oi.Name,
+                            Icon = oi.Icon,
+                            Price = oi.Price,
+                            Quantity = oi.Quantity
+                        })
+            .ToArray();
 
         private bool _isInitialized;
 
@@ -178,7 +191,7 @@ namespace SmartPos.ViewModels
             {
                 Icon = c.Icon,
                 ItemId = c.ItemId,
-                Name = c.DisplayNmKey,
+                Name = c.NmKey,
                 Price = c.Price,
                 Quantity = c.Quantity,
             }).ToArray();
@@ -250,6 +263,105 @@ namespace SmartPos.ViewModels
                 }
 
 
+                var outOfStockItems = orderModel.Items
+                    .Select(oi =>
+                    {
+                        var item = allMenuItems.First(mi=> mi.Id == oi.ItemId);
+                        return new
+                        {
+                            item.DisplayNameK,
+                            item.DisplayDescription,
+                            Remaining = item.StockQuantity
+                        };
+                    })
+                        .Where(x => x.Remaining == 0)
+                        .ToArray();
+
+                if (outOfStockItems.Any())
+                {
+                    var msg = string.Join("\n",
+                        outOfStockItems.Select(li => String.Format(AppResources.Prompt_StockEmpty_Message, li.DisplayNameK, li.DisplayDescription))
+                    );
+                    await Shell.Current.DisplayAlert(AppResources.Prompt_StockEmpty_Title, msg, AppResources.Prompt_PlaceOrderError_Accept);
+                    _notificationsService.Add(new NotificationModel
+                    {
+                        Message = msg,
+                        Timestamp = DateTime.Now,
+                        Type = "OutOfStock"
+                    });
+                }
+
+
+
+
+                return true;
+            }
+
+            await Shell.Current.DisplayAlert(AppResources.Prompt_PlaceOrderError_Title, errorMessage, AppResources.Prompt_PlaceOrderError_Accept);
+            return false;
+        }
+
+        public async ValueTask InitializeAsync()
+        {
+            if (_isInitialized) return;
+
+            _isInitialized = true;
+            IsLoading = true;
+
+            Orders.Clear();
+
+            var dbOrders = await _dataBaseService.GetOrdersAsync();
+            var orders = dbOrders.Select(o => new OrderModel
+            {
+                Id = o.Id,
+                OrderDate = o.OrderDate,
+                PaymentMode = o.PaymentMode,
+                TotalAmountPaid = o.TotalAmountPaid,
+                TotalItemsCount = o.TotalItemsCount
+            });
+
+            foreach (var ord in orders)
+                Orders.Add(ord);
+
+            IsLoading = false;
+        }
+
+
+
+        public string ordtext => AppResources.OrdersPage_Title;
+        public string orIdtext => AppResources.OrdersPage_Header_OrderId;
+        public string orDateText => AppResources.OrdersPage_Header_OrderDate;
+        public string orAmountText => AppResources.OrdersPage_Header_Amount;
+        public string orPmodText => AppResources.OrdersPage_Header_PayMode;
+        public string orItemsText => AppResources.OrdersPage_Header_NoOfItems;
+        public string orPrintText => AppResources.OrdersPage_Button_Printing;
+        public string orSelectText => AppResources.OrdersPage_SelectedItems_Title;
+        public string NoOrdSText => AppResources.OrdersPage_Empty_NoOrderSelected;
+        public string SeOrdText => AppResources.OrdersPage_Empty_SelectOrder;
+        public string CurrencyText => AppResources.CurrencySymbol;
+
+
+        public async void Receive(CultureChangedMessage message)
+        {
+            await InitializeAsync();
+
+            OnPropertyChanged(nameof(Orders));
+            OnPropertyChanged(nameof(DisplayOrderItems));
+            OnPropertyChanged(nameof(ordtext));
+            OnPropertyChanged(nameof(orIdtext));
+            OnPropertyChanged(nameof(orDateText));
+            OnPropertyChanged(nameof(orAmountText));
+            OnPropertyChanged(nameof(orPmodText));
+            OnPropertyChanged(nameof(orItemsText));
+            OnPropertyChanged(nameof(orPrintText));
+            OnPropertyChanged(nameof(orSelectText));
+            OnPropertyChanged(nameof(NoOrdSText));
+            OnPropertyChanged(nameof(SeOrdText));
+            OnPropertyChanged(nameof(CurrencyText));
+        }
+    }
+}
+
                 //// تحديث الكميات بعد التقليص
                 //allMenuItems = await _dataBaseService.GetAllMenuItemsAsync();
                 //var lowStockOrdered = orderModel.Items
@@ -310,71 +422,3 @@ namespace SmartPos.ViewModels
                 //        "حسنًا"
                 //    );
                 //}
-
-                return true;
-            }
-
-            await Shell.Current.DisplayAlert(AppResources.Prompt_PlaceOrderError_Title, errorMessage, AppResources.Prompt_PlaceOrderError_Accept);
-            return false;
-        }
-
-        public async ValueTask InitializeAsync()
-        {
-            if (_isInitialized) return;
-
-            _isInitialized = true;
-            IsLoading = true;
-
-            Orders.Clear();
-
-            var dbOrders = await _dataBaseService.GetOrdersAsync();
-            var orders = dbOrders.Select(o => new OrderModel
-            {
-                Id = o.Id,
-                OrderDate = o.OrderDate,
-                PaymentMode = o.PaymentMode,
-                TotalAmountPaid = o.TotalAmountPaid,
-                TotalItemsCount = o.TotalItemsCount
-            });
-
-            foreach (var ord in orders)
-                Orders.Add(ord);
-
-            IsLoading = false;
-        }
-
-
-
-        public string ordtext => AppResources.OrdersPage_Title;
-        public string orIdtext => AppResources.OrdersPage_Header_OrderId;
-        public string orDateText => AppResources.OrdersPage_Header_OrderDate;
-        public string orAmountText => AppResources.OrdersPage_Header_Amount;
-        public string orPmodText => AppResources.OrdersPage_Header_PayMode;
-        public string orItemsText => AppResources.OrdersPage_Header_NoOfItems;
-        public string orPrintText => AppResources.OrdersPage_Button_Printing;
-        public string orSelectText => AppResources.OrdersPage_SelectedItems_Title;
-        public string NoOrdSText => AppResources.OrdersPage_Empty_NoOrderSelected;
-        public string SeOrdText => AppResources.OrdersPage_Empty_SelectOrder;
-        public string CurrencyText => AppResources.CurrencySymbol;
-
-        public async void Receive(CultureChangedMessage message)
-        {
-            await InitializeAsync();
-
-            OnPropertyChanged(nameof(Orders));
-
-            OnPropertyChanged(nameof(ordtext));
-            OnPropertyChanged(nameof(orIdtext));
-            OnPropertyChanged(nameof(orDateText));
-            OnPropertyChanged(nameof(orAmountText));
-            OnPropertyChanged(nameof(orPmodText));
-            OnPropertyChanged(nameof(orItemsText));
-            OnPropertyChanged(nameof(orPrintText));
-            OnPropertyChanged(nameof(orSelectText));
-            OnPropertyChanged(nameof(NoOrdSText));
-            OnPropertyChanged(nameof(SeOrdText));
-            OnPropertyChanged(nameof(CurrencyText));
-        }
-    }
-}
-

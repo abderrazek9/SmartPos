@@ -30,6 +30,7 @@ namespace SmartPos.Models
         private int _quantity;
 
         public decimal Amount => Price * Quantity;
+        public string AmountText => string.Format(CultureInfo.CurrentCulture, "{0:N2} {1}", Amount, AppResources.CurrencySymbol);
 
         public CartModel()
         {
@@ -37,6 +38,7 @@ namespace SmartPos.Models
             {
                 OnPropertyChanged(nameof(DisplayNmKey));
                 OnPropertyChanged(nameof(PriceText));
+                OnPropertyChanged(nameof(AmountText));
             });
         }
     }

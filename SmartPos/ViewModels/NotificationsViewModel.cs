@@ -8,6 +8,8 @@ using CommunityToolkit.Mvvm.Input;
 using SmartPos.Models;
 using SmartPos.Services;
 using System.Collections.ObjectModel;
+using SmartPos.Resources.Strings;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace SmartPos.ViewModels
 {
@@ -16,6 +18,12 @@ namespace SmartPos.ViewModels
 
     public partial class NotificationsViewModel : ObservableObject
     {
+
+        public string titleText => AppResources.NotificationsPage_Title;
+        public string deleteText => AppResources.NotificationsPage_SwipeItem_Delete;
+        public string deleteTextConfirm => AppResources.ManageMenuCategoriesPage_SwipeLeftDelete;
+
+
         private readonly NotificationsService _service;
 
         // تبقى القائمة من الخدمة نفسها
@@ -28,20 +36,26 @@ namespace SmartPos.ViewModels
         public NotificationsViewModel(NotificationsService svc)
         {
             _service = svc;
-            // ربط القائمة بالـ Service
+
             Notifications = _service.Notifications;
             // إنشاء أمر الحذف
             DeleteCommand = new RelayCommand<NotificationModel>(OnDeleteRequested);
+
+
+            WeakReferenceMessenger.Default.Register<CultureChangedMessage>(this, (r, m) =>
+            {
+                OnPropertyChanged(nameof(titleText));
+                OnPropertyChanged(nameof(deleteText));
+                OnPropertyChanged(nameof(deleteTextConfirm));
+            });
+
         }
 
         // معالج حذف الإشعار مع تأكيد المستخدم
         private async void OnDeleteRequested(NotificationModel note)
         {
             bool confirm = await App.Current.MainPage
-                .DisplayAlert("تأكيد الحذف",                       // عرض Alert من صفحة الـ MAUI 14
-                              "هل تريد حقًا حذف هذا الإشعار؟",
-                              "نعم",
-                              "لا");
+                .DisplayAlert(titleText, AppResources.NotificationsPage_ConfirmDelete, AppResources.Prompt_ClearCart_Accept, AppResources.Prompt_ClearCart_Cancel);
             if (!confirm)
                 return;
 

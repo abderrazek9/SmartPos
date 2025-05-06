@@ -591,4 +591,10 @@
   <data name="Prompt_LowStockAlert_Message" xml:space="preserve">
     <value>{0} ({1}) - Remaining quantity: {2}</value>
   </data>
+  <data name="HelpPopup_Copied" xml:space="preserve">
+    <value>Copied</value>
+  </data>
+  <data name="NotificationsPage_ConfirmDelete" xml:space="preserve">
+    <value>Do you really want remove this notification ?</value>
+  </data>
 </root>

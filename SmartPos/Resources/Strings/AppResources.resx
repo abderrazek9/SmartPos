@@ -684,4 +684,12 @@
     <value>{0} ({1}) - Remaining quantity: {2}</value>
     <comment>Message for low-stock alert</comment>
   </data>
+  <data name="HelpPopup_Copied" xml:space="preserve">
+    <value>Copied</value>
+    <comment>msgCopied</comment>
+  </data>
+  <data name="NotificationsPage_ConfirmDelete" xml:space="preserve">
+    <value>Do you really want remove this notification ?</value>
+    <comment>messageDeleteNotf</comment>
+  </data>
 </root>

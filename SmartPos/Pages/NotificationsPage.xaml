@@ -5,9 +5,9 @@
                                                         xmlns:resx="clr-namespace:SmartPos.Resources.Strings;assembly=SmartPos"
              xmlns:models="clr-namespace:SmartPos.Models"
              x:Class="SmartPos.Pages.NotificationsPage"
-             Title="{x:Static resx:AppResources.NotificationsPage_Title}"
+             Title="{Binding titleText}"
              x:Name="ThisPage"
-             >
+             x:DataType="vm:NotificationsViewModel">
 
 
 
@@ -16,7 +16,7 @@
         <StackLayout Padding="10">
 
             <Label 
-  Text="{x:Static resx:AppResources.ManageMenuCategoriesPage_SwipeLeftDelete}"
+  Text="{Binding deleteTextConfirm}"
   FontSize="10"
   TextColor="Gray"
   HorizontalOptions="Center"
@@ -28,7 +28,7 @@
                         <SwipeView>
                             <SwipeView.RightItems>
                                 <SwipeItems>
-                                    <SwipeItem Text="{x:Static resx:AppResources.NotificationsPage_SwipeItem_Delete}"
+                                    <SwipeItem Text="{Binding Source={x:Reference ThisPage}, Path=BindingConext.deleteText}"
                                                IconImageSource="delete.png"
                                                BackgroundColor="LightSalmon"
                                                Command="{Binding Source={x:Reference ThisPage}, Path=BindingContext.DeleteCommand}"

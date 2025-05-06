@@ -424,7 +424,7 @@
     <value>طريقة الدفع </value>
   </data>
   <data name="OrdersPage_ItemCountFormat" xml:space="preserve">
-    <value>عنصر ‎{0}‎</value>
+    <value>  {0}  عنصر‎  </value>
   </data>
   <data name="OrdersPage_MultiplicationSign" xml:space="preserve">
     <value>x</value>
@@ -590,5 +590,11 @@
   </data>
   <data name="Prompt_LowStockAlert_Message" xml:space="preserve">
     <value>‎{0}‎ ‎({1})‎ ‎- ‎{2}‎‎ :‎‎الكمية المتبقية</value>
+  </data>
+  <data name="HelpPopup_Copied" xml:space="preserve">
+    <value>نسخ</value>
+  </data>
+  <data name="NotificationsPage_ConfirmDelete" xml:space="preserve">
+    <value>هل تريد حقًا حذف هذا الإشعار؟</value>
   </data>
 </root>

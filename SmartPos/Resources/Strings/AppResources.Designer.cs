@@ -196,6 +196,15 @@ namespace SmartPos.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copied.
+        /// </summary>
+        internal static string HelpPopup_Copied {
+            get {
+                return ResourceManager.GetString("HelpPopup_Copied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Copy to Clipboard.
         /// </summary>
         internal static string HelpPopup_CopyToClipboard {
@@ -885,6 +894,15 @@ namespace SmartPos.Resources.Strings {
         internal static string ManageMenuItemPage_Title {
             get {
                 return ResourceManager.GetString("ManageMenuItemPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you really want remove this notification ?.
+        /// </summary>
+        internal static string NotificationsPage_ConfirmDelete {
+            get {
+                return ResourceManager.GetString("NotificationsPage_ConfirmDelete", resourceCulture);
             }
         }
         

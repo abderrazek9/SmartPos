@@ -8,6 +8,7 @@
              xmlns:models="clr-namespace:SmartPos.Models"
              xmlns:controls="clr-namespace:SmartPos.Controls"
              x:DataType="vm:OrdersViewModel"
+             x:Name="this"
              Shell.NavBarIsVisible="False">
 
     <ContentPage.Resources>
@@ -92,7 +93,7 @@
                                     <Label
                                         Grid.Row="1"
                                         Grid.Column="4"
-                               Text="{Binding OrderDate}"
+                               Text="{Binding OrderDate, StringFormat='{}{0:dd/MM/yyyy HH:mm:ss}'}"
                                Style="{StaticResource td}"/>
 
                                     <Label  
@@ -104,13 +105,13 @@
                                     <Label
                                         Grid.Row="1"
                                         Grid.Column="1"
-                               Text="{Binding PaymentMode, Converter={StaticResource NameKeyToDisplayNameConverter}}"
+                               Text="{Binding PaymentModeText}"
                                Style="{StaticResource td}"/>
 
                                     <Label
                                         Grid.Row="1"
                                         Grid.Column="3"
-                               Text="{Binding TotalItemsCount, StringFormat=' {0} Item(s)' }"
+                               Text="{Binding ItemsCountText}"
                                Style="{StaticResource td}"
                                         TextColor="DarkBlue"
                                         TextDecorations="Underline"
@@ -127,7 +128,7 @@
                                             Grid.Row="1"
                                             Grid.Column="5"
                                             FontSize="8" 
-                                            Text="{x:Static resx:AppResources.OrdersPage_Button_Printing}"
+                                            Text="{Binding Source={x:Reference this}, Path=BindingContext.orPrintText}"
                                             BackgroundColor="DarkOliveGreen"
                                             MinimumHeightRequest="0"
                                             HeightRequest="18"
@@ -208,7 +209,7 @@
                <ContentView Grid.Row="1"
                             BackgroundColor="Wheat"
                             Padding="10" >
-                <CollectionView ItemsSource="{Binding OrderItems}"
+                <CollectionView ItemsSource="{Binding DisplayOrderItems}"
                                                >
 
                     <CollectionView.ItemsLayout>
@@ -216,7 +217,7 @@
                     </CollectionView.ItemsLayout>
                     
                     <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="data:OrdersItem">
+                        <DataTemplate x:DataType="models:CartModel">
                             
                             
                             
@@ -244,28 +245,28 @@
                                     </Border>
 
                                     <VerticalStackLayout Grid.Column="1" Spacing="5">
-                                        <Label Text="{Binding Name}" FontSize="12" FontAttributes="Bold"/>
+                                        <Label Text="{Binding DisplayNmKey}" FontSize="12" FontAttributes="Bold"/>
                                         <Grid ColumnDefinitions="Auto , *">
 
                                             <HorizontalStackLayout Spacing="5">
 
                                                 <Label  Text="{Binding Quantity}"
-                                                   FontSize="10"
+                                                   FontSize="8"
                                                    TextColor="Maroon"/>
 
                                                 <Label  Text="x"
-                                                   FontSize="11"
+                                                   FontSize="8"
                                                    TextColor="Maroon"/>
 
-                                                <Label  Text="{Binding Price,StringFormat='{}{0:N2}دج'}"
-                                                   FontSize="10"
+                                                <Label  Text="{Binding PriceText}"
+                                                   FontSize="8"
                                                    TextColor="Maroon"/>
 
                                             </HorizontalStackLayout>
 
-                                            <Label Grid.Column="1" Text="{Binding Amount,StringFormat='{}{0:N2}دج'}"
+                                            <Label Grid.Column="1" Text="{Binding AmountText}"
                                                    TextColor="Maroon"
-                                                   FontSize="13"
+                                                   FontSize="11"
                                                    FontAttributes="Bold"
                                                    HorizontalOptions="End"
                                                    Margin="0,-3,0,0"/>
