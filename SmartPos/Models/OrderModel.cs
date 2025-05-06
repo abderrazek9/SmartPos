@@ -4,6 +4,7 @@ using SmartPos.Data;
 using SmartPos.Resources.Strings;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace SmartPos.Models
         public string ItemsCountText => string.Format(AppResources.OrdersPage_ItemCountFormat, TotalItemsCount);
 
         public decimal TotalAmountPaid { get; set; }
+        public string TotalAmountPaidText => string.Format(CultureInfo.CurrentCulture, "{0:N2} {1}",TotalAmountPaid,AppResources.CurrencySymbol);
 
         public string PaymentMode { get; set; }  // Cash or Online
 
@@ -37,6 +39,7 @@ namespace SmartPos.Models
             {
                 OnPropertyChanged(nameof(ItemsCountText));
                 OnPropertyChanged(nameof(PaymentModeText));
+                OnPropertyChanged(nameof(TotalAmountPaidText));
             });
         }
     }

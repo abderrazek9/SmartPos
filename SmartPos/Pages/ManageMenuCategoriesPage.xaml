@@ -49,7 +49,7 @@
                     <DataTemplate x:DataType="models:MenuCategoryModel">
                         <SwipeView>
 
-                            <!-- هنا نضيف VisualStateManager -->
+                            <!-- هنا نضيف VisualStateManager --><!--
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup Name="CommonStates">
                                     <VisualState Name="Normal">
@@ -63,7 +63,7 @@
                                         </VisualState.Setters>
                                     </VisualState>
                                 </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>
+                            </VisualStateManager.VisualStateGroups>-->
 
                             <!-- زر الحذف عند السحب -->
                             <SwipeView.RightItems>

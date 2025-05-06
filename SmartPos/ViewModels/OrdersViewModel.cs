@@ -170,7 +170,15 @@ namespace SmartPos.ViewModels
                 var mi = allMenuItems.FirstOrDefault(x => x.Id == cart.ItemId);
                 if (mi == null || mi.StockQuantity == 0)
                 {
-                    await Shell.Current.DisplayAlert(AppResources.Prompt_StockEmpty_Title, string.Format(AppResources.Prompt_StockEmpty_Message, cart.DisplayNmKey),AppResources.Prompt_PlaceOrderError_Accept/*"نفاد المخزون", $"لا يمكنك طلب \"{cart.DisplayNmKey}\" لأن المنتج غير متوفر.", "موافق"*/);
+                    var title = AppResources.Prompt_StockEmpty_Title;
+                    var msg = string.Format(AppResources.Prompt_StockEmpty_Message, cart.DisplayNmKey);
+                    await Shell.Current.DisplayAlert(AppResources.Prompt_StockEmpty_Title, msg, AppResources.Prompt_PlaceOrderError_Accept/*"نفاد المخزون", $"لا يمكنك طلب \"{cart.DisplayNmKey}\" لأن المنتج غير متوفر.", "موافق"*/);
+                    _notificationsService.Add(new NotificationModel
+                    {
+                        Message = $"{title}\n{msg}",
+                        Timestamp = DateTime.Now,
+                        Type = "OutOfStock"
+                    });
                     return false;
                 }
                 if (cart.Quantity > mi.StockQuantity)

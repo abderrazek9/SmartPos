@@ -1,59 +1,59 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:SmartPos.ViewModels"
-                                                        xmlns:resx="clr-namespace:SmartPos.Resources.Strings;assembly=SmartPos"
-             xmlns:models="clr-namespace:SmartPos.Models"
-             x:Class="SmartPos.Pages.NotificationsPage"
-             Title="{Binding titleText}"
-             x:Name="ThisPage"
-             x:DataType="vm:NotificationsViewModel">
-
-
-
-    <ContentPage.Content>
-
-        <StackLayout Padding="10">
-
-            <Label 
-  Text="{Binding deleteTextConfirm}"
-  FontSize="10"
-  TextColor="Gray"
-  HorizontalOptions="Center"
-  Margin="5,4,0,10"/>
-
-            <CollectionView ItemsSource="{Binding Notifications}" x:DataType="vm:NotificationsViewModel">
-        <CollectionView.ItemTemplate>
-            <DataTemplate x:DataType="models:NotificationModel">
-                        <SwipeView>
-                            <SwipeView.RightItems>
-                                <SwipeItems>
-                                    <SwipeItem Text="{Binding Source={x:Reference ThisPage}, Path=BindingConext.deleteText}"
-                                               IconImageSource="delete.png"
-                                               BackgroundColor="LightSalmon"
-                                               Command="{Binding Source={x:Reference ThisPage}, Path=BindingContext.DeleteCommand}"
-                                               CommandParameter="{Binding .}"/>
-                                </SwipeItems>
-                            </SwipeView.RightItems>
-                <Grid Padding="10" Margin="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <Label
-            Text="{Binding Timestamp, StringFormat='{}{0:HH:mm dd/MM/yyyy}'}"
-            FontSize="Small"
-            Grid.Row="0"
-            HorizontalOptions="End" />
-                    <Label
-            Text="{Binding Message}"
-            FontSize="Medium"
-            Grid.Row="1" />
-                </Grid>
-                        </SwipeView>
-                    </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
-        </StackLayout>
-    </ContentPage.Content>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+            xmlns:vm="clr-namespace:SmartPos.ViewModels"  
+            xmlns:resx="clr-namespace:SmartPos.Resources.Strings;assembly=SmartPos"  
+            xmlns:models="clr-namespace:SmartPos.Models"  
+            x:Class="SmartPos.Pages.NotificationsPage"  
+            Title="{Binding titleText}"  
+            x:Name="ThisPage"  
+            x:DataType="vm:NotificationsViewModel">  
+ 
+   <ContentPage.Content>  
+       <Grid Padding="10"  
+             RowDefinitions="Auto,*">  
+           <Label  
+               Text="{Binding deleteTextConfirm}"  
+               FontSize="10"  
+               TextColor="Gray"  
+               HorizontalOptions="Center"  
+               Margin="5,4,0,10"  
+               Grid.Row="0" />  
+ 
+           <CollectionView ItemsSource="{Binding Notifications}"  
+                           x:DataType="vm:NotificationsViewModel"  
+                           Grid.Row="1">  
+               <CollectionView.ItemTemplate>  
+                   <DataTemplate x:DataType="models:NotificationModel">  
+                       <SwipeView>  
+                           <SwipeView.RightItems>  
+                               <SwipeItems>  
+                                   <SwipeItem Text="{Binding Source={x:Reference ThisPage}, Path=BindingContext.deleteText}"  
+                                              IconImageSource="delete.png"  
+                                              BackgroundColor="LightSalmon"  
+                                              Command="{Binding Source={x:Reference ThisPage}, Path=BindingContext.DeleteCommand}"  
+                                              CommandParameter="{Binding .}" />  
+                               </SwipeItems>  
+                           </SwipeView.RightItems>  
+                           <Grid Padding="10" Margin="10">  
+                               <Grid.RowDefinitions>  
+                                   <RowDefinition Height="Auto" />  
+                                   <RowDefinition Height="Auto" />  
+                               </Grid.RowDefinitions>  
+                               <Label  
+                                   Text="{Binding Timestamp, StringFormat='{}{0:HH:mm dd/MM/yyyy}'}"  
+                                   FontSize="Small"  
+                                   Grid.Row="0"  
+                                   HorizontalOptions="End" />  
+                               <Label  
+                                   Text="{Binding Message}"  
+                                   FontSize="Medium"  
+                                   Grid.Row="1" />  
+                           </Grid>  
+                       </SwipeView>  
+                   </DataTemplate>  
+               </CollectionView.ItemTemplate>  
+           </CollectionView>  
+       </Grid>  
+   </ContentPage.Content>  
 </ContentPage>

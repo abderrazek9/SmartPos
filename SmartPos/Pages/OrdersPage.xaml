@@ -99,7 +99,7 @@
                                     <Label  
                                          Grid.Row="1"
                                          Grid.Column="2"
-                               Text="{Binding TotalAmountPaid, StringFormat='{}{0:N2}  DA'}"
+                               Text="{Binding TotalAmountPaidText}"
                                Style="{StaticResource td}"/>
 
                                     <Label
