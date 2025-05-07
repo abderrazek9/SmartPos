@@ -10,6 +10,8 @@ using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using CommunityToolkit.Maui.Views;
+using SmartPos.Pages.Popups;
 using System.Threading.Tasks;
 
 namespace SmartPos.ViewModels
@@ -58,74 +60,116 @@ namespace SmartPos.ViewModels
         [RelayCommand]
         private async Task PrintOrderAsync(OrderModel? order)
         {
-            if (order == null || order.Id == 0)
-            {
-                await Toast.Make("لم يتم اختيار طلب للطباعة.").Show();
+            if (order is null)
                 return;
-            }
 
-            try
+            // 1) جلب عناصر الطلب
+            var items = await _dataBaseService.GetOrdersItemsAsync(order.Id);
+
+            // 2) تحويل العناصر إلى CartModel للاستفادة من DisplayNmKey و PriceText
+            var printableItems = items.Select(oi => new CartModel
             {
-                IsLoading = true;
+                ItemId = oi.ItemId,
+                NmKey = oi.Name,
+                Icon = oi.Icon,
+                Price = oi.Price,
+                Quantity = oi.Quantity
+            }).ToArray();
 
-                // جلب عناصر الطلب من قاعدة البيانات
-                var items = await _dataBaseService.GetOrdersItemsAsync(order.Id);
-                OrderItems = items;
-                OnPropertyChanged(nameof(OrderItems));
+            // 3) توليد نص الإيصال
+            var printText = BuildOrderText(order, printableItems);
 
-                // بناء نص الإيصال
-                var printText = BuildOrderText(order, items);
-
-                // محاولة الاتصال
+            // 4) إنشاء Popup للمعاينة
+            var preview = new PrintPreviewPopup(printText, async () =>
+            {
                 var isConnected = await _printerService.ConnectAsync();
                 if (!isConnected)
                 {
-                    await Shell.Current.DisplayAlert("خطأ", "فشل الاتصال بالطابعة عبر البلوتوث.", "موافق");
+                    await Shell.Current.DisplayAlert("خطأ", "فشل الاتصال بالطابعة.", "حسناً");
                     return;
                 }
 
-                // الطباعة
-                var printed = await _printerService.PrintAsync(printText);
-                if (!printed)
-                {
-                    await Shell.Current.DisplayAlert("خطأ", "حدث خلل أثناء عملية الطباعة.", "موافق");
-                }
-                else
-                {
-                    await Toast.Make("تمت الطباعة بنجاح!").Show();
-                }
-
-                // قطع الاتصال
+                var success = await _printerService.PrintAsync(printText);
                 await _printerService.DisconnectAsync();
-            }
-            catch (Exception ex)
-            {
-                await Shell.Current.DisplayAlert("خطأ", ex.Message, "موافق");
-            }
-            finally
-            {
-                IsLoading = false;
-            }
+
+                if (success)
+                    await Shell.Current.DisplayAlert("نجاح", "تمت الطباعة بنجاح.", "حسناً");
+                else
+                    await Shell.Current.DisplayAlert("خطأ", "حدث خطأ أثناء الطباعة.", "حسناً");
+            });
+
+            // 5) عرض نافذة المعاينة
+            await Application.Current.MainPage.ShowPopupAsync(preview);
         }
+        //{
+        //    if (order == null || order.Id == 0)
+        //    {
+        //        await Toast.Make("لم يتم اختيار طلب للطباعة.").Show();
+        //        return;
+        //    }
+
+        //    try
+        //    {
+        //        IsLoading = true;
+
+        //        // جلب عناصر الطلب من قاعدة البيانات
+        //        var items = await _dataBaseService.GetOrdersItemsAsync(order.Id);
+        //        OrderItems = items;
+        //        OnPropertyChanged(nameof(OrderItems));
+
+        //        // بناء نص الإيصال
+        //        var printText = BuildOrderText(order, items);
+
+        //        // محاولة الاتصال
+        //        var isConnected = await _printerService.ConnectAsync();
+        //        if (!isConnected)
+        //        {
+        //            await Shell.Current.DisplayAlert("خطأ", "فشل الاتصال بالطابعة عبر البلوتوث.", "موافق");
+        //            return;
+        //        }
+
+        //        // الطباعة
+        //        var printed = await _printerService.PrintAsync(printText);
+        //        if (!printed)
+        //        {
+        //            await Shell.Current.DisplayAlert("خطأ", "حدث خلل أثناء عملية الطباعة.", "موافق");
+        //        }
+        //        else
+        //        {
+        //            await Toast.Make("تمت الطباعة بنجاح!").Show();
+        //        }
+
+        //        // قطع الاتصال
+        //        await _printerService.DisconnectAsync();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        await Shell.Current.DisplayAlert("خطأ", ex.Message, "موافق");
+        //    }
+        //    finally
+        //    {
+        //        IsLoading = false;
+        //    }
+        //}
 
         // دالة مساعدة لبناء النص
-        private string BuildOrderText(OrderModel order, OrdersItem[] items)
+        private string BuildOrderText(OrderModel order, CartModel[] items)
         {
             var sb = new StringBuilder();
-            sb.AppendLine("       === إيصال الطلب ===");
-            sb.AppendLine($"رقم الطلب: {order.Id}");
-            sb.AppendLine($"التاريخ: {order.OrderDate:G}");
-            sb.AppendLine($"طريقة الدفع: {order.PaymentMode}");
+            sb.AppendLine($"       === {AppResources.Receipt_Title} ===");
+            sb.AppendLine($"{AppResources.Receipt_OrderNumber}: {order.Id}");
+            sb.AppendLine($"{AppResources.Receipt_Date}: {order.OrderDate:G}");
+            sb.AppendLine($"{AppResources.OrdersPage_Header_PayMode}: {order.PaymentModeText}");
             sb.AppendLine("---------------------------");
 
             foreach (var item in items)
             {
-                sb.AppendLine($"{item.Name} X {item.Quantity} - {item.Price} د.ج");
+                sb.AppendLine($"{item.DisplayNmKey} X {item.Quantity} - {item.PriceText} ");
             }
 
             sb.AppendLine("---------------------------");
-            sb.AppendLine($"المجموع: {order.TotalAmountPaid} د.ج");
-            sb.AppendLine("   شكرًا لتسوقكم معنا!");
+            sb.AppendLine($"{AppResources.Receipt_Total}: {order.TotalAmountPaidText} ");
+            sb.AppendLine($"   {AppResources.Receipt_Thanks}");
             sb.AppendLine("       - Smart POS -");
             return sb.ToString();
         }

@@ -1375,6 +1375,51 @@ namespace SmartPos.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        internal static string Receipt_Date {
+            get {
+                return ResourceManager.GetString("Receipt_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order Number.
+        /// </summary>
+        internal static string Receipt_OrderNumber {
+            get {
+                return ResourceManager.GetString("Receipt_OrderNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thank you for shopping.
+        /// </summary>
+        internal static string Receipt_Thanks {
+            get {
+                return ResourceManager.GetString("Receipt_Thanks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order Receipt.
+        /// </summary>
+        internal static string Receipt_Title {
+            get {
+                return ResourceManager.GetString("Receipt_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total.
+        /// </summary>
+        internal static string Receipt_Total {
+            get {
+                return ResourceManager.GetString("Receipt_Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save Menu Category.
         /// </summary>
         internal static string SaveMenuCategoriesPage_Section_Title {
