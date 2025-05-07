@@ -1,5 +1,6 @@
 using CommunityToolkit.Mvvm.Input;
 using SmartPos.Models;
+using SmartPos.Resources.Strings;
 using System.Threading.Tasks;
 
 namespace SmartPos.Controls;
@@ -144,7 +145,7 @@ public partial class SaveMenuItemFormControl : ContentView
 
         if(string.IsNullOrWhiteSpace(Item.NameK) || string.IsNullOrWhiteSpace(Item.DescriptionKey))
         {
-            await ErrorAlertAsync("Item Name and Description are mendatory");
+            await ErrorAlertAsync($"{AppResources.AlertSaveMenuItms}");
             return;
         }
 
@@ -154,14 +155,14 @@ public partial class SaveMenuItemFormControl : ContentView
             )
         {
 
-            await ErrorAlertAsync("Please Select At-least 1 Category");
+            await ErrorAlertAsync($"{AppResources.SElectAtLeastCategory}");
             return;
         }
 
 
         if(Item.Icon == DefaultIcon)
         {
-            await ErrorAlertAsync("Icon Image is mendatory");
+            await ErrorAlertAsync($"{AppResources.AlertSaveMenuIcon}");
             return;
         }
 
@@ -169,7 +170,7 @@ public partial class SaveMenuItemFormControl : ContentView
         OnSaveItem?.Invoke(Item);
 
         static async Task ErrorAlertAsync(string message) =>
-            await Shell.Current.DisplayAlert("Validation Error", message, "OK");
+            await Shell.Current.DisplayAlert($"{AppResources.ValidationMesag}", message, $"{AppResources.Prompt_Ok}");
 
     }
 }

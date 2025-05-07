@@ -81,7 +81,7 @@ namespace SmartPos.ViewModels
             {
                 do
                 {
-                    name = await Shell.Current.DisplayPromptAsync("Your name", "Enter your name");
+                    name = await Shell.Current.DisplayPromptAsync($"{AppResources.Prompt_YourName_Title}", $"{AppResources.Prompt_YourName_Message}");
                 }
                 while (string.IsNullOrWhiteSpace(name));
 
@@ -105,7 +105,7 @@ namespace SmartPos.ViewModels
             do
             {
                 name = await Shell.Current
-                    .DisplayPromptAsync("Your name", "Enter your name");
+                    .DisplayPromptAsync($"{AppResources.Prompt_YourName_Title}", $"{AppResources.Prompt_YourName_Message}");
             }
             while (string.IsNullOrWhiteSpace(name));
 

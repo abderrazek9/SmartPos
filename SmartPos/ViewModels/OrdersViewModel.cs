@@ -85,7 +85,7 @@ namespace SmartPos.ViewModels
                 var isConnected = await _printerService.ConnectAsync();
                 if (!isConnected)
                 {
-                    await Shell.Current.DisplayAlert("خطأ", "فشل الاتصال بالطابعة.", "حسناً");
+                    await Shell.Current.DisplayAlert($"{AppResources.Prompt_PrintError_Connection_Title}", $"{AppResources.Prompt_PrintError_Connection_Message}", $"{AppResources.Prompt_Ok}");
                     return;
                 }
 
@@ -93,9 +93,9 @@ namespace SmartPos.ViewModels
                 await _printerService.DisconnectAsync();
 
                 if (success)
-                    await Shell.Current.DisplayAlert("نجاح", "تمت الطباعة بنجاح.", "حسناً");
+                    await Shell.Current.DisplayAlert($"{AppResources.Toast_PrintTex}", $"{AppResources.Toast_PrintSuccess}", $"{AppResources.Prompt_Ok}");
                 else
-                    await Shell.Current.DisplayAlert("خطأ", "حدث خطأ أثناء الطباعة.", "حسناً");
+                    await Shell.Current.DisplayAlert($"{AppResources.Prompt_PrintError_Connection_Title}", $"{AppResources.Prompt_PrintError_PrintFailed_Message}", $"{AppResources.Prompt_Ok}");
             });
 
             // 5) عرض نافذة المعاينة
@@ -156,21 +156,29 @@ namespace SmartPos.ViewModels
         private string BuildOrderText(OrderModel order, CartModel[] items)
         {
             var sb = new StringBuilder();
-            sb.AppendLine($"       === {AppResources.Receipt_Title} ===");
-            sb.AppendLine($"{AppResources.Receipt_OrderNumber}: {order.Id}");
-            sb.AppendLine($"{AppResources.Receipt_Date}: {order.OrderDate:G}");
-            sb.AppendLine($"{AppResources.OrdersPage_Header_PayMode}: {order.PaymentModeText}");
-            sb.AppendLine("---------------------------");
+            sb.AppendLine($"              === {AppResources.Receipt_Title} ===");
+            sb.AppendLine("");
+            sb.AppendLine("");
+            sb.AppendLine($"{AppResources.Receipt_Date}:             {order.OrderDate:  yyyy-MM-dd   HH:mm:ss}");
+            sb.AppendLine("");
+            sb.AppendLine($"{AppResources.Receipt_OrderNumber}:              {order.Id}");
+            sb.AppendLine("");
+            sb.AppendLine($"{AppResources.OrdersPage_Header_PayMode}:              {order.PaymentModeText}");
+            sb.AppendLine("------------------------------------------------------------------");
 
             foreach (var item in items)
             {
-                sb.AppendLine($"{item.DisplayNmKey} X {item.Quantity} - {item.PriceText} ");
+                sb.AppendLine($"{item.DisplayNmKey}      X {item.Quantity}         =  {item.PriceText} ");
             }
 
-            sb.AppendLine("---------------------------");
-            sb.AppendLine($"{AppResources.Receipt_Total}: {order.TotalAmountPaidText} ");
-            sb.AppendLine($"   {AppResources.Receipt_Thanks}");
-            sb.AppendLine("       - Smart POS -");
+            sb.AppendLine("------------------------------------------------------------------");
+            sb.AppendLine("");
+            sb.AppendLine($"{AppResources.Receipt_Total}:                                     {order.TotalAmountPaidText} ");
+            sb.AppendLine("");
+            sb.AppendLine("");
+            sb.AppendLine($"      {AppResources.Receipt_Thanks}");
+            sb.AppendLine("");
+            sb.AppendLine("                           - Smart POS -");
             return sb.ToString();
         }
 

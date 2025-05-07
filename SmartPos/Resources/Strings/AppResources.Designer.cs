@@ -61,6 +61,42 @@ namespace SmartPos.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Category Name are mendatory.
+        /// </summary>
+        internal static string AlertSaveCategory {
+            get {
+                return ResourceManager.GetString("AlertSaveCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Icon Image is mendatory.
+        /// </summary>
+        internal static string AlertSaveCategoryIcon {
+            get {
+                return ResourceManager.GetString("AlertSaveCategoryIcon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Icon Image is mendatory.
+        /// </summary>
+        internal static string AlertSaveMenuIcon {
+            get {
+                return ResourceManager.GetString("AlertSaveMenuIcon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item Name and Description are mendatory.
+        /// </summary>
+        internal static string AlertSaveMenuItms {
+            get {
+                return ResourceManager.GetString("AlertSaveMenuItms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         internal static string Button_Cancel {
@@ -142,6 +178,15 @@ namespace SmartPos.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New Category Saved Successfully.
+        /// </summary>
+        internal static string Category_Saved_Message {
+            get {
+                return ResourceManager.GetString("Category_Saved_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Snacks.
         /// </summary>
         internal static string Category_Snacks {
@@ -156,6 +201,24 @@ namespace SmartPos.Resources.Strings {
         internal static string ClearCartButton {
             get {
                 return ResourceManager.GetString("ClearCartButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you really want remove this Category.
+        /// </summary>
+        internal static string Confirm_Message_Delete {
+            get {
+                return ResourceManager.GetString("Confirm_Message_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm.
+        /// </summary>
+        internal static string Confirm_Title {
+            get {
+                return ResourceManager.GetString("Confirm_Title", resourceCulture);
             }
         }
         
@@ -898,6 +961,15 @@ namespace SmartPos.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Menu Item Saved Successfully.
+        /// </summary>
+        internal static string Menu_ItemSaveMessage {
+            get {
+                return ResourceManager.GetString("Menu_ItemSaveMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do you really want remove this notification ?.
         /// </summary>
         internal static string NotificationsPage_ConfirmDelete {
@@ -1438,6 +1510,15 @@ namespace SmartPos.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please Select At-least 1 Category.
+        /// </summary>
+        internal static string SElectAtLeastCategory {
+            get {
+                return ResourceManager.GetString("SElectAtLeastCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change User Name.
         /// </summary>
         internal static string SettingsPage_Button_ChangeUserName {
@@ -1519,6 +1600,15 @@ namespace SmartPos.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Success.
+        /// </summary>
+        internal static string Toast_PrintTex {
+            get {
+                return ResourceManager.GetString("Toast_PrintTex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clear the Cart.
         /// </summary>
         internal static string ToolTip_ClearCart {
@@ -1542,6 +1632,15 @@ namespace SmartPos.Resources.Strings {
         internal static string Total {
             get {
                 return ResourceManager.GetString("Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Validation Error.
+        /// </summary>
+        internal static string ValidationMesag {
+            get {
+                return ResourceManager.GetString("ValidationMesag", resourceCulture);
             }
         }
     }

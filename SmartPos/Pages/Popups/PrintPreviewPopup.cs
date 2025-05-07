@@ -35,6 +35,7 @@ namespace SmartPos.Pages.Popups
                 Content = new Label
                 {
                     Text = receiptText,
+                    FontFamily = "Courier New",
                     LineBreakMode = LineBreakMode.WordWrap
                 }
             };

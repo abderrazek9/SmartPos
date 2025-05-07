@@ -400,7 +400,7 @@
     <value>Notifications</value>
   </data>
   <data name="OrdersPage_Button_Printing" xml:space="preserve">
-    <value>Printing</value>
+    <value>Print</value>
   </data>
   <data name="OrdersPage_Empty_NoOrderSelected" xml:space="preserve">
     <value>No Order Selected</value>
@@ -611,5 +611,38 @@
   </data>
   <data name="Receipt_Thanks" xml:space="preserve">
     <value>Thank you for shopping</value>
+  </data>
+  <data name="Toast_PrintTex" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="Confirm_Title" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Confirm_Message_Delete" xml:space="preserve">
+    <value>Do you really want remove this Category</value>
+  </data>
+  <data name="Category_Saved_Message" xml:space="preserve">
+    <value>New Category Saved Successfully</value>
+  </data>
+  <data name="AlertSaveCategory" xml:space="preserve">
+    <value>Category Name are mendatory</value>
+  </data>
+  <data name="AlertSaveCategoryIcon" xml:space="preserve">
+    <value>Icon Image is mendatory</value>
+  </data>
+  <data name="ValidationMesag" xml:space="preserve">
+    <value>Validation Error</value>
+  </data>
+  <data name="AlertSaveMenuItms" xml:space="preserve">
+    <value>Item Name and Description are mendatory</value>
+  </data>
+  <data name="AlertSaveMenuIcon" xml:space="preserve">
+    <value>Icon Image is mendatory</value>
+  </data>
+  <data name="SElectAtLeastCategory" xml:space="preserve">
+    <value>Please Select At-least 1 Category</value>
+  </data>
+  <data name="Menu_ItemSaveMessage" xml:space="preserve">
+    <value>Menu Item Saved Successfully</value>
   </data>
 </root>

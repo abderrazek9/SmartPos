@@ -1,6 +1,7 @@
 using CommunityToolkit.Mvvm.Input;
 using SmartPos.Data;
 using SmartPos.Models;
+using SmartPos.Resources.Strings;
 namespace SmartPos.Controls;
 
 public partial class SaveMenuCategoriesFormControl : ContentView
@@ -127,7 +128,7 @@ public partial class SaveMenuCategoriesFormControl : ContentView
 
         if (string.IsNullOrWhiteSpace(Cat.NameKey))
         {
-            await ErrorAlertAsync("Category Name are mendatory");
+            await ErrorAlertAsync($"{AppResources.AlertSaveCategory}");
             return;
         }
 
@@ -137,7 +138,7 @@ public partial class SaveMenuCategoriesFormControl : ContentView
 
         if (Cat.Icon == DefaultIcon)
         {
-            await ErrorAlertAsync("Icon Image is mendatory");
+            await ErrorAlertAsync($"{AppResources.AlertSaveCategoryIcon}");
             return;
         }
 
@@ -145,7 +146,7 @@ public partial class SaveMenuCategoriesFormControl : ContentView
         OnSaveItem?.Invoke(Cat);
 
         static async Task ErrorAlertAsync(string message) =>
-            await Shell.Current.DisplayAlert("Validation Error", message, "OK");
+            await Shell.Current.DisplayAlert($"{AppResources.ValidationMesag}", message, $"{AppResources.Prompt_Ok}");
 
     }
 

@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using SmartPos.Data;
 using SmartPos.Models;
+using SmartPos.Resources.Strings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,11 +62,11 @@ namespace SmartPos.ViewModels
         {
             var error = await _db.SaveMenuCategoryAsync(SelectedCategory);
             if (error != null)
-                await Shell.Current.DisplayAlert("خطأ", error, "حسناً");
+                await Shell.Current.DisplayAlert($"{AppResources.Prompt_PrintError_Connection_Title}", error, $"{AppResources.Prompt_Ok}");
             else
             {
                 await InitializeAsync();
-                await Toast.Make("New Category Saved Successfully").Show();
+                await Toast.Make($"{AppResources.Category_Saved_Message}").Show();
                 SelectedCategory = new MenuCategoryModel();
                 WeakReferenceMessenger.Default.Send(new CategoryChangedMessage(SelectedCategory));
             }
@@ -74,7 +75,7 @@ namespace SmartPos.ViewModels
         [RelayCommand]
         private async Task DeleteCategoryAsync(MenuCategoryModel model)
         {
-            if (!await Shell.Current.DisplayAlert("تأكيد", "هل تريد حذف هذه الفئة؟", "نعم", "لا"))
+            if (!await Shell.Current.DisplayAlert($"{AppResources.Confirm_Title}", $"{AppResources.Confirm_Message_Delete}", $"{AppResources.Prompt_ClearCart_Accept}", $"{AppResources.Prompt_ClearCart_Cancel}"))
                 return;
             await _db.DeleteMenuCategoryAsync(model.Id);
             await InitializeAsync();

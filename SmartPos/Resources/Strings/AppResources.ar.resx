@@ -612,4 +612,37 @@
   <data name="Receipt_Thanks" xml:space="preserve">
     <value>شكرًا لتسوقكم معنا!</value>
   </data>
+  <data name="Toast_PrintTex" xml:space="preserve">
+    <value>نجاح</value>
+  </data>
+  <data name="Confirm_Title" xml:space="preserve">
+    <value>تأكيد</value>
+  </data>
+  <data name="Confirm_Message_Delete" xml:space="preserve">
+    <value>هل تريد حذف هذه الفئة؟</value>
+  </data>
+  <data name="Category_Saved_Message" xml:space="preserve">
+    <value>تم حفظ الفئة الجديدة بنجاح </value>
+  </data>
+  <data name="AlertSaveCategory" xml:space="preserve">
+    <value>اسم الفئة مطلوب </value>
+  </data>
+  <data name="AlertSaveCategoryIcon" xml:space="preserve">
+    <value>ايقونة الفئة مطلوبة</value>
+  </data>
+  <data name="ValidationMesag" xml:space="preserve">
+    <value>خطأ في التحقق </value>
+  </data>
+  <data name="AlertSaveMenuItms" xml:space="preserve">
+    <value>الاسم و الوصف مطلوبين </value>
+  </data>
+  <data name="AlertSaveMenuIcon" xml:space="preserve">
+    <value>ايقونة الصنف مطلوبة</value>
+  </data>
+  <data name="SElectAtLeastCategory" xml:space="preserve">
+    <value>يرجى إختيار فئة واحدة على الاقل </value>
+  </data>
+  <data name="Menu_ItemSaveMessage" xml:space="preserve">
+    <value>تم حفظ الصنف الجديد بنجاح </value>
+  </data>
 </root>

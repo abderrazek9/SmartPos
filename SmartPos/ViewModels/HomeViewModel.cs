@@ -288,7 +288,7 @@ namespace SmartPos.ViewModels
         [RelayCommand]
         private async Task ClearCartAsync()
         {
-             if ( await Shell.Current.DisplayAlert("Clear Cart?","Do you really want to clear the cart", "Yes" , "No"))
+             if ( await Shell.Current.DisplayAlert($"{AppResources.Prompt_ClearCart_Title}",$"{AppResources.Prompt_ClearCart_Message}", $"{AppResources.Prompt_ClearCart_Accept}" , $"{AppResources.Prompt_ClearCart_Cancel}"))
             {
                 CartItems.Clear();
 
@@ -303,18 +303,18 @@ namespace SmartPos.ViewModels
         [RelayCommand]
         private async Task PromoPercentageClickaAsync()
         {
-            var result = await Shell.Current.DisplayPromptAsync("Prom Percentage ", "Enter The Applicable Discount Percentage", placeholder: "10", initialValue: Promopercentage.ToString());
+            var result = await Shell.Current.DisplayPromptAsync($"{AppResources.Prompt_PromoTitle} ", $"{AppResources.Prompt_PromoMessage}", placeholder: "10", initialValue: Promopercentage.ToString());
             if (!string.IsNullOrWhiteSpace(result))
             {
                 if(!int.TryParse(result , out int enteredpromopercentage))
                 {
-                    await Shell.Current.DisplayAlert("Invaled Value", "Entered Discount Percentage Is Invalid", "OK");
+                    await Shell.Current.DisplayAlert($"{AppResources.Prompt_InvalidPercentage_NotNumber_Title}", $"{AppResources.Prompt_InvalidPercentage_NotNumber_Message}", $"{AppResources.Prompt_Ok}");
                     return;
                 }
 
                 if(enteredpromopercentage > 100)
                 {
-                    await Shell.Current.DisplayAlert("Invalid Value", "Discount Percentage Cannot be more then 100", "ok");
+                    await Shell.Current.DisplayAlert($"{AppResources.Prompt_InvalidPercentage_TooHigh_Title}", $"{AppResources.Prompt_InvalidPercentage_TooHigh_Message}", $"{AppResources.Prompt_Ok}");
                     return;
                 }
 

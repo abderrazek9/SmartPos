@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using SmartPos.Data;
 using SmartPos.Models;
+using SmartPos.Resources.Strings;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -193,11 +194,11 @@ namespace SmartPos.ViewModels
 
             if (errorMessage != null)
             {
-                await Shell.Current.DisplayAlert("Error", errorMessage, "ok");
+                await Shell.Current.DisplayAlert($"{AppResources.Prompt_PlaceOrderError_Title}", errorMessage, $"{AppResources.Prompt_Ok}");
             }
             else
             {
-                await Toast.Make("Menu Item Saved Successfully").Show();
+                await Toast.Make($"{AppResources.Menu_ItemSaveMessage}").Show();
                 HandleMenuItemChanged(model);
 
                 // Send the updated menu item details to the other parts of app
